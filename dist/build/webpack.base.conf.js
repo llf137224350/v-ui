@@ -22,7 +22,7 @@ function resolve(dir) {
 
 module.exports = {
     entry: entries,
-    externals: {
+    externals: { // map组件需要
         'AMap': 'AMap'
     },
     output: {

@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../../src/common/js/config.js"],"names":["module","exports","host"],"mappings":";;AAAAA,OAAOC,OAAP,GAAiB;AACfC,QAAK;AADU,CAAjB","file":"config.js","sourcesContent":["module.exports = {\n  host:\"http://101.201.122.173/\"\n}\n"]}
