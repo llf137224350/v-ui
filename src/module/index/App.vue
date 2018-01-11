@@ -5,9 +5,9 @@
                 <h1>appbar</h1>
                 <divider></divider>
                 <br/>
-                <appbar :vtitle="'自定义控件'" @appbarLeftClick="handleLeft" :haveMenu="false"></appbar>
+                <appbar :vtitle="'标题'" @appbarLeftClick="handleLeft" :haveMenu="false"></appbar>
                 <br/>
-                <appbar :vtitle="'自定义控件'" @appbarLeftClick="handleLeft" @appbarRightClick="handleRight"></appbar>
+                <appbar :vtitle="'标题'" @appbarLeftClick="handleLeft" @appbarRightClick="handleRight"></appbar>
                 <divider :dividerType="'slide'"></divider>
             </div>
 
@@ -15,13 +15,13 @@
                 <h1>appbarfortext</h1>
                 <divider></divider>
                 <br/>
-                <appbarfortext :vtitle="'自定义控件'" @appbarLeftClick="handleLeft"
+                <appbarfortext :vtitle="'标题'" @appbarLeftClick="handleLeft"
                                :haveMenu="false"
                                :rightText="'提交'"
                                :color="color"
                 ></appbarfortext>
                 <br/>
-                <appbarfortext :vtitle="'自定义控件'" @appbarLeftClick="handleLeft" @appbarRightClick="handleRight"
+                <appbarfortext :vtitle="'标题'" @appbarLeftClick="handleLeft" @appbarRightClick="handleRight"
                                :rightText="'提交'"
                                :color="color"
                 ></appbarfortext>
@@ -40,7 +40,7 @@
                 <divider :dividerType="'slide'"></divider>
             </div>
             <div style="height: 30px;background: rgba(0,0,0,.2);"></div>
-            <div>
+            <div style="margin-top: 20px">
                 <h1>吐司</h1>
                 <button @click="showToast">点击我弹出输出内容吐司样式1</button>
                 <toast ref="toast"></toast>
@@ -52,7 +52,7 @@
                 <divider :dividerType="'slide'"></divider>
             </div>
 
-            <div>
+            <div style="margin-top: 20px">
                 <h1>消息提示</h1>
                 位置：
                 <input type="checkbox" v-model="check"/>{{check?"顶部":"底部"}}<br/>
@@ -63,72 +63,72 @@
                 <snackbar ref="snackbar" :direction="direction" :position="check===true?1:0"></snackbar>
                 <divider :dividerType="'slide'"></divider>
             </div>
-            <div>
+            <div style="margin-top: 20px">
                 <h1>模态提示窗口</h1>
                 <button @click="showAlert">Alert</button>
                 <alertdialog ref="alert" :okText="okText"></alertdialog>
                 <divider :dividerType="'slide'"></divider>
             </div>
 
-            <div>
+            <div style="margin-top: 20px">
                 <h1>模态询问窗口</h1>
                 <button @click="showConfirm">Confirm</button>
                 <confirmdialog ref="confirm" :okText="okText" :cancelText="cancelText"></confirmdialog>
                 <divider :dividerType="'slide'"></divider>
             </div>
-            <div>
+            <div style="margin-top: 20px">
                 <h1>进度提示</h1>
                 <button @click="showPregressBar">PregressBar</button>
                 <progressbar ref="pregressbar"></progressbar>
                 <divider :dividerType="'slide'"></divider>
             </div>
 
-            <div>
+            <div style="margin-top: 20px">
                 <h1>模态输入窗口</h1>
                 <button @click="showPrompt">Prompt</button>
                 <promptdialog ref="prompt"></promptdialog>
                 <divider :dividerType="'slide'"></divider>
             </div>
-            <div>
+            <div style="margin-top: 20px">
                 <h1>抽屉菜单</h1>
                 <button @click="showPopupWindow">PopupWindow样式一</button>
                 <button @click="showPopupWindow2">PopupWindow样式二</button>
                 <popupwindow ref="popupwindow"></popupwindow>
                 <divider :dividerType="'slide'"></divider>
             </div>
-            <div>
+            <div style="margin-top: 20px">
                 <h1>时间选择器</h1>
                 <button @click="showTimePicker">TimePicker</button>
                 <timepicker ref="timepicker" @timerpickerOkCallBack="timerpickerOkCallBack"></timepicker>
                 <divider :dividerType="'slide'"></divider>
             </div>
-            <div>
+            <div style="margin-top: 20px">
                 <h1>日期选择器</h1>
                 <button @click="showDatePicker">DatePicker</button>
                 <datepicker ref="datepicker" @datepickerOkCallBack="datepickerOkCallBack"></datepicker>
                 <divider :dividerType="'slide'"></divider>
             </div>
-            <div>
+            <div style="margin-top: 20px">
                 <h1>带时间的日期选择器</h1>
                 <button @click="showDateTimePicker">DateTimePicker</button>
                 <datetimepicker ref="datetimepicker"
                                 @datetimepickerOkCallBack="datetimepickerOkCallBack"></datetimepicker>
                 <divider :dividerType="'slide'"></divider>
             </div>
-            <div>
+            <div style="margin-top: 20px">
                 <h1>地区选择器</h1>
                 <button @click="showAreaPicker">AreaPicker</button>
                 <areapicker ref="areapicker" @areapickerOkCallBack="areapickerOkCallBack"></areapicker>
                 <divider :dividerType="'slide'"></divider>
             </div>
-            <div>
+            <div style="margin-top: 20px">
                 <h1>popuppicker</h1>
                 <button @click="showpopuppicker">popuppicker</button>
                 <popuppicker ref="popuppicker" @popuppickerOkCallBack="popuppickerOkCallBack"
                              :items="['小米','三星','华为','魅族','OPPO','VIVO','金立','锤子']"></popuppicker>
                 <divider :dividerType="'slide'"></divider>
             </div>
-            <div>
+            <div style="margin-top: 20px">
                 <h1>进度条{{currentValue}}</h1>
                 <button @click="setCurrentValue">currentValue = 80</button>
                 <button @click="reset">currentValue=0</button>
@@ -136,7 +136,7 @@
                 <divider :dividerType="'slide'"></divider>
             </div>
 
-            <div style="margin-top: 10px">
+            <div style="margin-top: 20px">
                 <h1>Slider:{{slideValue}}</h1>
                 <button @click="setSlideValue">currentValue = 80</button>
                 <button @click="resetSlideValue">currentValue=0</button>
@@ -151,7 +151,7 @@
                 <divider :dividerType="'slide'"></divider>
             </div>
 
-            <div style="margin-top: 10px">
+            <div style="margin-top: 20px">
                 <h1>Switch: {{style1}} {{style2}} {{style3}} {{style4}}</h1>
 
                 <mySwitch v-model="style1"></mySwitch>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -160,8 +160,9 @@
                 <mySwitch :styleIndex="3" v-model="style4"></mySwitch>
                 <divider :dividerType="'slide'" style="margin-top: 10px"></divider>
             </div>
-            <div style="margin-top: 20px">
-                <h1>爱好： {{checkValue.split(',')}}</h1>
+            <div style="margin-top: 30px">
+                <h1>复选框</h1>
+                <h2>爱好</h2>
                 <CheckBox :name="'hobby'" :label="'读书'" :value="'读书'" v-model="checkValue"></CheckBox>
                 <CheckBox :name="'hobby'" :label="'撸代码'" :value="'撸代码'" v-model="checkValue"></CheckBox>
                 <CheckBox :name="'hobby'" :label="'打球'" :value="'打球'" v-model="checkValue"></CheckBox>
@@ -169,21 +170,24 @@
                 <CheckBox :name="'hobby'" :label="'玩游戏'" :value="'玩游戏'" v-model="checkValue"></CheckBox>
                 <br/>
                 <br/>
-                <h1>喜欢的游戏： {{checkboxGamesValue.split(',')}}</h1>
+                选择了：{{checkValue.split(',')}}
+                <br/>
+                <h2 style="margin-top: 10px">喜欢的游戏</h2>
                 <CheckBox :name="'hobby'" :label="'荒野行动'" :value="'荒野行动'" v-model="checkboxGamesValue"></CheckBox>
                 <CheckBox :name="'hobby'" :label="'绝地求生'" :value="'绝地求生'" v-model="checkboxGamesValue"></CheckBox>
                 <CheckBox :name="'hobby'" :label="'王者荣耀'" :value="'王者荣耀'" v-model="checkboxGamesValue"></CheckBox>
+                <br/>
+                <br/>
+                选择了：{{checkboxGamesValue.split(',')}}
                 <divider :dividerType="'slide'" style="margin-top: 10px"></divider>
             </div>
-            <div style="margin-top: 20px">
+            <div style="margin-top: 30px">
                 <h1>单选框</h1>
                 <h2>品牌</h2>
-
                 <radio :name="'name'" :value="'Apple'" :label="'Apple'" v-model="radioCheckedValue"></radio>
                 <radio :name="'name'" :value="'IBM'" :label="'IBM'" v-model="radioCheckedValue"></radio>
                 <radio :name="'name'" :value="'Microsoft'" :label="'Microsoft'" v-model="radioCheckedValue"></radio>
                 <radio :name="'name'" :value="'Google'" :label="'Google'" v-model="radioCheckedValue"></radio>
-
                 <br/>
                 <br/>
                 选择了：{{radioCheckedValue}}
@@ -198,7 +202,7 @@
                 选择了：{{gameCheckedValue}}
                 <divider :dividerType="'slide'" style="margin-top: 10px"></divider>
             </div>
-            <div style="margin-top: 20px">
+            <div style="margin-top: 30px">
                 <h1>数字键盘 {{number}} / {{number2}} / 长度限制6位:{{number3}}</h1>
                 <button @click="showKeyboard">弹出键盘样式一</button>
                 <button @click="showKeyboard2">弹出键盘样式2</button>
@@ -271,11 +275,18 @@
                 <badge :number="8888"></badge>
                 <divider :dividerType="'slide'" style="margin-top: 10px"></divider>
             </div>
+
+            <div style="margin-top: 20px;">
+                <h1>vmap</h1>
+                <button @click="showMap">显示地图</button>
+                <showMap ref="showMap" :address="'遵义师范学院'"></showMap>
+            </div>
+
             <div style="margin-top: 20px">
                 <h1>floatbutton</h1>
-                <divider></divider>
                 <br/>
                 <floatbutton></floatbutton>
+                <divider></divider>
             </div>
         </div>
     </div>
@@ -284,6 +295,7 @@
 
 <script>
     import   "common/css/reset.css"
+    import   "common/css/animate.css"
     import toast from "components/widget/toast/toast.vue"
     import icontoast from "components/widget/icontoast/icontoast.vue"
     import snackbar from "components/widget/snackbar/snackbar.vue"
@@ -314,6 +326,7 @@
     import cellbox from "components/widget/cellbox/cellbox.vue"
     import badge from "components/widget/badge/badge.vue"
     import CheckBox from "components/widget/CheckBox/CheckBox.vue"
+    import showMap from "components/showMap.vue"
     const ERR_OK = 0;
     const topDirection = 0; // 从上进入
     const downDirection = 1; // 从下边进入
@@ -355,6 +368,22 @@
                     {
                         text: "item3",
                         to: "/item/3"
+                    },
+                    {
+                        text: "item4",
+                        to: "/item/4"
+                    },
+                    {
+                        text: "item5",
+                        to: "/item/5"
+                    },
+                    {
+                        text: "item6",
+                        to: "/item/6"
+                    },
+                    {
+                        text: "item7",
+                        to: "/item/7"
                     }
                 ],
                 items: [
@@ -405,7 +434,8 @@
             rangeslider,
             cellbox,
             badge,
-            CheckBox
+            CheckBox,
+            showMap
         },
         methods: {
             read(){
@@ -586,6 +616,9 @@
             },
             resetSlideValue(){
                 this.slideValue = 0;
+            },
+            showMap(){
+                this.$refs.showMap.show();
             }
         }
     }

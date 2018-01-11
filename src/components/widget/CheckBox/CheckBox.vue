@@ -83,7 +83,7 @@
 </script>
 
 <!--css-->
-<style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+<style lang="stylus" rel="stylesheet/stylus" type="text/stylus" scoped>
     .check-box
         display inline-block
         .check-box-wrapper
