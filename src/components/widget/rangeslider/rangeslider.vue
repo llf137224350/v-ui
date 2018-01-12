@@ -360,6 +360,6 @@
       left: 0
       right: 0
       bottom: 0
-      height: 110px
+      height: 6.875rem
       background: #F3F3F3
 </style>

@@ -143,7 +143,7 @@
     overflow-x auto
     position relative
     .tablayout-wrapper
-      height 44px
+      height 2.75rem
       z-index 2147483644
       position relative
       &::after
@@ -156,8 +156,8 @@
         content ''
       .tablayout-item
         float left
-        height 44px
-        line-height 44px
+        height 2.75rem
+        line-height 2.75rem
         text-align center
         user-select none
         -webkit-user-select none

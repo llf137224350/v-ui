@@ -106,13 +106,13 @@
             height 100%
         .address
             position fixed
-            height 40px
-            line-height 40px
+            height 2.5rem
+            line-height 2.5rem
             left 0
             right 0
             bottom 0
             background: rgba(0, 0, 0, .65)
             color #fff
-            padding-left 16px
+            padding-left 1rem
             font-size 13px
 </style>

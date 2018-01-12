@@ -95,24 +95,24 @@
                 display none
             .check-box-input + label
                 display inline-block
-                width 20px
-                height 20px
-                line-height 20px
+                width 1.25rem
+                height 1.25rem
+                line-height 1.25rem
                 position relative
                 -webkit-transition all 0.6s
                 transition all 0.6s
                 box-sizing border-box
-                top 4px
-                border 2px solid #E2E2E2
-                border-radius 3px
+                top 0.25rem
+                border 0.125rem solid #E2E2E2
+                border-radius 0.1875rem
             & > .check-box-input + label:after
                 content ''
                 display block
                 position absolute
                 left 0
                 top 0
-                width 16px
-                height 16px
+                width 1rem
+                height 1rem
                 background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADxUlEQVR4Xu2aTXbTMBDHZ5xF2FFOQDgB4QQoG3B25QS0J6Bd8+KG5LFuOUHCCUpXCWwiblBOANyg3TULZ3hybF6aF1sjRXZsJ95G9mh++s+HpCDs+YN77j8cABwUsOcEDiFQZwGIWf8IHuBIdvt/0vysrQLE9+ExEI2A8EZ2eyd7AyBa9bl3gYBnymkCupN+8GwvAIgfn9uwWIwQoL3qMBGdym4w3gShNiEgJoMTQLhEwKN1RwlASr/XqSWAWPLK8dQ4J4KvaXmg0goQk34LsHG9LvnH8k93Xo2rLAAxGQpAut4k+QRA1sonYyoJQMU7Io6yehgCupF+cKzrcyoHQEwHo6x4XzpMv6i5ELLTv6sNgGWya6gSp1lVvvOVyQGx87OsZGe68pXJAcvmJlTJrqWR8z15npBvPt7qZL/6e6lzQOz8LCvTx85YOV/qEDBwHrJaXZ0aSqkAI+eBzqUfXOkcrcxmyMj5jBaXC6RUCjBxXtX6mR882vVxnS5lEow3Nb8ZCU/N/56aYYvT6OiglEIB/DofV3vPe2Va7kqdA8R0qJocoVutqMndMumt29i5Ani9fbzyzA0OB6RxJxglqDBspx0tmRhNxorp4AwBL1nvEvylJ2HbRdwbJ8HV7ExAY+kHp6xJZwxS+3lEmHG/Qw7j3gjAptK0LQSzcgdABJ9kt9fnwjIZl5kDsiZKALfQDDumkjTN+ED0c9YNWAnSxHFtDuCskg0Ek6QX1XtSeSf9ZsfGaVYIdCYDCYivdQbUxQN4jQ6nLnOOslbtuS55m3xJDQElVZx7EgBfuoDAUdQjOzlLXxsCaoAJhKhJSbmBMY77AqTPAvAfwkPjFhCe65SQBkFMh1cI8IHzfh7dXpZdVieo5IuLhQSApxwnVsukuqVFgmvOe9GYgqTPVkAy0AYCNBfnMPe4OzxlKvesv74QLAXYQmCvejwwz4YnbS5GAKKcYBgOfAhuDjj49pYjjQFEEAz7eM6k8ur1dbatACwh6O/ndMaT3wngi/R70T86in6sATiE4Ox4ywbeVgBcQCCEd/Jt75vN5F28szWArSAUXPM3AXMCIE6MfUS4MFkVovBFnjs9zlycAYghjBHhPcfwLmp+rgpIPi4mQw6EnSa+VRBOFcCFsM1lJkddJmNyAZAZDiVIfLkrIDGw6VSJCDqy21M7y1I8uSkgUsHaqRLnb2tFU8kVwBqEVt4HnDbwcgeQQIAH79jlrZKNs4WUQVcTK+o7hSigKGds7BwA2FCr0zsHBdRpNW18OSjAhlqd3tl7BfwDg+XkULy8I9UAAAAASUVORK5CYII=")
                 background-repeat: no-repeat
                 -webkit-background-size: cover

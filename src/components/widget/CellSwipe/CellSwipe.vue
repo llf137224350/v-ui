@@ -160,8 +160,8 @@
         transform scaleY(0.5)
 
   .cell-swipe
-    height 48px
-    line-height 48px
+    height 3rem
+    line-height 3rem
     position relative
     background: #F7F7F7
     overflow hidden
@@ -186,7 +186,7 @@
       bottom 0
       & > span
         color #fff
-        padding 0 16px
+        padding 0 1rem
         display inline-block
         height 100%
         &:nth-child(1)

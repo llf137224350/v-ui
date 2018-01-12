@@ -77,9 +77,9 @@
                 display none
             .radio-input + label
                 display inline-block
-                width 20px
-                height 20px
-                line-height 20px
+                width 1.25rem
+                height 1.25rem
+                line-height 1.25rem
                 position relative
                 -webkit-transition all 0.6s
                 transition all 0.6s
@@ -90,10 +90,10 @@
                 content ''
                 display block
                 position absolute
-                left 2px
-                top 2px
-                width 12px
-                height 12px
+                left 0.125rem
+                top 0.125rem
+                width 0.75rem
+                height 0.75rem
                 background #41b883
                 border-radius 50%
                 -webkit-transition 0.3s
@@ -108,5 +108,5 @@
                 transform scale(1)
             & > .radio-input + label
                 border 2px solid #E2E2E2
-                border-radius 20px
+                border-radius 1.25rem
 </style>

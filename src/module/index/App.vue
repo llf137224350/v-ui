@@ -632,7 +632,7 @@
         text-align: left;
         color: #2c3e50;
         padding: 10px;
-
+        font-size: 14px;
     }
 
     .tab-wrapper {

@@ -130,5 +130,5 @@
     overflow hidden
     .progress-container
       width 100%
-      height 16px
+      height 1rem
 </style>

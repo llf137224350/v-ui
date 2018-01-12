@@ -511,7 +511,7 @@
         right 0
         bottom 0
         background rgba(0, 0, 0, .5)
-        backdrop-filter blur(10px)
+        backdrop-filter blur( 0.625rem)
         z-index 2147483646
 
       .datetimepicker-content-wrapper
@@ -519,10 +519,10 @@
         left 0
         bottom 0
         width 100%
-        height 300px
+        height 18.75rem
         z-index 2147483647
         .opt
-          height 40px
+          height 2.5rem
           width 100%
           background: #fff
           position relative
@@ -537,33 +537,33 @@
             content ''
           .cancel, .ok
             display inline-block
-            height 40px
-            line-height 40px
-            padding 0 16px
+            height 2.5rem
+            line-height 2.5rem
+            padding 0 1rem
             font-size 16px
           .cancel
             float left
-            margin-left 10px
+            margin-left 0.625rem
             color rgba(0, 0, 0, .3)
           .ok
             float right
-            margin-right 10px
+            margin-right 0.625rem
             color #41B883
 
         .date-wrapper
           background: #fff;
           display flex
           font-size 20px
-          height 260px
+          height 16.25rem
           overflow hidden
-          line-height 40px
+          line-height 2.5rem
           &::before
             content ""
             display block
             position absolute
-            height 130px
+            height 8.125rem
             width 100%
-            top 40px
+            top  2.5rem
             left 0
             background -webkit-linear-gradient(top, #fff, rgba(255, 255, 255, 0))
             z-index 2147483647
@@ -572,7 +572,7 @@
             content ""
             display block
             position absolute
-            height 130px
+            height 8.125rem
             width 100%
             bottom 0
             left 0
@@ -581,21 +581,21 @@
             pointer-events none
           .year, .month, .day, .hour, .minute, .second
             flex 1
-            margin-top 110px
-            margin-bottom 110px
+            margin-top 6.875rem
+            margin-bottom 6.875rem
             text-align center
             box-sizing border-box
           .timepicker-split
             0 0 10px
-            margin-top 110px
+            margin-top 6.875rem
         .date-mask
           position absolute
           left 0
-          top 150px
+          top 9.375rem
           z-index 2147483647
           background: transparent
           width 100%
-          height 40px
+          height 2.5rem
           pointer-events none
           &::after
             position absolute

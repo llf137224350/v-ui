@@ -84,7 +84,7 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
   .switch
     display inline-block
-    width 44px
+    width 2.75rem
     height 22px
     position relative
     user-select none
@@ -96,7 +96,7 @@
         display none
       .switch-input + label
         display inline-block
-        width 44px
+        width 2.75rem
         height 22px
         position relative
         -webkit-transition all 0.3s
@@ -128,14 +128,14 @@
         display none
       & > .switch-input + label
         border 2px solid #E2E2E2
-        border-radius 22px
+        border-radius 1.375rem
         z-index 10
       & > .switch-tips
         position absolute
         top 0
         left 0
-        width 44px
-        height 22px
+        width 2.75rem
+        height 1.375rem
         &::before
           position absolute
           top 0
@@ -165,11 +165,11 @@
           font-size 12px
           content: 'off'
         &.open-close::before
-          line-height 22px
+          line-height 1.375rem
           font-size 12px
           content: '开'
         &.open-close::after
-          line-height 22px
+          line-height 1.375rem
           font-size 12px
           content: '关'
 </style>

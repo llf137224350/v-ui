@@ -19,7 +19,7 @@
       leave-active-class="animated-popupwindow slideOutDown-popupwindow  fadeOut-popupwindow"
     >
       <div class="popupwindow-content-wrapper" v-show="isShow">
-        <div class="title" v-show="title" v-html="title"></div>
+        <div class="title border-1px" v-show="title" v-html="title"></div>
         <ul>
           <li class="opt-item border-1px" v-for="item in items" @click="itemClick(item)" v-html="item.text"></li>
         </ul>
@@ -197,9 +197,8 @@
       right 0
       bottom 0
       background rgba(0, 0, 0, .5)
-      backdrop-filter blur(10px)
+      backdrop-filter blur(0.625rem)
       z-index 2147483646
-
     .popupwindow-content-wrapper
       position fixed
       left 0
@@ -211,8 +210,8 @@
         background #fff
       .opt-item, .cancel, .title
         display block
-        height 50px
-        line-height 50px
+        height 3.125rem
+        line-height 3.125rem
         background #fff
         font-size 16px
         text-align center
@@ -231,7 +230,7 @@
         &:active
           background-color: #fff
       .cancel-wrapper
-        margin-top 12px
+        margin-top 0.75rem
       .cancel
         color red
       .opt-item, .title

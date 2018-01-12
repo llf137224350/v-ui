@@ -55,17 +55,17 @@
   .toast
     .content
       position fixed
-      bottom 50px
+      bottom 3.125rem
       left 50%
       transform translate(-50%, 0)
       margin 0 auto
       font-size 14px
       min-width 100px
-      height 36px
-      line-height 36px
+      height 2.25rem
+      line-height 2.25rem
       text-align center
-      padding 0 14px
-      border-radius 18px
+      padding 0 0.875rem
+      border-radius 1.125rem
       backdrop-filter: blur(10px);
       background rgba(0, 0, 0, .7)
       color #fff

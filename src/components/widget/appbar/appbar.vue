@@ -81,8 +81,8 @@
   .appbar
     position relative
     width 100%
-    height 48px
-    line-height 48px
+    height 3rem
+    line-height 3rem
     background: #393A3F
     & > div
       touch-callout: none
@@ -91,14 +91,14 @@
       -webkit-user-select none
     display flex
     .appbar-left, .appbar-right
-      width 48px
-      height 48px
-      flex 0 0 48px
+      width 3rem
+      height 3rem
+      flex 0 0 3rem
       .appbar-left-icon, .appbar-right-icon
         display block
-        width 30px
-        height 30px
-        margin 9px
+        width 1.875rem
+        height 1.875rem
+        margin 0.5625rem
         background: green
       .appbar-left-icon
         background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABmklEQVR4Xu3aQUoDQRCF4VdncZUziJIsPId6A2+k53Cl4AF048pDKLovGZiBMDBu0lX1S/dsssrQ7+vXgS5i6vyxzvNrAIwGdC4wjkDnBRg/guMIjCPQuQD+CLj7g6QnM5s+mz9ogDn89Zz6NgIBC7AKv+x8cwQkwEb4L0l7M3tteQ5wAJnhJ0gUQHZ4FEBFeAxAVXgEQGX4coDq8KUAhPBlAJTwJQCk8OkAtPCpAMTwaQDU8CkA5PDhAPTwoQDu/i5pt7q6hlxpT7keh9wG3f1D0hk9fEgDNsL/SLpoPcw4ZeeX7zZvgLu/SDpfLe5b0mUXAFPwDYRPSQcaQvMGLDvv7o+SrlZNwCGEAcxNuJF0T0YIBfgPCOEAdIQUADJCGgAVIRWAiJAOQEMoASAhlAFQEEoBCAjlANUICIBKBAxAFQIKoAIBB5CNgAT4A+HZzPYtRmFhI7GWi3P343nC2/wnqWmo0uzBNuBosjQh3EWED5kKN9uapBfhGxDtMACihenvHw2g71D0+kYDooXp7x8NoO9Q9Pq6b8AvFMT3Qf2VWZgAAAAASUVORK5CYII=") no-repeat center
@@ -123,10 +123,10 @@
     .appbar-title
       display block
       flex 1
-      line-height 50px
+      line-height 3.125rem
       color #fff
-      font-size 18px
-      padding 0 12px
+      font-size 16px
+      padding 0  0.75rem
       overflow hidden
       white-space nowrap
       text-overflow ellipsis

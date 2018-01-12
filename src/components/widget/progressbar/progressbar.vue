@@ -290,13 +290,13 @@
       position fixed
       left 50%
       top 50%
-      width 100px
-      height 84px
-      margin-left -50px
-      margin-top -42px
+      width 6.25rem
+      height 5.25rem
+      margin-left -3.125rem
+      margin-top -2.625rem
       z-index 2147483647
-      border-radius 6px
-      backdrop-filter blur(10px)
+      border-radius 0.375rem
+      backdrop-filter blur(0.625rem)
       background rgba(0, 0, 0, .88)
       text-align center
       &.animated
@@ -314,28 +314,28 @@
         position relative
         width 28px
         margin 0 auto
-        margin-top -20px
+        margin-top -1.25rem
         &:before
           content ''
           display block
           padding-top 100%
         .h5ui-toast_loading_icon
           position relative
-          width 44px
-          height 44px
+          width 2.75rem
+          height 2.75rem
           display block
           .loading-icon-leaf
             position: absolute
             opacity: .25
-            left: 15px
-            top: 21px
+            left: 0.9375rem
+            top: 1.3125rem
           .loading-icon-leaf:before
             position: absolute;
-            width: 8.14px;
-            height: 3.08px;
+            width: 0.50875rem;
+            height: 0.1925rem;
             background: #d1d1d5;
             box-shadow: rgba(0, 0, 0, .0980392) 0 0 1px;
-            border-radius: 1px;
+            border-radius: 0.0625rem;
             transform-origin: left 50% 0;
             content: "";
           .loading-icon-leaf_0
@@ -414,9 +414,9 @@
   .text
     position absolute
     left 0
-    bottom 13px
-    margin-top 8px
-    line-height 14px
+    bottom 0.8125rem
+    margin-top 0.5rem
+    line-height 0.875rem
     width 100%
     font-size 14px
     color #fff

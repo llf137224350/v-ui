@@ -225,7 +225,7 @@
       right 0
       bottom 0
       background rgba(0, 0, 0, .5)
-      backdrop-filter blur(10px)
+      backdrop-filter blur(0.625rem)
       z-index 2147483646
     .prompt-content-wrapper
       position fixed
@@ -235,39 +235,39 @@
       transform translate(-50%, -50%)
       margin auto
       background #fff
-      border-radius 6px
+      border-radius 0.375rem
       z-index 2147483647
       overflow hidden
       text-align center
       .title
-        height 40px
-        line-height 40px
+        height 2.5rem
+        line-height 2.5rem
         font-size 16px
         font-weight 700
         user-select none
         touch-callout none
       .input-wrapper
-        top 5px
+        top 0.3125rem
         position relative
-        padding 18px 13px
+        padding 1.125rem 0.8125rem
         input
           width 100%
           font-size 14px
-          height 24px
+          height 1.5rem
           display block
-          padding-left 3px
-          padding-right 3px
+          padding-left 0.1875rem
+          padding-right 0.1875rem
           box-sizing border-box
           outline none
           -webkit-appearance: none;
         label
           position absolute
-          left 13px
-          top 23px
-          right 13px
+          left 0.8125rem
+          top 1.4375rem
+          right 0.8125rem
           font-size 14px
           transition all 0.4s
-          transform translate3d(3px, 0, 0)
+          transform translate3d(0.1875rem, 0, 0)
           color rgba(0, 0, 0, .4)
           user-select none
           touch-callout none
@@ -276,11 +276,11 @@
           text-overflow ellipsis
           text-align left
           &.active
-            transform translate3d(-3px, -31px, 0)
+            transform translate3d(-0.1875rem, -1.9375rem, 0)
             color #333
       .btn
         display flex
-        height 40px
+        height 2.5rem
         position relative
         &::after
           position absolute
@@ -292,8 +292,8 @@
           content ''
         div
           flex 1
-          height 40px
-          line-height 42px
+          height 2.5rem
+          line-height 2.625rem
           font-size 14px
           overflow hidden
           user-select none

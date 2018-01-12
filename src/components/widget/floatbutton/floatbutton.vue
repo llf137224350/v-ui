@@ -34,7 +34,7 @@
     width 48px
     height 48px
     border-radius 50%
-    box-shadow 0 1px 2px #999
+    box-shadow 0 0.0625rem  0.125rem #999
     position relative
     touch-callout: none
     -webkit-touch-callout none
@@ -53,16 +53,16 @@
       transition all .15s
     .floatbutton-icon
       display inline-block
-      width 24px
-      height 24px
+      width 1.5rem
+      height 1.5rem
       background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA7UlEQVR4Xu3ZQRLCIBBE0czN9OR6Myw3mmLhbELGwMuWKsh0BvjdiW3xJxavfyOADlhcAVtg8QZwCJZtgdZa23dfRJS8S8mi78IJoANsAWeAQ3CngFvANYgDSpikZFEghAShMC/ADDFDzBAzxAwxQ18FuMF/dYP9fX21/whZZ6VmiAAdsOiAiylwxBa4Dar50c17H7FORDx/zZueASNeSiAiEBGICEQEIgIRgYhARCAiEBGIfBTITMsoJOcFRimbzQuEgBAQAkJACAgBoXVBKOOEs8bLSPCsArN1CJApNPu4Dpj9C2f16YBModnHXymmwUGqCx8xAAAAAElFTkSuQmCC") no-repeat center
       -webkit-background-size cover
       background-size cover
-      margin 12px
+      margin 0.75rem
   .floatbutton:active::after
-    margin-top -5px
-    margin-left -5px
-    width 10px
-    height 10px
+    margin-top -0.3125rem
+    margin-left -0.3125rem
+    width 0.625rem
+    height 0.625rem
     transform scale(5)
 </style>
