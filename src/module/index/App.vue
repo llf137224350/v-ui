@@ -282,6 +282,21 @@
                 <showMap ref="showMap" :address="'遵义师范学院'"></showMap>
             </div>
 
+            <div style="margin-top: 20px;">
+                <h1>vinput-text   {{username}}</h1>
+                <vinput :label="'账户'" v-model="username" :placeholder="'请输入账户'" ></vinput>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <h1>vinput-password   {{password}}</h1>
+                <vinput :label="'密码'" v-model="password" :placeholder="'请输入密码'" :type="'password'"></vinput>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <h1>vinput-number   {{phone}}</h1>
+                <vinput :label="'电话'" v-model="phone" :placeholder="'请输入手机号码'"  :type="'number'"></vinput>
+            </div>
+
             <div style="margin-top: 20px">
                 <h1>floatbutton</h1>
                 <br/>
@@ -326,6 +341,7 @@
     import cellbox from "components/widget/cellbox/cellbox.vue"
     import badge from "components/widget/badge/badge.vue"
     import CheckBox from "components/widget/CheckBox/CheckBox.vue"
+    import vinput from "components/widget/vinput/vinput.vue"
     import showMap from "components/showMap.vue"
     const ERR_OK = 0;
     const topDirection = 0; // 从上进入
@@ -402,6 +418,9 @@
                 style2: false,
                 style3: true,
                 style4: true,
+                username:"",
+                password:"",
+                phone:"",
             }
         },
         components: {
@@ -435,7 +454,8 @@
             cellbox,
             badge,
             CheckBox,
-            showMap
+            showMap,
+            vinput
         },
         methods: {
             read(){

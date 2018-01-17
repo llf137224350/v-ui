@@ -10,7 +10,7 @@
     <transition name="fade">
       <div v-show="isShow" class="icontoast-wrapper">
         <i class="icon" :class="state"></i>
-        <div class="text">{{text}}</div>
+        <div class="icon-toast-text">{{text}}</div>
       </div>
     </transition>
   </div>
@@ -89,7 +89,7 @@
         &.failed
           background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAE4ElEQVR4Xu2b3XHbRhDH/wtmYoIvsSsIXUGkCkxVYLqCHJgCLFWQpALRBYS8VGC5AlMViKlAUAUxXwg7E2EzB4EODR5wd+AdkImlGT1xebf7u/24jyXhK/+jr9x+PAJ49IAOCPwlxEkOvMgjjIlxAmAMwviLqRkpgJQJ6yhHGgHX30q5Dq1esBD4lCQv74kFGBMiPG1jCDM+gLAaMMkny+W7NmOYvuMVAAvx9GOE18w4b2t0ncIKBhHmwxxvSMoPJsNsP/cCIKThVUN8gzgawKefxDTPcXkQ07ZL0FaOkUYRLp78Jq/aDqG+dxSA7UxcEnB+jALHfpeB+WghL9qO0wqAcvmM8J6oyOi9/zFjHTPO2uQGZwCqpN0T3nbu8ibMjHTAeOVaOp0AKOP/flj5VmVt3wZmvCNCEb/MmBLhpclG0+cqQX7DOHOBYA2gyPSEGx8rT8DFcCHn+wZ9nIlzBi5NRho/Z6RDxqltOFgD2CbixkfMM/DHaCG1uWM7E2sCfjAaaRBQOWG0lKc241gB2CZiToTXNgNayPwaL+QvOjmf8zDjzWgpjRXKCKCo84y3FobZitQCyGZCgfnZdiCjXI6zWMpVk1wjAJ9xv6dEdwAs8kEjAO8rUqR8/B4vpagJgSsf1aAydi3wxp1gudm59VHyvlCIcR0v5UQHIEvECoQXRtd2EFClMWY8r6sKtR4QZPUfPKBTACWrWi+oBbBNxJ/eV78nAMoLRkv5TOc4WgABMv+/c/fjAYgIr3QnRy2AbSJCJKPPEOKF1M6bzQQ7hLebaE3yrQMQxv1LlfsAUBcGBwCK016EGze8btJ9AFAaDnKcVg9KBwCCZf89Rn0B0B3CDgEkQoLwo9uaukkPczyr1uVMiDEi3LqN5CatOx/oAHjfjByoqdmjZ0JMEOG9m0mO0poKpANw6+PM36haTwB0x2RdDghXinZUegKgpq/mn0cAVVcNuhkpJwt6JWZIC/8NDwAODiddlF/bEFCvtN875ldX8V4A6O4j+ymDfXmAZRkMvhHSbUi6CAGrjZC3+/mmoNCsRIjboKoKVlvhLg5DuluhLgBYHYYUtWwmVAPCd66ZzVqekcZL+XxfPktE6B3oJl7Igye9Xi5ESsNlvJBJCXwJQHtTbA3VJOhyIRL0SsykaKDPna7EOgmDQIbWDKt1fyXb/bV4t4bvZnO/Fi8bn9SuMGQyvC409PwYUmG8GeYYOz+MlGHg97Gy1Ew1R8QMsVOqfIO8CgSi3dOY0rX0AtWt6fNscDfMcVJdkUAep51r30O6fx5veBzNfN9HHvs8viPls3EBmoPQbh6f5wFvDRKfIXTQvtJFG47mfGBXl3zmg8A3Qsa4d8oB+8LlQUm1nBxdGhm4IqaHNjniKQFTu6VolNoMckyCtMntpi0hKMV9VgYPtuNukGPqYnzjTrBJo6J7JMLKR0ubD8vVVVecY2LbG9g6BKrKeq4OrVjYZvu6wY37AJNW5clRdX12HRJ3EeG813b5HZyyQqimRPV/dII0QN8AxS9H5m1cvnUZNHnC3tY5FAivhu/sOToE6sCo0LjPIYigWuLaesWGGatBBHmsqwfLATaeUfxsLsIkZ4wJOClfn6s54w6MlIF1REijHCvXkmajS9AQaKNA398JFgJ9G2Y7/yMAW1L/V7l/AHFcfV9PSPprAAAAAElFTkSuQmCC") no-repeat center
           background-size: contain
-      .text
+      .icon-toast-text
         display block
         width 100%
         padding 0 0.625rem
@@ -100,4 +100,5 @@
         text-overflow ellipsis
         white-space nowrap
         box-sizing border-box
+        color #fff
 </style>

@@ -28,7 +28,7 @@
             <div class="loading-icon-leaf loading-icon-leaf_11"></div>
           </div>
         </div>
-        <div class="text">{{text}}</div>
+        <div class="progressbar-text">{{text}}</div>
       </div>
     </transition>
   </div>
@@ -411,13 +411,13 @@
             -webkit-transform rotate(330deg) translate(7.92px, 0);
             transform rotate(330deg) translate(7.92px, 0)
 
-  .text
-    position absolute
-    left 0
-    bottom 0.8125rem
-    margin-top 0.5rem
-    line-height 0.875rem
-    width 100%
-    font-size 14px
-    color #fff
+    .progressbar-text
+        position absolute
+        left 0
+        bottom 0.8125rem
+        margin-top 0.5rem
+        line-height 0.875rem
+        width 100%
+        font-size 14px
+        color #fff
 </style>
