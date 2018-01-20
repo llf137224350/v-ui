@@ -76,6 +76,8 @@
                 <confirmdialog ref="confirm" :okText="okText" :cancelText="cancelText"></confirmdialog>
                 <divider :dividerType="'slide'"></divider>
             </div>
+
+
             <div style="margin-top: 20px">
                 <h1>进度提示</h1>
                 <button @click="showPregressBar">PregressBar</button>
@@ -127,6 +129,17 @@
                 <popuppicker ref="popuppicker" @popuppickerOkCallBack="popuppickerOkCallBack"
                              :items="['小米','三星','华为','魅族','OPPO','VIVO','金立','锤子']"></popuppicker>
                 <divider :dividerType="'slide'"></divider>
+            </div>
+            <div style="margin-top: 20px">
+                <h1>进度指示器(同一时刻只能一个执行，否则会卡顿，暂时未解决)</h1>
+                <button @click="startAnim">开始动画</button>
+                <button @click="stopAnim">停止动画</button>
+                <linearProgress ref="linearProgress" ></linearProgress>
+                <div style="padding: 10px 0">指定颜色，高等</div>
+                <button @click="startAnim1">开始动画</button>
+                <button @click="stopAnim1">停止动画</button>
+                <linearProgress ref="linearProgress1" :foregroundColor="'#7E57C2'" :height="'6px'"></linearProgress>
+                <divider :dividerType="'slide'" ></divider>
             </div>
             <div style="margin-top: 20px">
                 <h1>进度条{{currentValue}}</h1>
@@ -283,26 +296,52 @@
             </div>
 
             <div style="margin-top: 20px;">
-                <h1>vinput-text   {{username}}</h1>
-                <vinput :label="'账户'" v-model="username" :placeholder="'请输入账户'" ></vinput>
+                <h1>vinput-text {{username}}</h1>
+                <vinput :label="'账户'" v-model="username" :placeholder="'请输入账户'"></vinput>
+                <vinput :label="'账户(动画)'" v-model="username" :placeholder="'请输入账户'" :anim="true"></vinput>
             </div>
 
             <div style="margin-top: 20px;">
-                <h1>vinput-password   {{password}}</h1>
+                <h1>vinput-password {{password}}</h1>
                 <vinput :label="'密码'" v-model="password" :placeholder="'请输入密码'" :type="'password'"></vinput>
+                <vinput :label="'密码(动画)'" v-model="password" :placeholder="'请输入密码'" :type="'password'"
+                        :anim="true"></vinput>
             </div>
 
             <div style="margin-top: 20px;">
-                <h1>vinput-number   {{phone}}</h1>
-                <vinput :label="'电话'" v-model="phone" :placeholder="'请输入手机号码'"  :type="'number'"></vinput>
+                <h1>vinput-number {{phone}}</h1>
+                <vinput :label="'电话'" v-model="phone" :placeholder="'请输入手机号码'" :type="'number'"></vinput>
+                <vinput :label="'电话(动画)'" v-model="phone" :placeholder="'请输入手机号码'" :type="'number'"
+                        :anim="true"></vinput>
             </div>
-
             <div style="margin-top: 20px">
-                <h1>floatbutton</h1>
+                <h1>drawCircle (可配合其它控件做到类似于安卓水波纹的效果)</h1>
+                <br/>
+                <div style="width: 48px;height: 48px; line-height:48px;text-align:center;position: relative;border-radius:50%;overflow:hidden;color: #41B883;float: left" @click="test">
+                    点我
+                    <drawCircle></drawCircle>
+                </div>
+                <div style="width: 48px;height: 48px; line-height:48px;text-align:center;position: relative;border-radius:50%;overflow:hidden;color: #41B883;" @click="test">
+                    点我
+                    <drawCircle :center="true"></drawCircle>
+                </div>
+                <div style="height: 48px;line-height: 48px;position: relative">
+                    点我有惊喜
+                    <drawCircle :fill="'rgba(65,184,131,.2)'"></drawCircle>
+                </div>
+                <div style="height: 48px;line-height: 48px;position: relative">
+                    慢吞吞的我
+                    <drawCircle :fill="'rgba(65,184,131,.2)'" :duration="1"></drawCircle>
+                </div>
+                <divider></divider>
+            </div>
+            <div style="margin-top: 20px">
+                <h1>floatButton</h1>
                 <br/>
                 <floatbutton></floatbutton>
                 <divider></divider>
             </div>
+
         </div>
     </div>
 
@@ -326,6 +365,7 @@
     import datetimepicker from "components/widget/datetimepicker/datetimepicker.vue"
     import areapicker from "components/widget/areapicker/areapicker.vue"
     import progressline from "components/widget/progressline/progressline.vue"
+    import linearProgress from "components/widget/linearProgress/linearProgress.vue"
     import mySwitch from "components/widget/switch/switch.vue"
     import sharewx from "components/widget/sharewx/sharewx.vue"
     import divider from "components/widget/divider/divider.vue"
@@ -342,6 +382,7 @@
     import badge from "components/widget/badge/badge.vue"
     import CheckBox from "components/widget/CheckBox/CheckBox.vue"
     import vinput from "components/widget/vinput/vinput.vue"
+    import drawCircle from "components/widget/drawCircle/drawCircle.vue"
     import showMap from "components/showMap.vue"
     const ERR_OK = 0;
     const topDirection = 0; // 从上进入
@@ -418,9 +459,9 @@
                 style2: false,
                 style3: true,
                 style4: true,
-                username:"",
-                password:"",
-                phone:"",
+                username: "",
+                password: "",
+                phone: "",
             }
         },
         components: {
@@ -439,6 +480,7 @@
             areapicker,
             popuppicker,
             progressline,
+            linearProgress,
             mySwitch,
             sharewx,
             divider,
@@ -455,7 +497,8 @@
             badge,
             CheckBox,
             showMap,
-            vinput
+            vinput,
+            drawCircle
         },
         methods: {
             read(){
@@ -639,6 +682,21 @@
             },
             showMap(){
                 this.$refs.showMap.show();
+            },
+            startAnim(){
+                this.$refs.linearProgress.start();
+            },
+            stopAnim(){
+                this.$refs.linearProgress.stop();
+            },
+            startAnim1(){
+                this.$refs.linearProgress1.start();
+            },
+            stopAnim1(){
+                this.$refs.linearProgress1.stop();
+            },
+            test(){
+                console.log("我被点击了");
             }
         }
     }
@@ -662,6 +720,7 @@
     h1 {
         margin-top: 10px;
         height: 30px;
+        font-weight: bold;
     }
 
     button {

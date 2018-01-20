@@ -7,7 +7,9 @@
 <!--html-->
 <template>
   <div class="progress-line" v-on:click.stop="clickSelect">
-    <div class="progress-container" id="progress-container" ref="progressContainer">
+    <div class="progress-container" id="progress-container" ref="progressContainer"
+         :style="{height:height}"
+    >
     </div>
   </div>
 </template>
@@ -18,8 +20,8 @@
   export default {
     created(){
       this.$nextTick(() => {
-        this.selfWidth = this.$refs.progressContainer.getBoundingClientRect().width;
         this.container = this.$refs.progressContainer;
+        this.selfWidth = this.container.getBoundingClientRect().width;
         // 绘制底线
         this.stage = new Konva.Stage({
           container: 'progress-container', //设置当前舞台的容器
@@ -130,5 +132,4 @@
     overflow hidden
     .progress-container
       width 100%
-      height 1rem
 </style>

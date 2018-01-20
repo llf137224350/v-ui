@@ -84,7 +84,7 @@
                 -webkit-transition all 0.6s
                 transition all 0.6s
                 box-sizing border-box
-                top 4px
+                top 0.29rem
 
             & > .radio-input + label:after
                 content ''

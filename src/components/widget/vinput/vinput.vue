@@ -6,7 +6,7 @@
 
 <!--html-->
 <template>
-    <div class="v-input border-1px" :class="{'focus':focused}">
+    <div class="v-input border-1px" :class="{'focus':focused,'anim':anim}">
         <label :for="id">{{label}}</label>
         <input v-if="type==='text'" type="text"
                :id="id"
@@ -15,7 +15,7 @@
                v-model="selfValue"
                @focus="focus"
                @blur="blur"
-               />
+        />
         <input v-if="type==='password'" type="password"
                :id="id"
                :ref="id"
@@ -32,8 +32,56 @@
                @focus="focus"
                @blur="blur"
         />
+        <input v-if="type==='email'" type="email"
+               :id="id"
+               :ref="id"
+               :placeholder="placeholder"
+               v-model="selfValue"
+               @focus="focus"
+               @blur="blur"
+        />
+        <input v-if="type==='url'" type="url"
+               :id="id"
+               :ref="id"
+               :placeholder="placeholder"
+               v-model="selfValue"
+               @focus="focus"
+               @blur="blur"
+        />
+        <input v-if="type==='range'" type="range"
+               :id="id"
+               :ref="id"
+               :placeholder="placeholder"
+               v-model="selfValue"
+               @focus="focus"
+               @blur="blur"
+        />
+        <input v-if="type==='date'" type="date"
+               :id="id"
+               :ref="id"
+               :placeholder="placeholder"
+               v-model="selfValue"
+               @focus="focus"
+               @blur="blur"
+        />
+        <input v-if="type==='search'" type="search"
+               :id="id"
+               :ref="id"
+               :placeholder="placeholder"
+               v-model="selfValue"
+               @focus="focus"
+               @blur="blur"
+        />
+        <input v-if="type==='color'" type="color"
+               :id="id"
+               :ref="id"
+               :placeholder="placeholder"
+               v-model="selfValue"
+               @focus="focus"
+               @blur="blur"
+        />
         <i class="clear" v-show="selfValue.length > 0 && focused"
-          @touchstart="touchstart"
+           @touchstart="touchstart"
         ></i>
     </div>
 
@@ -45,9 +93,9 @@
         data(){
             return {
                 focused: false,
-                hideClear:true,
+                hideClear: true,
                 id: Date.now() + Math.random(),
-                selfValue:this.msg
+                selfValue: this.msg
             }
         },
         created(){
@@ -58,7 +106,7 @@
             event: 'msgChanged'
         },
         props: {
-            msg:"",
+            msg: "",
             label: {
                 type: String,
                 default: ""
@@ -70,7 +118,11 @@
             placeholder: {
                 type: String,
                 default: "请输入"
-            }
+            },
+            anim: {
+                type: Boolean,
+                default: false
+            },
         },
         methods: {
             focus(){
@@ -86,12 +138,12 @@
                 this.$refs[this.id].focus();
             }
         },
-        watch:{
+        watch: {
             msg(){
                 this.selfValue = this.msg;
             },
             selfValue(){
-                this.$emit("msgChanged",this.selfValue);
+                this.$emit("msgChanged", this.selfValue);
             }
         }
     }
@@ -107,16 +159,19 @@
         box-sizing content-box
         position relative
         &::after
-            position absolute
-            left 0
-            bottom 0
-            display block
-            width 100%
-            border-bottom 1px solid rgba(0, 0, 0, .1)
-            content ''
-        &.focus
-            &::after
-                border-bottom 1px solid #01CC77
+            position: absolute
+            left: 50%
+            bottom: 0
+            display: block
+            width: 0%
+            height: 0.125rem
+            background: #01cc77
+            content: ""
+        &.anim::after
+            transition: all 0.4s
+        &.focus::after
+            left: 0%
+            width: 100%
         & > label
             flex 0 0 5rem
         & > input
@@ -129,7 +184,7 @@
             width 0.75rem
             height 0.75rem
             margin-top 1.125rem
-            background: url("./images/icon_clear.png") no-repeat center
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAWCAYAAAArdgcFAAAAxElEQVQ4T72V0RHCIBBE2dLsQCswduAvFTBUYazAEs/BSZxIDm4DiXwxfLxd7lgOMcaziLxE5Oa9H13nCiEMAB4ALpjhidkrMIMn1glpkx023UBjfOC9AiVzX3irQO3WP/CtAlY5V3BWwAInjgq3BBhwFV4SYMEmPBdwzqWQDWwmimVZBnXplgVTzhX3dJJN51mNnwCurPsqXGveLg2tQViB/4aIdWUFbfVatoCZ3/T4L7fFcT4N1WFx6Jib4KOI3Pce0G/gjEKmETd3cgAAAABJRU5ErkJggg==") no-repeat center
             -webkit-background-size: cover
             background-size: cover
 

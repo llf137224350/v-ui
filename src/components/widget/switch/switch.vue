@@ -85,7 +85,7 @@
   .switch
     display inline-block
     width 2.75rem
-    height 22px
+    height 1.375rem
     position relative
     user-select none
     -webkit-user-select none
@@ -97,7 +97,7 @@
       .switch-input + label
         display inline-block
         width 2.75rem
-        height 22px
+        height 1.375rem
         position relative
         -webkit-transition all 0.3s
         transition all 0.3s
@@ -107,10 +107,10 @@
         content ''
         display block
         position absolute
-        left 2px
-        top 2px
-        width 14px
-        height 14px
+        left 0.125rem
+        top 0.125rem
+        width 0.875rem
+        height 0.875rem
         background #E2E2E2
         border-radius 50%
         -webkit-transition 0.3s
@@ -121,13 +121,13 @@
       & > .switch-input:checked + label.green:after
         background rgb(65, 184, 131)
       & > .switch-input:checked + label:after
-        left calc(100% - 16px)
+        left calc(100% - 1rem)
       & > .switch-input:checked + label + div::before
         display inline-block
       & > .switch-input:checked + label + div::after
         display none
       & > .switch-input + label
-        border 2px solid #E2E2E2
+        border 0.125rem solid #E2E2E2
         border-radius 1.375rem
         z-index 10
       & > .switch-tips
@@ -139,29 +139,29 @@
         &::before
           position absolute
           top 0
-          left 8px
+          left 0.5rem
           display none
           color rgba(65, 184, 131, .6)
         &::after
           position absolute
           top 0
-          right 8px
+          right 0.5rem
           display inline-block
           color #E2E2E2
         &.default::before
-          line-height 24px
+          line-height 1.5rem
           font-size 16px
           content: '•'
         &.default::after
-          line-height 23px
+          line-height 1.4375rem
           font-size 12px
           content: '×'
         &.on-off::before
-          line-height 21px
+          line-height 1.3125rem
           font-size 12px
           content: 'on'
         &.on-off::after
-          line-height 24px
+          line-height 1.5rem
           font-size 12px
           content: 'off'
         &.open-close::before
