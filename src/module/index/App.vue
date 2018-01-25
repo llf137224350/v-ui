@@ -153,7 +153,16 @@
                 <h1>Slider:{{slideValue}}</h1>
                 <button @click="setSlideValue">currentValue = 80</button>
                 <button @click="resetSlideValue">currentValue=0</button>
-                <Slider ref="slide" :minValue="0" :maxValue="100" v-model="slideValue"></Slider>
+                <Slider  :minValue="0" :maxValue="100" v-model="slideValue"></Slider>
+                <divider :dividerType="'slide'"></divider>
+            </div>
+            <div style="margin-top: 20px">
+                <h1>CircularProgress，拖动Slider更改值 {{slideValue}}</h1>
+                <button @click="setStateSucceed">设置成功</button>
+                <button @click="setStateFailed">设置失败</button>
+                <div style="width: 80px;height: 80px;position: relative">
+                    <CircularProgress  :minValue="0" :maxValue="100"  v-model="slideValue" :state="state"></CircularProgress>
+                </div>
                 <divider :dividerType="'slide'"></divider>
             </div>
 
@@ -343,6 +352,7 @@
             </div>
 
         </div>
+        <notice ref="notice"></notice>
     </div>
 
 </template>
@@ -350,40 +360,42 @@
 <script>
     import   "common/css/reset.css"
     import   "common/css/animate.css"
-    import toast from "components/widget/toast/toast.vue"
-    import icontoast from "components/widget/icontoast/icontoast.vue"
-    import snackbar from "components/widget/snackbar/snackbar.vue"
-    import alertdialog from "components/widget/alertdialog/alertdialog.vue"
-    import confirmdialog from "components/widget/confirmdialog/confirmdialog.vue"
-    import progressbar from "components/widget/progressbar/progressbar.vue"
-    import promptdialog from "components/widget/promptdialog/promptdialog.vue"
-    import popupwindow from "components/widget/popupwindow/popupwindow.vue"
-    import tablayout from "components/widget/tablayout/tablayout.vue"
-    import timepicker from "components/widget/timepicker/timepicker.vue"
-    import datepicker from "components/widget/datepicker/datepicker.vue"
-    import popuppicker from "components/widget/popuppicker/popuppicker.vue"
-    import datetimepicker from "components/widget/datetimepicker/datetimepicker.vue"
-    import areapicker from "components/widget/areapicker/areapicker.vue"
-    import progressline from "components/widget/progressline/progressline.vue"
-    import linearProgress from "components/widget/linearProgress/linearProgress.vue"
-    import mySwitch from "components/widget/switch/switch.vue"
+    import toast from "components/widget/Toast/Toast.vue"
+    import icontoast from "components/widget/IconToast/IconToast.vue"
+    import snackbar from "components/widget/SnackBar/SnackBar.vue"
+    import alertdialog from "components/widget/AlertDialog/AlertDialog.vue"
+    import confirmdialog from "components/widget/ConfirmDialog/ConfirmDialog.vue"
+    import progressbar from "components/widget/ProgressBar/ProgressBar.vue"
+    import promptdialog from "components/widget/PromptDialog/PromptDialog.vue"
+    import popupwindow from "components/widget/PopupWindow/PopupWindow.vue"
+    import tablayout from "components/widget/Tablayout/Tablayout.vue"
+    import timepicker from "components/widget/TimePicker/TimePicker.vue"
+    import datepicker from "components/widget/DatePicker/DatePicker.vue"
+    import popuppicker from "components/widget/PopupPicker/PopupPicker.vue"
+    import datetimepicker from "components/widget/DatetimePicker/DatetimePicker.vue"
+    import areapicker from "components/widget/AreaPicker/AreaPicker.vue"
+    import progressline from "components/widget/ProgressLine/ProgressLine.vue"
+    import linearProgress from "components/widget/LinearProgress/LinearProgress.vue"
+    import CircularProgress from "components/widget/CircularProgress/CircularProgress.vue"
+    import mySwitch from "components/widget/Switch/Switch.vue"
     import sharewx from "components/widget/sharewx/sharewx.vue"
-    import divider from "components/widget/divider/divider.vue"
-    import Slider from "components/widget/slider/slider.vue"
-    import radio from "components/widget/radio/radio.vue"
-    import star from "components/widget/star/star.vue"
-    import numberkeyboard from "components/widget/numberkeyboard/numberkeyboard.vue"
-    import appbar from "components/widget/appbar/appbar.vue"
-    import appbarfortext from "components/widget/appbarfortext/appbarfortext.vue"
-    import floatbutton from "components/widget/floatbutton/floatbutton.vue"
-    import cellswipe from "components/widget/cellswipe/cellswipe.vue"
-    import rangeslider from "components/widget/rangeslider/rangeslider.vue"
-    import cellbox from "components/widget/cellbox/cellbox.vue"
-    import badge from "components/widget/badge/badge.vue"
+    import divider from "components/widget/Divider/Divider.vue"
+    import Slider from "components/widget/Slider/Slider.vue"
+    import radio from "components/widget/Radio/Radio.vue"
+    import star from "components/widget/Star/Star.vue"
+    import numberkeyboard from "components/widget/NumberKeyboard/NumberKeyboard.vue"
+    import appbar from "components/widget/AppBar/AppBar.vue"
+    import appbarfortext from "components/widget/AppBarForText/AppBarForText.vue"
+    import floatbutton from "components/widget/FloatButton/FloatButton.vue"
+    import cellswipe from "components/widget/CellSwipe/CellSwipe.vue"
+    import rangeslider from "components/widget/RangeSlider/RangeSlider.vue"
+    import cellbox from "components/widget/CellBox/CellBox.vue"
+    import badge from "components/widget/Badge/Badge.vue"
     import CheckBox from "components/widget/CheckBox/CheckBox.vue"
-    import vinput from "components/widget/vinput/vinput.vue"
-    import drawCircle from "components/widget/drawCircle/drawCircle.vue"
+    import vinput from "components/widget/vInput/vInput.vue"
+    import drawCircle from "components/widget/DrawCircle/DrawCircle.vue"
     import showMap from "components/showMap.vue"
+    import notice from "components/notice/notice.vue"
     const ERR_OK = 0;
     const topDirection = 0; // 从上进入
     const downDirection = 1; // 从下边进入
@@ -402,6 +414,7 @@
                 seller: {},
                 needTips: false,
                 slideValue: 20,
+                state:"progress",
                 checkValue: "撸代码,玩游戏,睡觉",
                 checkboxGamesValue: "绝地求生,荒野行动",
                 radioCheckedValue: "IBM",
@@ -481,6 +494,7 @@
             popuppicker,
             progressline,
             linearProgress,
+            CircularProgress,
             mySwitch,
             sharewx,
             divider,
@@ -498,7 +512,8 @@
             CheckBox,
             showMap,
             vinput,
-            drawCircle
+            drawCircle,
+            notice
         },
         methods: {
             read(){
@@ -697,6 +712,20 @@
             },
             test(){
                 console.log("我被点击了");
+            },
+            setStateSucceed(){
+                this.state = "succeed";
+            },
+            setStateFailed(){
+                this.state = "failed";
+            }
+        },
+        mounted(){
+//            this.$refs.notice.show();
+        },
+        watch:{
+            slideValue(){
+                this.state = "progress";
             }
         }
     }
@@ -720,7 +749,6 @@
     h1 {
         margin-top: 10px;
         height: 30px;
-        font-weight: bold;
     }
 
     button {

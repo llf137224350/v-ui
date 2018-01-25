@@ -23,8 +23,8 @@
 
 <!--script-->
 <script type="text/ecmascript-6">
-    import appbar from "components/widget/appbar/appbar"
-    import vmap from "components/widget/vmap/vmap"
+    import appbar from "components/widget/AppBar/AppBar"
+    import vmap from "components/widget/vMap/vMap"
     export default {
         created(){
             window.addEventListener("popstate", (e) => {
