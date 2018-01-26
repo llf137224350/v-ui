@@ -166,17 +166,17 @@
                                           :state="state"></CircularProgress>
                     </div>
                     <div style="flex: 1"></div>
-                    <div style="width: 80px;height: 80px;position: relative;flex: 0 0 80px">
+                    <div style="width: 70px;height: 70px;position: relative;flex: 0 0 70px;margin-top: 10px">
                         <CircularProgress :minValue="20" :maxValue="80" v-model="slideValue"
                                           :state="state"></CircularProgress>
                     </div>
                     <div style="flex: 1"></div>
-                    <div style="width: 80px;height: 80px;position: relative;flex: 0 0 80px">
+                    <div style="width: 60px;height: 60px;position: relative;flex: 0 0 60px;margin-top: 20px">
                         <CircularProgress :minValue="0" :maxValue="120" v-model="slideValue"
                                           :state="state" :foregroundColor="'#7E57C2'"></CircularProgress>
                     </div>
                     <div style="flex: 1"></div>
-                    <div style="width: 80px;height: 80px;position: relative;flex: 0 0 80px">
+                    <div style="width: 50px;height: 50px;position: relative;flex: 0 0 50px;margin-top: 30px">
                         <CircularProgress :minValue="0" :maxValue="200" v-model="slideValue"
                                           :state="state" :foregroundColor="'#7E57C2'"></CircularProgress>
                     </div>
