@@ -67,14 +67,16 @@
                     var horLine = new Konva.Line({
                         points: [0, this.cenY, this.selfWidth, this.cenY],
                         stroke: this.backgroundColor,
-                        strokeWidth: parseInt(this.height)
+                        strokeWidth: parseInt(this.height),
+
                     });
                     this.layer.add(horLine)
                     // 绘制进度线
                     this.progressLine = new Konva.Line({
                         points: [this.startX, this.cenY, this.selfWidth / 3 + this.startX, this.cenY],
                         stroke: this.foregroundColor,
-                        strokeWidth: parseInt(this.height)
+                        strokeWidth: parseInt(this.height),
+
                     });
                     this.layer.add(this.progressLine)
                     this.stage.add(this.layer)

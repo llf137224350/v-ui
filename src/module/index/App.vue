@@ -160,8 +160,13 @@
                 <h1>CircularProgress，拖动Slider更改值 {{slideValue}}</h1>
                 <button @click="setStateSucceed">设置成功</button>
                 <button @click="setStateFailed">设置失败</button>
-                <div style="width: 80px;height: 80px;position: relative">
-                    <CircularProgress  :minValue="0" :maxValue="100"  v-model="slideValue" :state="state"></CircularProgress>
+                <div style="display: flex">
+                    <div style="width: 80px;height: 80px;position: relative;flex: 0 0 80px">
+                        <CircularProgress  :minValue="0" :maxValue="100"  v-model="slideValue" :state="state"></CircularProgress>
+                    </div>
+                    <div style="width: 80px;height: 80px;position: relative;flex: 0 0 80px">
+                        <CircularProgress  :minValue="20" :maxValue="80"  v-model="slideValue" :state="state"></CircularProgress>
+                    </div>
                 </div>
                 <divider :dividerType="'slide'"></divider>
             </div>
