@@ -134,12 +134,12 @@
                 <h1>进度指示器(同一时刻只能一个执行，否则会卡顿，暂时未解决)</h1>
                 <button @click="startAnim">开始动画</button>
                 <button @click="stopAnim">停止动画</button>
-                <linearProgress ref="linearProgress" ></linearProgress>
+                <linearProgress ref="linearProgress"></linearProgress>
                 <div style="padding: 10px 0">指定颜色，高等</div>
                 <button @click="startAnim1">开始动画</button>
                 <button @click="stopAnim1">停止动画</button>
                 <linearProgress ref="linearProgress1" :foregroundColor="'#7E57C2'" :height="'6px'"></linearProgress>
-                <divider :dividerType="'slide'" ></divider>
+                <divider :dividerType="'slide'"></divider>
             </div>
             <div style="margin-top: 20px">
                 <h1>进度条{{currentValue}}</h1>
@@ -153,22 +153,35 @@
                 <h1>Slider:{{slideValue}}</h1>
                 <button @click="setSlideValue">currentValue = 80</button>
                 <button @click="resetSlideValue">currentValue=0</button>
-                <Slider  :minValue="0" :maxValue="100" v-model="slideValue"></Slider>
+                <Slider :minValue="0" :maxValue="100" v-model="slideValue"></Slider>
                 <divider :dividerType="'slide'"></divider>
             </div>
-            <div style="margin-top: 20px">
-                <h1>CircularProgress，拖动Slider更改值 {{slideValue}}</h1>
-                <button @click="setStateSucceed">设置成功</button>
+            <div style="margin-top: 20px;">
+                <h1>CircularProgress 范围依次为：[0,100],[20,80],[0,120],[0,200]，拖动Slider更改值 {{slideValue}}</h1>
+                <button @click="setStateSucceed">设置成功(currentValue === maxValue)</button>
                 <button @click="setStateFailed">设置失败</button>
                 <div style="display: flex">
                     <div style="width: 80px;height: 80px;position: relative;flex: 0 0 80px">
-                        <CircularProgress  :minValue="0" :maxValue="100"  v-model="slideValue" :state="state"></CircularProgress>
+                        <CircularProgress :minValue="0" :maxValue="100" v-model="slideValue"
+                                          :state="state"></CircularProgress>
                     </div>
+                    <div style="flex: 1"></div>
                     <div style="width: 80px;height: 80px;position: relative;flex: 0 0 80px">
-                        <CircularProgress  :minValue="20" :maxValue="80"  v-model="slideValue" :state="state"></CircularProgress>
+                        <CircularProgress :minValue="20" :maxValue="80" v-model="slideValue"
+                                          :state="state"></CircularProgress>
+                    </div>
+                    <div style="flex: 1"></div>
+                    <div style="width: 80px;height: 80px;position: relative;flex: 0 0 80px">
+                        <CircularProgress :minValue="0" :maxValue="120" v-model="slideValue"
+                                          :state="state" :foregroundColor="'#7E57C2'"></CircularProgress>
+                    </div>
+                    <div style="flex: 1"></div>
+                    <div style="width: 80px;height: 80px;position: relative;flex: 0 0 80px">
+                        <CircularProgress :minValue="0" :maxValue="200" v-model="slideValue"
+                                          :state="state" :foregroundColor="'#7E57C2'"></CircularProgress>
                     </div>
                 </div>
-                <divider :dividerType="'slide'"></divider>
+                <divider :dividerType="'slide'" style="margin-top: 10px"></divider>
             </div>
 
             <div style="margin-top: 20px">
@@ -331,11 +344,15 @@
             <div style="margin-top: 20px">
                 <h1>drawCircle (可配合其它控件做到类似于安卓水波纹的效果)</h1>
                 <br/>
-                <div style="width: 48px;height: 48px; line-height:48px;text-align:center;position: relative;border-radius:50%;overflow:hidden;color: #41B883;float: left" @click="test">
+                <div
+                    style="width: 48px;height: 48px; line-height:48px;text-align:center;position: relative;border-radius:50%;overflow:hidden;color: #41B883;float: left"
+                    @click="test">
                     点我
                     <drawCircle></drawCircle>
                 </div>
-                <div style="width: 48px;height: 48px; line-height:48px;text-align:center;position: relative;border-radius:50%;overflow:hidden;color: #41B883;" @click="test">
+                <div
+                    style="width: 48px;height: 48px; line-height:48px;text-align:center;position: relative;border-radius:50%;overflow:hidden;color: #41B883;"
+                    @click="test">
                     点我
                     <drawCircle :center="true"></drawCircle>
                 </div>
@@ -419,7 +436,7 @@
                 seller: {},
                 needTips: false,
                 slideValue: 20,
-                state:"progress",
+                state: "progress",
                 checkValue: "撸代码,玩游戏,睡觉",
                 checkboxGamesValue: "绝地求生,荒野行动",
                 radioCheckedValue: "IBM",
@@ -728,7 +745,7 @@
         mounted(){
 //            this.$refs.notice.show();
         },
-        watch:{
+        watch: {
             slideValue(){
                 this.state = "progress";
             }

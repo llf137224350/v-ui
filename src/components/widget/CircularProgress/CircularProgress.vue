@@ -37,7 +37,7 @@
                 preTime: 0,
                 timer: undefined,
                 selfState: this.state,
-                selfStrokeProgress: this.strokeProgress
+                selfforegroundColor: this.foregroundColor
             }
         },
         model: {    // 使用model， 这儿2个属性，prop属性说，我要将msg作为该组件被使用时（此处为aa组件被父组件调用）v-model能取到的值，event说，我emit ‘cc’ 的时候，参数的值就是父组件v-model收到的值。
@@ -53,7 +53,7 @@
                 type: Number,
                 default: 3
             },
-            stroke: {
+            backgroundColor: {
                 type: String,
                 default: "#e8e8e8"
             },
@@ -61,7 +61,7 @@
                 type: Number,
                 default: 14
             },
-            strokeProgress: {
+            foregroundColor: {
                 type: String,
                 default: "#41b883"
             },
@@ -97,7 +97,7 @@
                     x: this.currentX,
                     y: this.currentX,
                     radius: this.currentX - this.strokeWidth,
-                    stroke: this.stroke,
+                    stroke: this.backgroundColor,
                     strokeWidth: this.strokeWidth
                 });
                 this.layer.add(this.circle)
@@ -110,7 +110,7 @@
                     lineJoin: "round",
                     innerRadius: this.width / 2 - this.strokeWidth,
                     outerRadius: this.width / 2 - this.strokeWidth,
-                    stroke: this.selfStrokeProgress,
+                    stroke: this.selfforegroundColor,
                     strokeWidth: this.strokeWidth,
                     angle: 0,
                     rotation: -90
@@ -137,9 +137,11 @@
             },
             resetProgress(){
                 let angle = (this.msg - this.minValue) * 360 / (this.maxValue - this.minValue);
+                if(angle > 360)
+                    angle = 360;
                 this.arc.to({
                     angle: angle,
-                    stroke: this.selfStrokeProgress,
+                    stroke: this.selfforegroundColor,
                     duration: 0,
                     easing: Konva.Easings.EasIn
                 })
@@ -147,8 +149,10 @@
         },
         watch: {
             msg(currentValue, oldValue){
-                if (currentValue > this.maxValue || currentValue < this.minValue)
-                    return;
+                if (currentValue > this.maxValue)
+                    currentValue = this.maxValue;
+                else if(currentValue < this.minValue)
+                    currentValue = this.minValue;
                 if (this.succeedImage)
                     this.succeedImage.hide();
                 if (this.failedImage)
@@ -156,7 +160,7 @@
                 if (this.selfState != "progress") {
                     this.selfState = "progress"
                     this.text.show();
-                    this.selfStrokeProgress = this.strokeProgress;
+                    this.selfforegroundColor = this.foregroundColor;
                     this.resetProgress();
                 }
                 if (Date.now() - this.preTime > 400) {
@@ -174,11 +178,14 @@
                             } else if (currentValue < oldValue && currentValue > current) {
                                 clearInterval(this.timer);
                             } else {
-                                this.text.text(Math.floor((current - this.minValue) * 100 / (this.maxValue - this.minValue)) + "%");
+                                let result = Math.floor((current - this.minValue) * 100 / (this.maxValue - this.minValue));
+                                result  = result < 0 ? 0:result;
+                                result  = result > 100 ? 100:result;
+                                this.text.text( result+ "%");
                                 this.text.x(this.currentX - this.text.getWidth() / 2);
                             }
                         }, 40);
-                        let angle = (this.msg - this.minValue) * 360 / (this.maxValue - this.minValue);
+                        let angle = (currentValue - this.minValue) * 360 / (this.maxValue - this.minValue);
                         this.arc.to({
                             angle: angle,
                             duration: .4,
@@ -194,7 +201,7 @@
                     })
                 } else {
                     this.preTime = Date.now();
-                    let angle = (this.msg - this.minValue) * 360 / (this.maxValue - this.minValue);
+                    let angle = (currentValue - this.minValue) * 360 / (this.maxValue - this.minValue);
                     this.arc.to({
                         angle: angle,
                         duration: 0,
@@ -211,7 +218,7 @@
                 if (this.selfState === "succeed") {
                     if (this.msg != this.maxValue)
                         return;
-                    this.selfStrokeProgress = this.strokeProgress;
+                    this.selfforegroundColor = this.foregroundColor;
                     this.resetProgress();
                     this.text.hide();
                     if (this.failedImage)
@@ -247,7 +254,7 @@
                         })
                     }
                 } else if (this.selfState === "failed") {
-                    this.selfStrokeProgress = "#D74F43";
+                    this.selfforegroundColor = "#D74F43";
                     this.resetProgress();
                     this.text.hide();
                     if (this.succeedImage)
