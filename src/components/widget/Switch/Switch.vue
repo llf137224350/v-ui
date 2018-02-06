@@ -84,8 +84,8 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
   .switch
     display inline-block
-    width 2.75rem
-    height 1.375rem
+    width 44px
+    height 22px
     position relative
     user-select none
     -webkit-user-select none
@@ -96,8 +96,8 @@
         display none
       .switch-input + label
         display inline-block
-        width 2.75rem
-        height 1.375rem
+        width 44px
+        height 22px
         position relative
         -webkit-transition all 0.3s
         transition all 0.3s
@@ -107,10 +107,10 @@
         content ''
         display block
         position absolute
-        left 0.125rem
-        top 0.125rem
-        width 0.875rem
-        height 0.875rem
+        left 2px
+        top 2px
+        width 14px
+        height 14px
         background #E2E2E2
         border-radius 50%
         -webkit-transition 0.3s
@@ -121,55 +121,55 @@
       & > .switch-input:checked + label.green:after
         background rgb(65, 184, 131)
       & > .switch-input:checked + label:after
-        left calc(100% - 1rem)
+        left calc(100% - 16px)
       & > .switch-input:checked + label + div::before
         display inline-block
       & > .switch-input:checked + label + div::after
         display none
       & > .switch-input + label
-        border 0.125rem solid #E2E2E2
-        border-radius 1.375rem
+        border 2px solid #E2E2E2
+        border-radius 22px
         z-index 10
       & > .switch-tips
         position absolute
         top 0
         left 0
-        width 2.75rem
-        height 1.375rem
+        width 44px
+        height 22px
         &::before
           position absolute
           top 0
-          left 0.5rem
+          left 8px
           display none
           color rgba(65, 184, 131, .6)
         &::after
           position absolute
           top 0
-          right 0.5rem
+          right 8px
           display inline-block
           color #E2E2E2
         &.default::before
-          line-height 1.5rem
+          line-height 24px
           font-size 16px
           content: '•'
         &.default::after
-          line-height 1.4375rem
+          line-height 23px
           font-size 12px
           content: '×'
         &.on-off::before
-          line-height 1.3125rem
+          line-height 21px
           font-size 12px
           content: 'on'
         &.on-off::after
-          line-height 1.5rem
+          line-height  24px
           font-size 12px
           content: 'off'
         &.open-close::before
-          line-height 1.375rem
+          line-height 22px
           font-size 12px
           content: '开'
         &.open-close::after
-          line-height 1.375rem
+          line-height 22px
           font-size 12px
           content: '关'
 </style>

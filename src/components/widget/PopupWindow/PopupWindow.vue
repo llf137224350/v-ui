@@ -197,7 +197,7 @@
       right 0
       bottom 0
       background rgba(0, 0, 0, .5)
-      backdrop-filter blur(0.625rem)
+      backdrop-filter blur(10px)
       z-index 2147483646
     .popupwindow-content-wrapper
       position fixed
@@ -210,8 +210,8 @@
         background #fff
       .opt-item, .cancel, .title
         display block
-        height 3.125rem
-        line-height 3.125rem
+        height 50px
+        line-height 50px
         background #fff
         font-size 16px
         text-align center
@@ -230,7 +230,7 @@
         &:active
           background-color: #fff
       .cancel-wrapper
-        margin-top 0.75rem
+        margin-top 12px
       .cancel
         color red
       .opt-item, .title

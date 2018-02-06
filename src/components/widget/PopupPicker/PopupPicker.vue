@@ -269,7 +269,7 @@
       right 0
       bottom 0
       background rgba(0, 0, 0, .5)
-      backdrop-filter blur(0.625rem)
+      backdrop-filter blur(10px)
       z-index 2147483646
 
     .popuppicker-content-wrapper
@@ -277,10 +277,10 @@
       left 0
       bottom 0
       width 100%
-      height 18.75rem
+      height 300px
       z-index 2147483647
       .opt
-        height 2.5rem
+        height 40px
         width 100%
         background: #fff
         position relative
@@ -295,33 +295,33 @@
           content ''
         .cancel, .ok
           display inline-block
-          height 2.5rem
-          line-height 2.5rem
-          padding 0 1rem
+          height 40px
+          line-height 40px
+          padding 0 16px
           font-size 16px
         .cancel
           float left
-          margin-left 0.625rem
+          margin-left 10px
           color rgba(0, 0, 0, .3)
         .ok
           float right
-          margin-right 0.625rem
+          margin-right 10px
           color #41B883
 
       .items-wrapper
         background: #fff;
         display flex
         font-size 18px
-        height 16.25rem
+        height 260px
         overflow hidden
-        line-height 2.625rem
+        line-height 42px
         &::before
           content ""
           display block
           position absolute
-          height 8.125rem
+          height 130px
           width 100%
-          top 2.5rem
+          top 40px
           left 0
           background -webkit-linear-gradient(top, #fff, rgba(255, 255, 255, 0))
           z-index 2147483647
@@ -330,7 +330,7 @@
           content ""
           display block
           position absolute
-          height 8.125rem
+          height 130px
           width 100%
           bottom 0
           left 0
@@ -339,17 +339,17 @@
           pointer-events none
         .items
           flex 1
-          margin-top 6.875rem
-          margin-bottom 6.875rem
+          margin-top 110px
+          margin-bottom 110px
           text-align center
       .items-mask
         position absolute
         left 0
-        top 9.375rem
+        top 150px
         z-index 2147483647
         background: transparent
         width 100%
-        height 2.5rem
+        height 40px
         display flex
         pointer-events none
         &::after

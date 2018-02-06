@@ -21,7 +21,7 @@
                                :color="color"
                 ></appbarfortext>
                 <br/>
-                <appbarfortext :vtitle="'标题'" @appbarLeftClick="handleLeft" @appbarRightClick="handleRight"
+                <appbarfortext :vtitle="'标题'" @appbarLeftClick="handleLeft" @appbarRightClick="handleRight1"
                                :rightText="'提交'"
                                :color="color"
                 ></appbarfortext>
@@ -181,6 +181,12 @@
                                           :state="state" :foregroundColor="'#7E57C2'"></CircularProgress>
                     </div>
                 </div>
+                <divider :dividerType="'slide'" style="margin-top: 10px"></divider>
+            </div>
+            <div style="margin-top: 20px;">
+                <h1>Loading</h1>
+                <VLoading></VLoading>
+                <VLoading :Type="'white'" style="background-color: #01cc77;"></VLoading>
                 <divider :dividerType="'slide'" style="margin-top: 10px"></divider>
             </div>
 
@@ -374,7 +380,7 @@
             </div>
 
         </div>
-        <notice ref="notice"></notice>
+        <VMenu ref="vmenu"></VMenu>
     </div>
 
 </template>
@@ -399,6 +405,7 @@
     import progressline from "components/widget/ProgressLine/ProgressLine.vue"
     import linearProgress from "components/widget/LinearProgress/LinearProgress.vue"
     import CircularProgress from "components/widget/CircularProgress/CircularProgress.vue"
+    import VLoading from "components/widget/VLoading/VLoading.vue"
     import mySwitch from "components/widget/Switch/Switch.vue"
     import sharewx from "components/widget/sharewx/sharewx.vue"
     import divider from "components/widget/Divider/Divider.vue"
@@ -417,7 +424,7 @@
     import vinput from "components/widget/vInput/vInput.vue"
     import drawCircle from "components/widget/DrawCircle/DrawCircle.vue"
     import showMap from "components/showMap.vue"
-    import notice from "components/notice/notice.vue"
+    import VMenu from "components/widget/VMenu/VMenu.vue"
     const ERR_OK = 0;
     const topDirection = 0; // 从上进入
     const downDirection = 1; // 从下边进入
@@ -517,6 +524,7 @@
             progressline,
             linearProgress,
             CircularProgress,
+            VLoading,
             mySwitch,
             sharewx,
             divider,
@@ -535,7 +543,7 @@
             showMap,
             vinput,
             drawCircle,
-            notice
+            VMenu
         },
         methods: {
             read(){
@@ -705,8 +713,33 @@
             handleLeft(){
                 alert("返回")
             },
+            handleRight1(){
+              alert("提交")
+            },
             handleRight(){
-                alert("菜单")
+                this.$refs.vmenu.show({
+                    top: "174px",
+                    right: "18px",
+                    menuItems: [
+                        "菜单一", "菜单二", "菜单三", "菜单四", "菜单五"],// 可以传入html 也就是自定义样式
+                    callBacks: [
+                        () => {
+                            alert("菜单一");
+                        },
+                        () => {
+                            alert("菜单二");
+                        },
+                        () => {
+                            alert("菜单三");
+                        },
+                        () => {
+                            alert("菜单四");
+                        },
+                        () => {
+                            alert("菜单五");
+                        }
+                    ]
+                });
             },
             showRangeSlider(){
                 this.$refs.rangeslider.show(0);

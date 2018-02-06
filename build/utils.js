@@ -37,6 +37,7 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return ExtractTextPlugin.extract({
         use: loaders,
+          publicPath: '../../', //vue中写css需要这么配置
         fallback: 'vue-style-loader'
       })
     } else {

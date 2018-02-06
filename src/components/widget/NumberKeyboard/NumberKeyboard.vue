@@ -15,17 +15,17 @@
         <div class="close-keyboard border-1px" @click="hide()">
           <i class="pic"></i>
         </div>
-        <ul class="border1px">
+        <ul class="border-1px">
           <li class="border-w1px" @click="clickHandle($event)">1</li>
           <li class="border-w1px" @click="clickHandle($event)">2</li>
           <li @click="clickHandle($event)">3</li>
         </ul>
-        <ul class="border1px">
+        <ul class="border-1px">
           <li class="border-w1px" @click="clickHandle($event)">4</li>
           <li class="border-w1px" @click="clickHandle($event)">5</li>
           <li @click="clickHandle($event)">6</li>
         </ul>
-        <ul class="border1px">
+        <ul class="border-1px">
           <li class="border-w1px" @click="clickHandle($event)">7</li>
           <li class="border-w1px" @click="clickHandle($event)">8</li>
           <li @click="clickHandle($event)">9</li>
@@ -226,7 +226,7 @@
       bottom 0
       display block
       width 100%
-      border-bottom 1px solid #E0E0E0
+      border-bottom 1px solid #e8e8e8
       content ''
 
   borderRight1px()
@@ -237,7 +237,7 @@
       right 0
       display block
       height 100%
-      border-right 1px solid #D0D0D0
+      border-right 1px solid #e8e8e8
       content ''
 
   .number-keyboard
@@ -274,23 +274,23 @@
       borderTop1px()
       .close-keyboard
         display block
-        height 1.875rem
+        height  30px
         text-align center
         background: #fff
         borderBottom1px()
         .pic
           display inline-block
-          margin-top 0.1875rem
-          width 1.875rem
-          height 1.5rem
+          margin-top 3px
+          width 30px
+          height 24px
           background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAB9ElEQVR4Xu2Z7VHDMAyGlQ0YgRFQFgBGYALoBKzCBnQD2AAmiGACYAM2SM+cc2dyMYk/ZEdY+dXr1a6fx6+spO2g8atrnB9UgCagcQNaAo0HQA9BLQEtgcYNaAk0HgDtAloCWgKNG1gsASI6A4BzRHz7D36GYbjsuu4dEb/nPD4BH0YAABwR8SBVgt3IJwC4AoBXRLzeKmB0PihSgoV/AYALwzKO41ff92ZTf12+BNwBwKNUCXN4y3GDiM+bBJgPEZFICR74AyIel0r5z/sAaRJC4Y2Q1RshKRJi4DcJkFAOsfCbBexZQgp8kIC9SiAimlqdPeS8B17wIbg0YE9nAhGZVm261XQFwQcnYPqWPUjIAR8toHY55IJPElBLQk74ZAGlJeSGzyKglAQO+GwCuCVwwWcVwCWBEz67ACvhAQDund4c/XsCNzyLACvBPHrepkgoAc8mIFVCKXhWAbESSsKzCwiVUBq+iICtEmrAFxOwJqEWfFEBPgm2UyQ90jrdJvjl6m+CwTOuDCCieYt0RwQ/z6eur7gATxLM28Xhi5eAu1tE5N4xVoGvKsAm4eevKkT8TI1y7PgqJRC7WI5xKoDDqqQ5NQGSdotjrZoADquS5tQESNotjrVqAjisSppTEyBptzjWqgngsCppTk2ApN3iWOsJGg4VUJt+6hcAAAAASUVORK5CYII=")
           -webkit-background-size 30px 24px
-          background-size 1.875rem 1.5rem
+          background-size 30px 24px
       & > ul
         display flex
         background: #fff
-        height 3.75rem
-        line-height 3.75rem
+        height 60px
+        line-height 60px
         overflow hidden
         & > li
           flex 1
@@ -307,9 +307,9 @@
             background: #F7F7F7
             .delete-pic
               display inline-block
-              margin-top 0.8125rem
-              width 1.875rem
-              height 1.875rem
+              margin-top 13px
+              width 30px
+              height 30px
               background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADfklEQVR4Xu2aW3LaMBSGJdk8N0vIDgorKFlBuoPAMyOBV9DuwIw9PIeuIGQFSVcQWEG7BHi3UUcduaO4NtHlyJfBPDEDks7/6T/ykSyMrvyDr1w/GgAMDrhyAkMKXLkBhkVwSIEhBa6cgLcUiOP4djQafeGc37bJmHP+yhj7WRcDOIA4jm+CIIgxxrM2hZfG3hNC5ovFYl+OCRTAZrMZ53n+gjG+6ZD4v6Fwzo95nk+iKPqtxgYGoCyec/6MMV5TSl/bgiFiOp/PwolLGcMPSuk7Z4IAkLZ/wxgX+f7fQG1BEOMmSbLDGN+L75TSd5qdAQjxYRi+IITGdZTbFC/GTtP0O0Lom/hOCJmoa4ETgD6ILwNACN2paWkNoC/ivQFI0/QJIfRV2vuQZdk0iqJj23avGl9NARAHJEnyqDznOy0e3AF9Ew8KAEq8rBkeGGORTcrI9eeJEBJVVXflPkFSIEmSFcY4lp2fCCFTncHLwagFE+d8yxibm0BQF9+66g4cQJIkM4zxo6t40V4KENXhZ1miakOwffI4OQBSfDEzNhBsxTutAT7E20BwEW8NQG4k3oqAOedzxtjWJF8/+q+OE1zFWwGo2NmBi9dxAoR4YwByZ/er2NP7mPmyM6qckOd5BLXJMloE0zQVNn+QK7S3mdeAcFQOVpy216YARN6Lre2BUlpscT9KZ5Dfy06QnTqJN06BNE3FuZl4Ru8ppRMQZZqdVOS8OMrSrhPqhjF1QJspoB6snBBCn0yLpSoIRgDkLIiDw2Jw7+tA1WqfZdkqDEOritG5FJY1gBjcO4RLjzqdOkEnu4wcUHTYBASd5zwEBCsAAoRaCoudVxAEdzY7wKpZ0hGvUyx5c0DRsQ8IJuIhIFg7wAcEG/GuEJwBQKZDaW0xLnJKa4LWeSQIAFlR/asRRKGUZdmdzUlw8cqKUrrSyeGasnktHpU644MBgIRgI9y2DSiAPkIAB9A3CF4AQBQotpY2becFgAiiLxC8AegLBG+vx10LFFMr2/5ffZELfkGibvOEENqdz+ftcrl8tg3ctZ083F0qL3L9XJG5AMFVA2T7U5ZlY2+XpErpsC4OViEVOPR1IITMvF+TUwMUFyWDIJgqF6cc4rdvSgjZXdrCW1+RsQ+pWy0HAN2aj+ajGRzQPPNujTg4oFvz0Xw0gwOaZ96tEQcHdGs+mo/mDwBWE26/t8ePAAAAAElFTkSuQmCC")
               background-repeat no-repeat
               -webkit-background-size contain

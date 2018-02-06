@@ -41,10 +41,14 @@
 <!--script-->
 <script type="text/ecmascript-6">
     export default {
-        created(){
-            this.$nextTick(() => {
+        mounted(){
+            // 获取容器的高度
+            this.containerWidth = this.$refs.tablayoutHook.getBoundingClientRect().width;
+            // 监听窗口大小改变
+            window.onresize = () => {
                 this.containerWidth = this.$refs.tablayoutHook.getBoundingClientRect().width;
-            })
+            }
+            // 获取当前选中
             this.cIndex = this.currentIndex;
             // 点击item的时候会执行
             window.addEventListener("popstate", (e) => {
@@ -52,12 +56,9 @@
                 if (this.hash === location.hash)
                     return;
                 this.hash = location.hash;
-               this.setIndex();
+                this.setIndex();
             });
-            // 窗口大小改变
-            window.onresize = () => {
-                this.containerWidth = this.$refs.tablayoutHook.getBoundingClientRect().width;
-            }
+
             // 刷新回显指示器
             this.setIndex();
         },
@@ -94,7 +95,7 @@
                 defalut: "#000"
             }
         },
-        methods:{
+        methods: {
             setIndex(){
                 for (let i = 0; i < this.datas.length; i++) {
                     if (this.datas[i].to === location.hash.substring(1)) {
@@ -170,7 +171,7 @@
         overflow-x auto
         position relative
         .tablayout-wrapper
-            height 2.75rem
+            height 44px
             z-index 2147483644
             position relative
             &::after
@@ -183,8 +184,8 @@
                 content ''
             .tablayout-item
                 float left
-                height 2.75rem
-                line-height 2.75rem
+                height 44px
+                line-height 44px
                 text-align center
                 user-select none
                 -webkit-user-select none

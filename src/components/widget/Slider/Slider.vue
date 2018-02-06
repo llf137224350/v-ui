@@ -217,5 +217,5 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus" scoped>
   .slider
     .slider-container
-      height 1.25rem
+      height 20px
 </style>

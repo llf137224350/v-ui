@@ -172,7 +172,7 @@
       right 0
       bottom 0
       background rgba(0, 0, 0, .5)
-      backdrop-filter blur(0.625rem)
+      backdrop-filter blur(10px)
       z-index 2147483646
     .alert-content-wrapper
       position fixed
@@ -183,29 +183,29 @@
       margin auto
       background: #fff
       box-sizing content-box
-      border-radius 0.1875rem
-      padding 1.25rem 1rem
-      padding-bottom 3.5rem
+      border-radius 3px
+      padding 20px 16px
+      padding-bottom 56px
       z-index 2147483647
       .content
         position relative
-        min-height 4.25rem
-        max-height 20rem
+        min-height 68px
+        max-height 320px
         text-align left
         font-size 16px
-        line-height 1.5rem
+        line-height 24px
         vertical-align middle
       .btn
         position absolute
-        bottom 1rem
-        right 1rem
+        bottom 16px
+        right 16px
         &:active
           background: #fff
         .ok
           display inline-block
-          line-height 1rem
-          padding 0.3125rem 0.625rem
-          border-radius 0.125rem
+          line-height 16px
+          padding 5px 10px
+          border-radius 2px
           user-select none
           touch-callout none
           color #41B883

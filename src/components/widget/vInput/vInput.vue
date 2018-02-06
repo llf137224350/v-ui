@@ -153,8 +153,8 @@
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus" scoped>
     .v-input
-        height 3rem
-        line-height 3rem
+        height 48px
+        line-height 48px
         display flex
         box-sizing content-box
         position relative
@@ -164,7 +164,7 @@
             bottom: 0
             display: block
             width: 0%
-            height: 0.125rem
+            height: 2px
             background: #01cc77
             content: ""
         &.anim::after
@@ -173,17 +173,17 @@
             left: 0%
             width: 100%
         & > label
-            flex 0 0 5rem
+            flex 0 0 80px
         & > input
             flex 1
             outline none
-            margin-right 0.625rem
+            margin-right 10px
         & > i
-            flex 0 0 0.75rem
+            flex 0 0 12px
             display inline-block
-            width 0.75rem
-            height 0.75rem
-            margin-top 1.125rem
+            width 12px
+            height 12px
+            margin-top  18px
             background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAWCAYAAAArdgcFAAAAxElEQVQ4T72V0RHCIBBE2dLsQCswduAvFTBUYazAEs/BSZxIDm4DiXwxfLxd7lgOMcaziLxE5Oa9H13nCiEMAB4ALpjhidkrMIMn1glpkx023UBjfOC9AiVzX3irQO3WP/CtAlY5V3BWwAInjgq3BBhwFV4SYMEmPBdwzqWQDWwmimVZBnXplgVTzhX3dJJN51mNnwCurPsqXGveLg2tQViB/4aIdWUFbfVatoCZ3/T4L7fFcT4N1WFx6Jib4KOI3Pce0G/gjEKmETd3cgAAAABJRU5ErkJggg==") no-repeat center
             -webkit-background-size: cover
             background-size: cover

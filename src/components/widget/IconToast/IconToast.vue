@@ -63,15 +63,15 @@
   .icontoast
     .icontoast-wrapper
       position fixed
-      min-width 6.875rem
-      height 5.625rem
+      min-width 110px
+      height 90px
       left 50%
       top 50%
       transform translate(-50%, -50%);
       margin auto
-      backdrop-filter blur(0.625rem)
+      backdrop-filter blur(10px)
       background rgba(0, 0, 0, .8)
-      border-radius 0.375rem
+      border-radius 6px
       transition all .6s
       z-index 2147483647
       &.fade-enter-active, &.fade-leave-active
@@ -80,9 +80,9 @@
         opacity 0
       .icon
         display block
-        width 2.375rem
-        height 2.375rem
-        margin 0.75rem auto
+        width 38px
+        height 38px
+        margin 12px auto
         &.succeed
           background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEe0lEQVR4Xu1bgVEVMRDdrUCtQKhAqECtQKxAqECoQKxArECoQKxAqUCoQKhArWCdd5P8uUtyySaXy92Xn5k/AuYu+95uXjabfKZH3viR46cdAbsIaMyAiBwQ0RMz7CsiuiWiP+b3O2a2PzexbNYpICJ7RPSSiAAUwPHRtB9E1H2Y+UbzQGmfWQgQkXdEdGQ+pbbZ5xAR10R0xcwgpWqrRoCIPCUiAD8lInh+jnZPROfMfFXr5VUIEBF4+9OMwF280I2zGhExiQDj9S+VQr3EqRfMfFbyoH2mmACj5gCvFbYpdsaeRTScMDP+zW5FBBjw34kI834NDUL5uoSEbAJE5NjM97WA768Wb3N1IYuAFXrejb7sSFATsAXg+5Ggng4qAozaY84vLXhavYEggoRkWq0l4IKI3mtHX0m/S2Y+SdmSJEBEkMfD+9vYEAXR9FlDwM8tCn3XSffMvB/zXJQAs+Qh2dnmhiTpcgxAioBfDfP7uUiORsEoAVs+910yR6MgRgDCBtvb/6F9Y2bsWL0WI+D3inL9vuF3RHSMvF9EsN6/UHroWSgvCBJg9vdflS9u2Q3lsSMLRERyVijsE1BZGrQxAtaY+KAkho1Y10QEq9Pmd4UXPjMzqlUqApA8oJi5ljYQsQLwwHHLzIdaAmQlyP+akN9kc4XgOzjM7EW89wez8YEALt02Yjch7F0Mh27RJETAGnJ/V+xQfIEow7YpzdsbrJEAV+wAvtZW3EuIQgRAKVHiXqK5YlcTPPB8ZObzPrAQAejwoRA9Diyw1uId2gQFQ4XErjZ4NQFYW4t2gFZljZAil9Ck0iGxmwO8moApIrjPzDi+6ppiOz0QO/PMXODxei8brC2CXi3OFFMxLZ4702ogdg3AY4j0KmAMmZIIhUiAV0GCzS49NW5UeB1EaJcchcRORBDGrsdydDFYlTU1BhQoNtOkkec721WZoDEI3nqTgzjQV1WabuR5mHfDzF4iNRYBtXKBKAkNwQdXgNgUwAUH1ANrtLHpMKfah+z29gGjBJhpkFNtSRE1IKGx52HbAzMHb63ESmK1poElpyPBlNmwsWl5zOalwNaoGAEIUai1vdKW8rLm/3FW1/pYHWn23tg5YepcYMq+QENIiz5ewtUfNEXAHFHQArQdA94/cPMONQFGDGtrQUsCcJMMm7LRljwcnWFFaEUArt0mhVZLAJYQqHhNQZyTiGToJ1cB17oVH5aEiAwegoQ6qiLAPqjY38/pVe27o8fh7kuyCDB6UFwx0iKY0C8LPMbJJmDFJGSDLybAkIDjZhyhLy2MXkE1J4KKIqCnCVgdUDvIqQDn2Jfq69UUUw9M1oDQACKCZAlpc6togNdPY3d/tERMioD+IObrMSBBUwrX2uf2A3Bkdrgmn7wEqRmkGgG9aYH9AyICq8WUumLffoQ69Oa6FvDsREjDZiB5QioKsUQtLue+wYP90pT54tSgiFpiy9gz1SMgZpyZJhBO++l37+4ApG521gQ/aRmsbchS72saAUuBjI27I2CNXmlp0z8UN7xQ47Ic6wAAAABJRU5ErkJggg==") no-repeat center
           background-size: contain
@@ -92,9 +92,9 @@
       .icon-toast-text
         display block
         width 100%
-        padding 0 0.625rem
+        padding 0 10px
         text-align center
-        line-height 0.875rem
+        line-height 14px
         font-size 14px
         overflow hidden
         text-overflow ellipsis

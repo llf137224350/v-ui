@@ -28,15 +28,15 @@
   .badge
     display inline-block
     color #fff
-    min-width 0.625rem
-    min-height 0.625rem
+    min-width 10px
+    min-height 10px
     background: #F74C31
-    border-radius 0.3125rem
+    border-radius 5px
     &.badge-no-empty
       font-size 12px
       text-align center
-      padding 0.125rem 0.1875rem
-      border-radius  0.5rem
+      padding  2px 3px
+      border-radius  8px
     &.badge-other
-      padding 0.125rem  0.3125rem
+      padding 2px  5px
 </style>

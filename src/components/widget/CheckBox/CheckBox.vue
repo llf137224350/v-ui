@@ -98,24 +98,24 @@
                 display none
             .check-box-input + label
                 display inline-block
-                width 1.25rem
-                height 1.25rem
-                line-height 1.25rem
+                width 20px
+                height 20px
+                line-height 20px
                 position relative
                 -webkit-transition all 0.6s
                 transition all 0.6s
                 box-sizing border-box
-                top 0.29rem
-                border 0.125rem solid #E2E2E2
-                border-radius 0.1875rem
+                top 4.64px
+                border 2px solid #E2E2E2
+                border-radius 3px
             & > .check-box-input + label:after
                 content ''
                 display block
                 position absolute
-                left 0.0625rem
-                top 0.0625rem
-                width 0.875rem
-                height 0.875rem
+                left 1px
+                top 1px
+                width 14px
+                height 14px
                 background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACs0lEQVR4Xu2ZQZISMRSG/zeUxVK8gTdwvEFYSa8cTyCcQD1AYwvl2vIEgydwXIFuOt7AI3ADcUlZ8CwQpqag6U6apBO6w5JKVfJ9+d/rTofQ8B81nB9BQEhAww2EEmh4AEITDCUQSqDhBkIJ1DkAYpo8lVEyz2OsXQJEmnSwbN0ScLMBZ/ACoET24s9ZImolYAefEnB9CMuMDzKKk8P/ayMgD36fBNkbPqmlgCL4PTQzujKK5UMJF58AVfhtCuomQAcewJ+0F3dqUwKa8GDCK/kivquFAG145oGMhpNaPAZNwm+EXFQTNA1/UQJswF+MAFvwSgLEj4/XePR3LrvJwsXBSR8eX2QU91XXerIHiNn4DcAJgbbPTgYkeDUoOl2pTqwyzjb8yQSI2egtgT4dHSjAc7TXz6tIQxXweQJ+73f+WAJ+ob3q2pRQFXymADEdCyKkeRFl2JNQJXxpAbueYDwJVcNnC0iTDi1bm89Ij4salckkuIA/3QO+j2+I8bVIgKkkuILPfQ8Q01GfiG5tS3AJX/giZFuCa/hCAZsBYjpOiPDedBJ8gFcSsJMwIcJrRQlS9uJu3lhf4JUF6EvgiewNB1kSfILXEmBCgm/w2gLOkeAjfCkBZSSgvX6HZSvzxiarTJj1jrQqvenUmNKfxMR0rNEYeXHqcHV02KoQvnQC9ovWkaCyS1Xu/H49pRNgWoIL+LMTcC9hNroj0EuVXXZd84fzn52AbVPcniCvJEDPdCW42nljJXCfghISXMMbK4EyEnyANy5AtRx8gbcioFAC8880GgrdXmFrvJEmmLW4/6++V5OHTwcGf0N73bf5RVlXlDUB931hc7O0WneA1bzKSxVVEdYFqC7E1bggwJV5X+YNCfBlJ1ytIyTAlXlf5g0J8GUnXK0jJMCVeV/mbXwC/gFGMLtQrWchDwAAAABJRU5ErkJggg==")
                 background-repeat: no-repeat
                 -webkit-background-size: cover

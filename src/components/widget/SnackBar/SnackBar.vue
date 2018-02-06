@@ -109,7 +109,7 @@
       left 0
       display flex
       width 100%
-      height 3.125rem
+      height 50px
       background #373A41
       transition all 0.5s
       z-index 2147483647
@@ -143,8 +143,8 @@
           transform translate3d(0, 100%, 0)
       .content, .btn
         color #fff
-        height 3.125rem
-        line-height 3.125rem
+        height 50px
+        line-height 50px
         font-size 14px
         user-select: none
         -webkit-user-select none
@@ -152,7 +152,7 @@
         flex 1
         height 100%
         text-align left
-        padding 0 0.625rem
+        padding 0 10px
         text-overflow ellipsis
         display block
         overflow hidden
@@ -167,7 +167,7 @@
           border-right 1px solid rgba(255, 255, 255, .2)
           content ''
       .btn
-        flex 0 0 5rem
+        flex 0 0 80px
         text-align center
         user-select none
         -webkit-user-select none

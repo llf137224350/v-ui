@@ -86,8 +86,8 @@
   .appbar
     position relative
     width 100%
-    height 3rem
-    line-height 3rem
+    height 48px
+    line-height 48px
     display flex
     & > div
       touch-callout: none
@@ -95,20 +95,20 @@
       user-select none
       -webkit-user-select none
     .appbar-left
-      width 3rem
-      height 3rem
-      flex 0 0 3rem
+      width 48px
+      height 48px
+      flex 0 0 48px
       .appbar-left-icon
         display block
-        width 1.75rem
-        height 1.75rem
-        margin 0.625rem
+        width 28px
+        height 28px
+        margin 10px
         background: green
         background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABmklEQVR4Xu3aQUoDQRCF4VdncZUziJIsPId6A2+k53Cl4AF048pDKLovGZiBMDBu0lX1S/dsssrQ7+vXgS5i6vyxzvNrAIwGdC4wjkDnBRg/guMIjCPQuQD+CLj7g6QnM5s+mz9ogDn89Zz6NgIBC7AKv+x8cwQkwEb4L0l7M3tteQ5wAJnhJ0gUQHZ4FEBFeAxAVXgEQGX4coDq8KUAhPBlAJTwJQCk8OkAtPCpAMTwaQDU8CkA5PDhAPTwoQDu/i5pt7q6hlxpT7keh9wG3f1D0hk9fEgDNsL/SLpoPcw4ZeeX7zZvgLu/SDpfLe5b0mUXAFPwDYRPSQcaQvMGLDvv7o+SrlZNwCGEAcxNuJF0T0YIBfgPCOEAdIQUADJCGgAVIRWAiJAOQEMoASAhlAFQEEoBCAjlANUICIBKBAxAFQIKoAIBB5CNgAT4A+HZzPYtRmFhI7GWi3P343nC2/wnqWmo0uzBNuBosjQh3EWED5kKN9uapBfhGxDtMACihenvHw2g71D0+kYDooXp7x8NoO9Q9Pq6b8AvFMT3Qf2VWZgAAAAASUVORK5CYII=") no-repeat center
         -webkit-background-size cover
         background-size cover
     .appbar-right-for-text
-      flex 0 0 3.75rem
+      flex 0 0 60px
       .appbar-right-text
         display block
         text-align center
@@ -121,18 +121,18 @@
       &::before
           position absolute
           right 0
-          bottom 0.75rem
+          bottom 12px
           display block
-          height 1.5rem
+          height 24px
           border-left 1px solid  rgba(0,0,0,.1)
           content ''
     .appbar-title
       display block
       flex 1
-      line-height 3.125rem
+      line-height 50px
       color #fff
       font-size 17px
-      padding 0 0.75rem
+      padding 0 12px
       overflow hidden
       white-space nowrap
       text-overflow ellipsis
