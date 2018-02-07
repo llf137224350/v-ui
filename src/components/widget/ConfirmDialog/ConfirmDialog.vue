@@ -162,8 +162,8 @@
 
   .confirm
     .animated-confirm
-      -webkit-animation-duration 0.6s
-      animation-duration 0.6s
+      -webkit-animation-duration 0.4s
+      animation-duration 0.4s
       -webkit-animation-fill-mode both
       animation-fill-mode both
     .zoomIn-confirm

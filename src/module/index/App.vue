@@ -29,6 +29,13 @@
             </div>
 
             <div style="margin-top: 20px">
+                <h1>SearchBar {{searchBarValue}}</h1>
+                <SearchBar v-model="searchBarValue"></SearchBar>
+                <divider :dividerType="'slide'" style="margin-top: 10px"></divider>
+            </div>
+
+
+            <div style="margin-top: 20px">
                 <h1>选项卡</h1>
                 <!--背景颜色可包裹一个div 设置div背景色-->
                 <div class="tab-wrapper">
@@ -48,7 +55,9 @@
                 <button @click="showIcontoastSucceed">点击我弹出输出内容吐司样式2成功</button>
                 <icontoast ref="icontoastSucceed"></icontoast>
                 <button @click="showIcontoastFailed">点击我弹出输出内容吐司样式2失败</button>
+                <button @click="showNotification">点击我弹出消息通知</button>
                 <icontoast ref="icontoastFailed"></icontoast>
+                <Notification ref="notification"></Notification>
                 <divider :dividerType="'slide'"></divider>
             </div>
 
@@ -373,6 +382,11 @@
                 <divider></divider>
             </div>
             <div style="margin-top: 20px">
+                <h1>Timeline</h1>
+                <VerticalTimeline :timelineData ="timelineData"></VerticalTimeline>
+                <divider :dividerType="'slide'"></divider>
+            </div>
+            <div style="margin-top: 20px">
                 <h1>floatButton</h1>
                 <br/>
                 <floatbutton></floatbutton>
@@ -425,6 +439,9 @@
     import drawCircle from "components/widget/DrawCircle/DrawCircle.vue"
     import showMap from "components/showMap.vue"
     import VMenu from "components/widget/VMenu/VMenu.vue"
+    import VerticalTimeline from "components/widget/VerticalTimeline/VerticalTimeline.vue"
+    import SearchBar from "components/widget/SearchBar/SearchBar.vue"
+    import Notification from "components/widget/Notification/Notification.vue"
     const ERR_OK = 0;
     const topDirection = 0; // 从上进入
     const downDirection = 1; // 从下边进入
@@ -504,6 +521,25 @@
                 username: "",
                 password: "",
                 phone: "",
+                timelineData:[
+                    {
+                        date:"2018-01-23",
+                        content:"我说都是假的你信吗？"
+                    },
+                    {
+                        date:"2017-12-23",
+                        content:"第三个版本发布，新增了大量类似原生体验效果的组件，并对代码进行了深入的优化。"
+                    },
+                    {
+                        date:"2017-11-23",
+                        content:"第二个版本发布"
+                    },
+                    {
+                        date:"2017-10-23",
+                        content:"第一个版本发布"
+                    }
+                ],
+                searchBarValue:""
             }
         },
         components: {
@@ -543,7 +579,10 @@
             showMap,
             vinput,
             drawCircle,
-            VMenu
+            VMenu,
+            VerticalTimeline,
+            SearchBar,
+            Notification
         },
         methods: {
             read(){
@@ -773,6 +812,18 @@
             },
             setStateFailed(){
                 this.state = "failed";
+            },
+            showNotification(){
+                this.$refs.notification.show({
+                    icon:"http://ww3.sinaimg.cn/bmiddle/61e8a1fdgw1eeuqql9xagj206w056mxh.jpg",
+                    title:"我是标题",
+                    subtitle:"我是子标题",
+                    content:"我是文本内容，哈哈哈哈哈我是文本内容，哈哈哈哈哈我是文本内容，哈哈哈哈哈我是文本内容，哈哈哈哈哈",
+                    btnText: "查看",
+                    callback:()=>{
+                        alert("回调了")
+                    }
+                })
             }
         },
         mounted(){
