@@ -1,24 +1,24 @@
 <!--
    开发者：い 狂奔的蜗牛
-   说明：类似于popupWindow 需要reset.css 代码已格式化好，切勿再进行格式化
+   说明：类似于actionsheet 需要reset.css 代码已格式化好，切勿再进行格式化
    版本：V 0.0.1
   -->
 
 <!--html-->
 <template>
-  <div class="popupwindow">
+  <div class="actionsheet">
     <transition
-      enter-active-class="animated-popupwindow fadeIn-popupwindow "
-      leave-active-class="animated-popupwindow fadeOut-popupwindow "
+      enter-active-class="animated-actionsheet fadeIn-actionsheet "
+      leave-active-class="animated-actionsheet fadeOut-actionsheet "
     >
-      <div class="popupwindow-mask" v-show="isShow"></div>
+      <div class="actionsheet-mask" v-show="isShow"></div>
     </transition>
     <transition
       v-on:after-leave="afterLeave"
-      enter-active-class="animated-popupwindow slideInUp-popupwindow fadeIn-popupwindow"
-      leave-active-class="animated-popupwindow slideOutDown-popupwindow  fadeOut-popupwindow"
+      enter-active-class="animated-actionsheet slideInUp-actionsheet fadeIn-actionsheet"
+      leave-active-class="animated-actionsheet slideOutDown-actionsheet  fadeOut-actionsheet"
     >
-      <div class="popupwindow-content-wrapper" v-show="isShow">
+      <div class="actionsheet-content-wrapper" v-show="isShow">
         <div class="title border-1px" v-show="title" v-html="title"></div>
         <ul>
           <li class="opt-item border-1px" v-for="item in items" @click="itemClick(item)" v-html="item.text"></li>
@@ -94,31 +94,31 @@
     width 0
     height 0
 
-  @-webkit-keyframes fadeIn-popupwindow
+  @-webkit-keyframes fadeIn-actionsheet
     from
       opacity 0
     to
       opacity 1
 
-  @keyframes fadeIn-popupwindow
+  @keyframes fadeIn-actionsheet
     from
       opacity 0
     to
       opacity 1
 
-  @-webkit-keyframes fadeOut-popupwindow
+  @-webkit-keyframes fadeOut-actionsheet
     from
       opacity 1
     to
       opacity 0
 
-  @keyframes fadeOut-popupwindow
+  @keyframes fadeOut-actionsheet
     from
       opacity 1
     to
       opacity 0
 
-  @-webkit-keyframes slideInUp-popupwindow
+  @-webkit-keyframes slideInUp-actionsheet
     from
       -webkit-transform translate3d(0, 100%, 0)
       transform translate3d(0, 100%, 0)
@@ -127,7 +127,7 @@
       -webkit-transform translate3d(0, 0, 0)
       transform translate3d(0, 0, 0)
 
-  @keyframes slideInUp-popupwindow
+  @keyframes slideInUp-actionsheet
     from
       -webkit-transform translate3d(0, 100%, 0)
       transform translate3d(0, 100%, 0)
@@ -136,7 +136,7 @@
       -webkit-transform translate3d(0, 0, 0)
       transform translate3d(0, 0, 0)
 
-  @-webkit-keyframes slideOutDown-popupwindow
+  @-webkit-keyframes slideOutDown-actionsheet
     from
       -webkit-transform translate3d(0, 0, 0)
       transform translate3d(0, 0, 0)
@@ -145,7 +145,7 @@
       -webkit-transform translate3d(0, 100%, 0)
       transform translate3d(0, 100%, 0)
 
-  @keyframes slideOutDown-popupwindow
+  @keyframes slideOutDown-actionsheet
     from
       -webkit-transform translate3d(0, 0, 0)
       transform translate3d(0, 0, 0)
@@ -166,31 +166,31 @@
           -webkit-transform scaleY(0.5)
           transform scaleY(0.5)
 
-  .popupwindow
-    .animated-popupwindow
+  .actionsheet
+    .animated-actionsheet
       -webkit-animation-duration 0.4s
       animation-duration 0.4s
       -webkit-animation-fill-mode both
       animation-fill-mode both
 
-    .fadeOut-popupwindow
-      -webkit-animation-name fadeOut-popupwindow
-      animation-name fadeOut-popupwindow
+    .fadeOut-actionsheet
+      -webkit-animation-name fadeOut-actionsheet
+      animation-name fadeOut-actionsheet
 
-    .fadeIn-popupwindow
-      -webkit-animation-name fadeIn-popupwindow
-      animation-name fadeIn-popupwindow
+    .fadeIn-actionsheet
+      -webkit-animation-name fadeIn-actionsheet
+      animation-name fadeIn-actionsheet
 
-    .slideOutDown-popupwindow
-      -webkit-animation-name slideOutDown-popupwindow
-      animation-name slideOutDown-popupwindow
+    .slideOutDown-actionsheet
+      -webkit-animation-name slideOutDown-actionsheet
+      animation-name slideOutDown-actionsheet
 
-    .slideInUp-popupwindow
-      -webkit-animation-name slideInUp-popupwindow
-      animation-name slideInUp-popupwindow
+    .slideInUp-actionsheet
+      -webkit-animation-name slideInUp-actionsheet
+      animation-name slideInUp-actionsheet
 
-  .popupwindow
-    .popupwindow-mask
+  .actionsheet
+    .actionsheet-mask
       position fixed
       top 0
       left 0
@@ -199,7 +199,7 @@
       background rgba(0, 0, 0, .5)
       backdrop-filter blur(10px)
       z-index 2147483646
-    .popupwindow-content-wrapper
+    .actionsheet-content-wrapper
       position fixed
       left 0
       bottom 0

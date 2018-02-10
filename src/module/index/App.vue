@@ -34,7 +34,6 @@
                 <divider :dividerType="'slide'" style="margin-top: 10px"></divider>
             </div>
 
-
             <div style="margin-top: 20px">
                 <h1>选项卡</h1>
                 <!--背景颜色可包裹一个div 设置div背景色-->
@@ -101,10 +100,10 @@
                 <divider :dividerType="'slide'"></divider>
             </div>
             <div style="margin-top: 20px">
-                <h1>抽屉菜单</h1>
-                <button @click="showPopupWindow">PopupWindow样式一</button>
-                <button @click="showPopupWindow2">PopupWindow样式二</button>
-                <popupwindow ref="popupwindow"></popupwindow>
+                <h1>ActionSheet</h1>
+                <button @click="showActionSheet">ActionSheet样式一</button>
+                <button @click="showActionSheet2">ActionSheet样式二</button>
+                <ActionSheet ref="ActionSheet"></ActionSheet>
                 <divider :dividerType="'slide'"></divider>
             </div>
             <div style="margin-top: 20px">
@@ -335,6 +334,8 @@
                 <h1>vmap</h1>
                 <button @click="showMap">显示地图</button>
                 <showMap ref="showMap" :address="'遵义师范学院'"></showMap>
+                <button @click="showSlideMenu">显示侧滑菜单demo</button>
+                <showSlideMenu ref="showSlideMenu" ></showSlideMenu>
             </div>
 
             <div style="margin-top: 20px;">
@@ -383,8 +384,22 @@
             </div>
             <div style="margin-top: 20px">
                 <h1>Timeline</h1>
-                <VerticalTimeline :timelineData ="timelineData"></VerticalTimeline>
+                <VerticalTimeline :timelineData="timelineData"></VerticalTimeline>
                 <divider :dividerType="'slide'"></divider>
+            </div>
+            <div style="margin-top: 20px">
+                <h1 style="display: block;height: 44px">
+                    Pull2Refresh :canRefresh="false" 禁止刷新功能，默认为true :canLoadingMore="false" 禁止上拉刷新功能，默认为true
+                </h1>
+                <button @click="stopRefresh">停止刷新</button>
+                <button @click="stopLoadingMore">停止加载更多</button>
+                <div class="my-pull-2-refresh">
+                    <Pull2Refresh @onRefreshing="onRefreshing" ref="pull2refresh" @onLoadingMore="onLoadingMore">
+                        <ul slot="content">
+                            <li v-for="item in pull2RefreshDatas" style="line-height: 24px">{{item}}</li>
+                        </ul>
+                    </Pull2Refresh>
+                </div>
             </div>
             <div style="margin-top: 20px">
                 <h1>floatButton</h1>
@@ -409,7 +424,7 @@
     import confirmdialog from "components/widget/ConfirmDialog/ConfirmDialog.vue"
     import progressbar from "components/widget/ProgressBar/ProgressBar.vue"
     import promptdialog from "components/widget/PromptDialog/PromptDialog.vue"
-    import popupwindow from "components/widget/PopupWindow/PopupWindow.vue"
+    import ActionSheet from "components/widget/ActionSheet/ActionSheet.vue"
     import tablayout from "components/widget/Tablayout/Tablayout.vue"
     import timepicker from "components/widget/TimePicker/TimePicker.vue"
     import datepicker from "components/widget/DatePicker/DatePicker.vue"
@@ -442,12 +457,19 @@
     import VerticalTimeline from "components/widget/VerticalTimeline/VerticalTimeline.vue"
     import SearchBar from "components/widget/SearchBar/SearchBar.vue"
     import Notification from "components/widget/Notification/Notification.vue"
+    import Pull2Refresh from "components/widget/Pull2Refresh/Pull2Refresh.vue"
+    import showSlideMenu from "components/showSlideMenu.vue"
     const ERR_OK = 0;
     const topDirection = 0; // 从上进入
     const downDirection = 1; // 从下边进入
     const leftDirection = 2; // 从左边进入
     const rightDirection = 3; // 从右边进入
     export default {
+        created(){
+            for (let i = 0; i < 30; i++) {
+                this.pull2RefreshDatas.push("我是数据" + i)
+            }
+        },
         data(){
             return {
                 name: "操作成功",
@@ -521,25 +543,26 @@
                 username: "",
                 password: "",
                 phone: "",
-                timelineData:[
+                timelineData: [
                     {
-                        date:"2018-01-23",
-                        content:"我说都是假的你信吗？"
+                        date: "2018-01-23",
+                        content: "我说都是假的你信吗？"
                     },
                     {
-                        date:"2017-12-23",
-                        content:"第三个版本发布，新增了大量类似原生体验效果的组件，并对代码进行了深入的优化。"
+                        date: "2017-12-23",
+                        content: "第三个版本发布，新增了大量类似原生体验效果的组件，并对代码进行了深入的优化。"
                     },
                     {
-                        date:"2017-11-23",
-                        content:"第二个版本发布"
+                        date: "2017-11-23",
+                        content: "第二个版本发布"
                     },
                     {
-                        date:"2017-10-23",
-                        content:"第一个版本发布"
+                        date: "2017-10-23",
+                        content: "第一个版本发布"
                     }
                 ],
-                searchBarValue:""
+                searchBarValue: "",
+                pull2RefreshDatas: []
             }
         },
         components: {
@@ -550,7 +573,7 @@
             confirmdialog,
             progressbar,
             promptdialog,
-            popupwindow,
+            ActionSheet,
             tablayout,
             timepicker,
             datepicker,
@@ -582,7 +605,9 @@
             VMenu,
             VerticalTimeline,
             SearchBar,
-            Notification
+            Notification,
+            Pull2Refresh,
+            showSlideMenu
         },
         methods: {
             read(){
@@ -637,8 +662,8 @@
                     }
                 });
             },
-            showPopupWindow(){
-                this.$refs.popupwindow.show([
+            showActionSheet(){
+                this.$refs.ActionSheet.show([
                     {
                         "text": "菜单一",//可以传html
                         "callBack": function () {
@@ -659,8 +684,8 @@
                     }
                 ], "请选择标题")
             },
-            showPopupWindow2(){
-                this.$refs.popupwindow.show([
+            showActionSheet2(){
+                this.$refs.ActionSheet.show([
                     {
                         "text": "菜单一",//可以传html
                         "callBack": function () {
@@ -753,7 +778,7 @@
                 alert("返回")
             },
             handleRight1(){
-              alert("提交")
+                alert("提交")
             },
             handleRight(){
                 this.$refs.vmenu.show({
@@ -792,6 +817,9 @@
             showMap(){
                 this.$refs.showMap.show();
             },
+            showSlideMenu(){
+                this.$refs.showSlideMenu.show();
+            },
             startAnim(){
                 this.$refs.linearProgress.start();
             },
@@ -815,15 +843,38 @@
             },
             showNotification(){
                 this.$refs.notification.show({
-                    icon:"http://ww3.sinaimg.cn/bmiddle/61e8a1fdgw1eeuqql9xagj206w056mxh.jpg",
-                    title:"我是标题",
-                    subtitle:"我是子标题",
-                    content:"我是文本内容，哈哈哈哈哈我是文本内容，哈哈哈哈哈我是文本内容，哈哈哈哈哈我是文本内容，哈哈哈哈哈",
+                    icon: "http://ww3.sinaimg.cn/bmiddle/61e8a1fdgw1eeuqql9xagj206w056mxh.jpg",
+                    title: "我是标题",
+                    subtitle: "我是子标题",
+                    content: "我是文本内容，哈哈哈哈哈我是文本内容，哈哈哈哈哈我是文本内容，哈哈哈哈哈我是文本内容，哈哈哈哈哈",
                     btnText: "查看",
-                    callback:()=>{
+                    callback: () => {
                         alert("回调了")
                     }
                 })
+            },
+            onRefreshing(){
+                setTimeout(() => {
+                    this.pull2RefreshDatas = [];
+                    for (let i = 0; i < 30; i++) {
+                        this.pull2RefreshDatas.push("我是刷新出来的数据" + i)
+                    }
+                    this.$refs.pull2refresh.stopRefresh();
+                }, 1000)
+            },
+            onLoadingMore(){
+                setTimeout(() => {
+                    for (let i = 0; i < 20; i++) {
+                        this.pull2RefreshDatas.push("我是加载更多出来的数据" + i)
+                    }
+                    this.$refs.pull2refresh.stopLoadingMore();
+                }, 1000)
+            },
+            stopLoadingMore(){
+                this.$refs.pull2refresh.stopLoadingMore();
+            },
+            stopRefresh(){
+                this.$refs.pull2refresh.stopRefresh();
             }
         },
         mounted(){
@@ -899,5 +950,11 @@
         height: 43px;
         z-index: 2147483645;
         background: -webkit-linear-gradient(right, white, rgba(255, 255, 255, 0));
+    }
+
+    .my-pull-2-refresh {
+        position: relative;
+        height: 200px;
+        background: #E8E8EA;
     }
 </style>

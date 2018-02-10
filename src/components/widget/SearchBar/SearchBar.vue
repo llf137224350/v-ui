@@ -99,7 +99,7 @@
                 height 18px
                 background: rgba(0, 0, 0, 0)
                 padding-right 7px
-                font-size 16px
+                font-size 14px
                 &::-webkit-search-cancel-button
                     display: none
                 &::-webkit-input-placeholder
