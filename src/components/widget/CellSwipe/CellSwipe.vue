@@ -29,7 +29,7 @@
 <script type="text/ecmascript-6">
 
     export default {
-        created(){
+        created() {
             this.$nextTick(() => {
                 this.content = this.$refs.cellSwipeContent;
                 this.options = this.$refs.cellSwipeOptions;
@@ -37,8 +37,12 @@
                 this.left = this.content.getBoundingClientRect().left;
                 this.cells = document.getElementsByClassName("cell-swipe-wrapper");
             })
+            // 进行rem适配 设置根元素字体大小
+            let width = document.documentElement.clientWidth || document.body.clientWidth;
+            let htmlDom = document.getElementsByTagName("html")[0]
+            htmlDom.style.fontSize = width / 10 + 'px';
         },
-        data(){
+        data() {
             return {
                 startX: 0,
                 startY: 0,
@@ -55,7 +59,7 @@
         props: {
             items: {
                 type: Array,
-                default(){
+                default() {
                     return [
                         {
                             text: "标记已读",
@@ -74,7 +78,7 @@
             }
         },
         methods: {
-            touchstart(e){
+            touchstart(e) {
                 this.startX = e.touches[0].clientX;
                 this.startY = e.touches[0].clientY;
                 if (this.content.getAttribute("opened") != "opened") {
@@ -89,7 +93,7 @@
 
             },
 
-            touchmove(e){
+            touchmove(e) {
                 this.moveX = e.touches[0].clientX - this.startX;
                 this.moveY = e.touches[0].clientY - this.startY;
                 if (Math.abs(this.moveX) > Math.abs(this.moveY) && Math.abs(this.moveX) <= this.optsWidth
@@ -101,7 +105,7 @@
                     }
                 }
             },
-            touchend(e){
+            touchend(e) {
                 if (this.moveX < 0 && this.optsWidth) {
                     if (Math.abs(this.moveX) >= this.optsWidth / 3) {
                         this.openWithAnim();
@@ -114,18 +118,18 @@
                     this.moveY = 0;
                 }
             },
-            openWithAnim(){
+            openWithAnim() {
                 this.content.style.transition = "all 0.3s";
                 this.content.style.transform = `translateX(${-this.optsWidth}px)`;
                 this.isOpen = true;
                 this.content.setAttribute("opened", "opened");
             },
-            closeWithAnim(){
+            closeWithAnim() {
                 this.content.style.transition = "all 0.3s";
                 this.content.style.transform = `translateX(0px)`;
                 this.isOpen = false;
             },
-            itemClick(index){
+            itemClick(index) {
                 this.closeWithAnim();
                 if (this.items[index].callback) {
                     setTimeout(() => {
@@ -140,6 +144,11 @@
 
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+    /*单位转换*/
+    px2rem($px)
+        $rem = 37.5
+        return ($px / 37.5) rem
+
     ::-webkit-scrollbar
         width 0
         height 0
@@ -163,8 +172,8 @@
                 transform scaleY(0.5)
 
     .cell-swipe
-        height 48px
-        line-height 48px
+        height px2rem(48px)
+        line-height px2rem(48px)
         position relative
         background: #F7F7F7
         overflow hidden
@@ -181,7 +190,7 @@
                 bottom 0
                 display block
                 width 100%
-                border-bottom 1px solid rgba(0, 0, 0, .1)
+                border-bottom px2rem(1px) solid rgba(0, 0, 0, .1)
                 content ''
         .cell-swipe-options
             position absolute
@@ -189,7 +198,7 @@
             bottom 0
             & > span
                 color #fff
-                padding 0 16px
+                padding 0 px2rem(16px)
                 display inline-block
                 height 100%
                 &:nth-child(1)

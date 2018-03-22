@@ -30,7 +30,7 @@
 <!--script-->
 <script type="text/ecmascript-6">
     export default {
-        data(){
+        data() {
             return {
                 isShow: false,
                 menuItems: [],
@@ -41,19 +41,23 @@
             }
         },
         props: {},
-        created(){
+        created() {
+            // 进行rem适配 设置根元素字体大小
+            let width = document.documentElement.clientWidth || document.body.clientWidth;
+            let htmlDom = document.getElementsByTagName("html")[0]
+            htmlDom.style.fontSize = width / 10 + 'px';
             window.addEventListener("popstate", (e) => {
                 // 更新数据 关闭弹窗
                 this.isShow = false;
             });
         },
         methods: {
-            handleClick(index){
+            handleClick(index) {
                 this.isClickItem = true;
                 this.currentIndex = index;
                 this.hide();
             },
-            show(obj){
+            show(obj) {
                 this.currentIndex = -1;
                 this.isClickItem = false;
                 this.top = obj && obj.top || "16px";
@@ -64,7 +68,7 @@
                 // 添加一条历史记录 使其支持返回键关闭
                 this.addLocation();
             },
-            hide(){
+            hide() {
                 //操作浏览器返回 会触发浏览器popstate
                 if (location.hash === "#target=menu") {
                     history.back();
@@ -78,7 +82,7 @@
                     console.log("当前浏览器版本较低，不支持该功能")
                 }
             },
-            afterLeave(){
+            afterLeave() {
                 if (this.currentIndex != -1) {
                     if (this.callBacks && this.callBacks[this.currentIndex]) {
                         this.callBacks[this.currentIndex]();
@@ -92,6 +96,11 @@
 
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+    /*单位转换*/
+    px2rem($px)
+        $rem = 37.5
+        return ($px / 37.5) rem
+
     ::-webkit-scrollbar
         width 0
         height 0
@@ -166,30 +175,30 @@
         .menu-content-wrapper
             position fixed
             width 40%
-            top 16px
-            right 16px
-            min-height 36px
+            top px2rem(16px)
+            right px2rem(16px)
+            min-height px2rem(36px)
             background-color #ffffff
             z-index 2147483647
-            border-radius 5px
+            border-radius px2rem(5px)
             &::before
                 content ""
                 position absolute
-                top -16px
-                right 8px
+                top px2rem(-16px)
+                right px2rem(8px)
                 display block
                 width 0
                 height 0
-                border 8px solid #fff
+                border px2rem(8px) solid #fff
                 border-top-color transparent
                 border-left-color transparent
                 border-right-color transparent
             & > li:active
                 background: #f7f7f7
             & > li
-                height 44px
-                line-height 44px
-                padding 0 16px
+                height px2rem(44px)
+                line-height px2rem(44px)
+                padding 0 px2rem(16px)
                 position relative
                 overflow hidden
                 &::after
@@ -199,13 +208,13 @@
                     left 0
                     right 0
                     bottom 0
-                    border-bottom 1px solid #f5f5f5
+                    border-bottom px2rem(1px) solid #f5f5f5
             & > li:first-of-type
-                border-top-left-radius 5px
-                border-top-right-radius 5px
+                border-top-left-radius px2rem(5px)
+                border-top-right-radius px2rem(5px)
             & > li:last-of-type
-                border-bottom-left-radius 5px
-                border-bottom-right-radius 5px
+                border-bottom-left-radius px2rem(5px)
+                border-bottom-right-radius px2rem(5px)
                 &::after
                     display none
 </style>

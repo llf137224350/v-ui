@@ -56,8 +56,9 @@
 <!--script-->
 <script type="text/ecmascript-6">
     import BScroll from "better-scroll"
+
     export default {
-        data(){
+        data() {
             return {
                 isShow: false,
                 isOk: false,
@@ -83,7 +84,11 @@
                 default: true// 是否显示秒
             }
         },
-        created(){
+        created() {
+            // 进行rem适配 设置根元素字体大小
+            let width = document.documentElement.clientWidth || document.body.clientWidth;
+            let htmlDom = document.getElementsByTagName("html")[0]
+            htmlDom.style.fontSize = width / 10 + 'px';
             //初始化值
             let val = "";
             for (let i = 0; i < 60; i++) {
@@ -101,7 +106,7 @@
 
         },
         methods: {
-            _initScroll(){
+            _initScroll() {
                 this.hourHook = this.$refs.hourHook.getElementsByClassName("list-hook");
                 this.minuteHook = this.$refs.minuteHook.getElementsByClassName("list-hook")
                 this.secondHook = this.$refs.minuteHook.getElementsByClassName("list-hook")
@@ -141,7 +146,7 @@
                 });
             },
             // 计算总高度
-            _calculateHeight(){
+            _calculateHeight() {
                 let minute = this.$refs.minuteHook.getElementsByClassName("list-hook");
                 let height = 0;
                 this.listHeight.push(height)
@@ -151,8 +156,7 @@
                 }
             },
             // 获取当前的索引位置
-            currentIndex(scrollY)
-            {
+            currentIndex(scrollY) {
                 let height1;
                 let height2;
                 for (let i = 0; i < this.listHeight.length; i++) {
@@ -165,7 +169,7 @@
                 return 0;
             },
             // 显示选择器
-            show(){
+            show() {
                 this.isShow = true;
                 this.isOk = false;
                 this.addLocation();
@@ -192,18 +196,18 @@
                     }
                 })
             },
-            ok(){
+            ok() {
                 this.isOk = true;
                 this.hide();
             },
-            hide(){
+            hide() {
                 //操作浏览器返回 会触发浏览器popstate
                 if (location.hash === "#target=timepicker") {
                     history.back();
                 }
             },
             //隐藏动画执行完成之后回调
-            afterLeave(){
+            afterLeave() {
                 if (this.isOk) {
                     if (this.needSecond) {
                         this.$emit("timerpickerOkCallBack", this.hours[this.hourIndex] + ":" + this.minute[this.minuteIndex] + ":" + this.second[this.secondIndex]);
@@ -227,9 +231,74 @@
 
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+    /*单位转换*/
+    px2rem($px)
+        $rem = 37.5
+        return ($px / 37.5) rem
+
     ::-webkit-scrollbar
         width 0
         height 0
+        
+    @-webkit-keyframes fadeIn
+        from
+            opacity 0
+        to
+            opacity 1
+
+    @keyframes fadeIn
+        from
+            opacity 0
+        to
+            opacity 1
+
+    @-webkit-keyframes fadeOut
+        from
+            opacity 1
+        to
+            opacity 0
+
+    @keyframes fadeOut
+        from
+            opacity 1
+        to
+            opacity 0
+
+    @-webkit-keyframes slideInUp
+        from
+            -webkit-transform translate3d(0, 100%, 0)
+            transform translate3d(0, 100%, 0)
+            visibility visible
+        to
+            -webkit-transform translate3d(0, 0, 0)
+            transform translate3d(0, 0, 0)
+
+    @keyframes slideInUp
+        from
+            -webkit-transform translate3d(0, 100%, 0)
+            transform translate3d(0, 100%, 0)
+            visibility visible
+        to
+            -webkit-transform translate3d(0, 0, 0)
+            transform translate3d(0, 0, 0)
+
+    @-webkit-keyframes slideOutDown
+        from
+            -webkit-transform translate3d(0, 0, 0)
+            transform translate3d(0, 0, 0)
+        to
+            visibility hidden
+            -webkit-transform translate3d(0, 100%, 0)
+            transform translate3d(0, 100%, 0)
+
+    @keyframes slideOutDown
+        from
+            -webkit-transform translate3d(0, 0, 0)
+            transform translate3d(0, 0, 0)
+        to
+            visibility hidden
+            -webkit-transform translate3d(0, 100%, 0)
+            transform translate3d(0, 100%, 0)
 
     @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)
         .border-1px
@@ -248,66 +317,6 @@
             &::before
                 -webkit-transform scaleY(0.5)
                 transform scaleY(0.5)
-
-        @-webkit-keyframes fadeIn
-            from
-                opacity 0
-            to
-                opacity 1
-
-        @keyframes fadeIn
-            from
-                opacity 0
-            to
-                opacity 1
-
-        @-webkit-keyframes fadeOut
-            from
-                opacity 1
-            to
-                opacity 0
-
-        @keyframes fadeOut
-            from
-                opacity 1
-            to
-                opacity 0
-
-        @-webkit-keyframes slideInUp
-            from
-                -webkit-transform translate3d(0, 100%, 0)
-                transform translate3d(0, 100%, 0)
-                visibility visible
-            to
-                -webkit-transform translate3d(0, 0, 0)
-                transform translate3d(0, 0, 0)
-
-        @keyframes slideInUp
-            from
-                -webkit-transform translate3d(0, 100%, 0)
-                transform translate3d(0, 100%, 0)
-                visibility visible
-            to
-                -webkit-transform translate3d(0, 0, 0)
-                transform translate3d(0, 0, 0)
-
-        @-webkit-keyframes slideOutDown
-            from
-                -webkit-transform translate3d(0, 0, 0)
-                transform translate3d(0, 0, 0)
-            to
-                visibility hidden
-                -webkit-transform translate3d(0, 100%, 0)
-                transform translate3d(0, 100%, 0)
-
-        @keyframes slideOutDown
-            from
-                -webkit-transform translate3d(0, 0, 0)
-                transform translate3d(0, 0, 0)
-            to
-                visibility hidden
-                -webkit-transform translate3d(0, 100%, 0)
-                transform translate3d(0, 100%, 0)
 
     .timepicker
         .animated
@@ -348,10 +357,10 @@
             left 0
             bottom 0
             width 100%
-            height 300px
+            height px2rem(300px)
             z-index 2147483647
             .opt
-                height 40px
+                height px2rem(40px)
                 width 100%
                 background: #fff
                 position relative
@@ -362,37 +371,37 @@
                     bottom 0
                     display block
                     width 100%
-                    border-bottom 1px solid rgba(0, 0, 0, .1)
+                    border-bottom px2rem(1px) solid rgba(0, 0, 0, .1)
                     content ''
                 .cancel, .ok
                     display inline-block
-                    height 40px
-                    line-height 40px
-                    padding 0 16px
-                    font-size 16px
+                    height px2rem(40px)
+                    line-height px2rem(40px)
+                    padding 0 px2rem(16px)
+                    font-size px2rem(16px)
                 .cancel
                     float left
-                    margin-left 10px
+                    margin-left px2rem(10px)
                     color rgba(0, 0, 0, .3)
                 .ok
                     float right
-                    margin-right 10px
+                    margin-right px2rem(10px)
                     color #41B883
 
             .time-wrapper
                 background: #fff;
                 display flex
-                font-size 20px
-                height 260px
+                font-size px2rem(20px)
+                height px2rem(260px)
                 overflow hidden
-                line-height 40px
+                line-height px2rem(40px)
                 &::before
                     content ""
                     display block
                     position absolute
-                    height 130px
+                    height px2rem(130px)
                     width 100%
-                    top 40px
+                    top px2rem(40px)
                     left 0
                     background -webkit-linear-gradient(top, #fff, rgba(255, 255, 255, 0))
                     z-index 2147483647
@@ -401,7 +410,7 @@
                     content ""
                     display block
                     position absolute
-                    height 130px
+                    height px2rem(130px)
                     width 100%
                     bottom 0
                     left 0
@@ -410,28 +419,28 @@
                     pointer-events none
                 .hour, .minute, .second
                     flex 1
-                    margin-top 110px
-                    margin-bottom 110px
+                    margin-top px2rem(110px)
+                    margin-bottom px2rem(110px)
                     text-align center
-                    padding-right 25px
+                    padding-right px2rem(25px)
             .time-mask
                 position absolute
                 left 0
-                top 150px
+                top px2rem(150px)
                 z-index 2147483647
                 background: transparent
                 width 100%
-                height 40px
+                height px2rem(40px)
                 display flex
                 pointer-events none
                 & > span
                     display inline-block
                     flex 1
-                    height 40px
-                    line-height 40px
-                    font-size 20px
+                    height px2rem(40px)
+                    line-height px2rem(40px)
+                    font-size px2rem(20px)
                     text-align center
-                    padding-left 25px
+                    padding-left px2rem(25px)
                     pointer-events none
                 &::after
                     position absolute
@@ -439,7 +448,7 @@
                     bottom 0
                     display block
                     width 100%
-                    border-bottom 1px solid rgba(0, 0, 0, .1)
+                    border-bottom px2rem(1px) solid rgba(0, 0, 0, .1)
                     content ''
                 &::before
                     position absolute
@@ -447,6 +456,6 @@
                     top 0
                     display block
                     width 100%
-                    border-top 1px solid rgba(0, 0, 0, .1)
+                    border-top px2rem(1px) solid rgba(0, 0, 0, .1)
                     content ''
 </style>

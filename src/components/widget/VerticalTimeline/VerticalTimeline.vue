@@ -28,6 +28,12 @@
                     return [];
                 }
             }
+        },
+        created(){
+            // 进行rem适配 设置根元素字体大小
+            let width = document.documentElement.clientWidth || document.body.clientWidth;
+            let htmlDom = document.getElementsByTagName("html")[0]
+            htmlDom.style.fontSize = width / 10 + 'px';
         }
     }
 
@@ -35,51 +41,56 @@
 
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+    /*单位转换*/
+    px2rem($px)
+        $rem = 37.5
+        return ($px / 37.5) rem
+
     .vertical-timeline
         background #EFEFF4
-        padding 10px
+        padding px2rem(10px)
         .vertical-timeline-item
-            padding 2px 0 15px
+            padding px2rem(2px) 0 px2rem(15px)
             display flex
-            margin-top -2px
+            margin-top px2rem(-2px)
             overflow hidden
             box-sizing border-box
             position relative
             .vertical-timeline-item-date
                 flex-shrink 0
-                width 80px
+                width px2rem(80px)
                 text-align right
                 box-sizing border-box
             .vertical-timeline-item-divider
                 position relative
-                width 10px
-                height 10px
+                width px2rem(10px)
+                height px2rem(10px)
                 background #bbb
                 border-radius 50%
                 flex-shrink 0
-                margin-left 15px;
-                margin-right 15px;
+                margin-left px2rem(15px);
+                margin-right px2rem(15px);
             .vertical-timeline-item-divider::after,
             .vertical-timeline-item-divider::before
                 content ' '
-                width 1px
+                width px2rem(1px)
                 height 100vh
                 position absolute
                 left 50%
                 background inherit
                 transform translate3d(-50%, 0, 0)
             .vertical-timeline-item-content
-                margin 0 2px
+                margin 0 px2rem(2px)
                 min-width 0
                 position relative
                 -webkit-flex-shrink 10
                 -ms-flex-negative 10
                 flex-shrink 10
                 background #fff
-                padding 10px
-                border-radius 5px
-                font-size 14px
-                line-height 18px
+                padding px2rem(10px)
+                border-radius px2rem(5px)
+                font-size px2rem(14px)
+                line-height px2rem(18px)
         .vertical-timeline-item:last-of-type
             .vertical-timeline-item-divider::after, .vertical-timeline-item-divider::before
                 display none

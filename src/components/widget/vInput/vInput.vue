@@ -90,7 +90,7 @@
 <!--script-->
 <script type="text/ecmascript-6">
     export default {
-        data(){
+        data() {
             return {
                 focused: false,
                 hideClear: true,
@@ -98,8 +98,11 @@
                 selfValue: this.msg
             }
         },
-        created(){
-            console.log(this.Ref);
+        created() {
+            // 进行rem适配 设置根元素字体大小
+            let width = document.documentElement.clientWidth || document.body.clientWidth;
+            let htmlDom = document.getElementsByTagName("html")[0]
+            htmlDom.style.fontSize = width / 10 + 'px';
         },
         model: {    // 使用model， 这儿2个属性，prop属性说，我要将msg作为该组件被使用时（此处为aa组件被父组件调用）v-model能取到的值，event说，我emit ‘cc’ 的时候，参数的值就是父组件v-model收到的值。
             prop: 'msg',
@@ -125,24 +128,24 @@
             },
         },
         methods: {
-            focus(){
+            focus() {
                 this.focused = true;
             },
-            blur(){
+            blur() {
                 this.focused = false;
             },
-            touchstart(){
+            touchstart() {
                 this.selfValue = "";
             },
-            setFocus(){
+            setFocus() {
                 this.$refs[this.id].focus();
             }
         },
         watch: {
-            msg(){
+            msg() {
                 this.selfValue = this.msg;
             },
-            selfValue(){
+            selfValue() {
                 this.$emit("msgChanged", this.selfValue);
             }
         }
@@ -152,9 +155,14 @@
 
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus" scoped>
+    /*单位转换*/
+    px2rem($px)
+        $rem = 37.5
+        return ($px / 37.5) rem
+
     .v-input
-        height 48px
-        line-height 48px
+        height px2rem(48px)
+        line-height px2rem(48px)
         display flex
         box-sizing content-box
         position relative
@@ -164,7 +172,7 @@
             bottom: 0
             display: block
             width: 0%
-            height: 2px
+            height: px2rem(2px)
             background: #01cc77
             content: ""
         &.anim::after
@@ -173,17 +181,17 @@
             left: 0%
             width: 100%
         & > label
-            flex 0 0 80px
+            flex 0 0 px2rem(80px)
         & > input
             flex 1
             outline none
-            margin-right 10px
+            margin-right px2rem(10px)
         & > i
-            flex 0 0 12px
+            flex 0 0 px2rem(12px)
             display inline-block
-            width 12px
-            height 12px
-            margin-top  18px
+            width px2rem(12px)
+            height px2rem(12px)
+            margin-top px2rem(18px)
             background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAWCAYAAAArdgcFAAAAxElEQVQ4T72V0RHCIBBE2dLsQCswduAvFTBUYazAEs/BSZxIDm4DiXwxfLxd7lgOMcaziLxE5Oa9H13nCiEMAB4ALpjhidkrMIMn1glpkx023UBjfOC9AiVzX3irQO3WP/CtAlY5V3BWwAInjgq3BBhwFV4SYMEmPBdwzqWQDWwmimVZBnXplgVTzhX3dJJN51mNnwCurPsqXGveLg2tQViB/4aIdWUFbfVatoCZ3/T4L7fFcT4N1WFx6Jib4KOI3Pce0G/gjEKmETd3cgAAAABJRU5ErkJggg==") no-repeat center
             -webkit-background-size: cover
             background-size: cover

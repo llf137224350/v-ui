@@ -26,6 +26,10 @@
   export default {
     created(){
       this.id = "id" + Math.random().toString(16);
+        // 进行rem适配 设置根元素字体大小
+        let width = document.documentElement.clientWidth || document.body.clientWidth;
+        let htmlDom = document.getElementsByTagName("html")[0]
+        htmlDom.style.fontSize = width / 10 + 'px';
     },
     data(){
       return {
@@ -82,10 +86,14 @@
 
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+    /*单位转换*/
+    px2rem($px)
+        $rem = 37.5
+        return ($px / 37.5) rem
   .switch
     display inline-block
-    width 44px
-    height 22px
+    width px2rem(44px)
+    height px2rem(22px)
     position relative
     user-select none
     -webkit-user-select none
@@ -96,8 +104,8 @@
         display none
       .switch-input + label
         display inline-block
-        width 44px
-        height 22px
+        width px2rem(44px)
+        height px2rem(22px)
         position relative
         -webkit-transition all 0.3s
         transition all 0.3s
@@ -107,10 +115,10 @@
         content ''
         display block
         position absolute
-        left 2px
-        top 2px
-        width 14px
-        height 14px
+        left px2rem(2px)
+        top px2rem(2px)
+        width px2rem(14px)
+        height px2rem(14px)
         background #E2E2E2
         border-radius 50%
         -webkit-transition 0.3s
@@ -127,49 +135,49 @@
       & > .switch-input:checked + label + div::after
         display none
       & > .switch-input + label
-        border 2px solid #E2E2E2
-        border-radius 22px
+        border px2rem(2px) solid #E2E2E2
+        border-radius px2rem(22px)
         z-index 10
       & > .switch-tips
         position absolute
         top 0
         left 0
-        width 44px
-        height 22px
+        width px2rem(44px)
+        height px2rem(22px)
         &::before
           position absolute
           top 0
-          left 8px
+          left px2rem(8px)
           display none
           color rgba(65, 184, 131, .6)
         &::after
           position absolute
           top 0
-          right 8px
+          right px2rem(8px)
           display inline-block
           color #E2E2E2
         &.default::before
-          line-height 24px
-          font-size 16px
+          line-height px2rem(24px)
+          font-size px2rem(16px)
           content: '•'
         &.default::after
-          line-height 23px
-          font-size 12px
+          line-height px2rem(23px)
+          font-size px2rem(12px)
           content: '×'
         &.on-off::before
-          line-height 21px
-          font-size 12px
+          line-height px2rem(21px)
+          font-size px2rem(12px)
           content: 'on'
         &.on-off::after
-          line-height  24px
-          font-size 12px
+          line-height  px2rem(24px)
+          font-size px2rem(12px)
           content: 'off'
         &.open-close::before
-          line-height 22px
-          font-size 12px
+          line-height px2rem(22px)
+          font-size px2rem(12px)
           content: '开'
         &.open-close::after
-          line-height 22px
-          font-size 12px
+          line-height px2rem(22px)
+          font-size px2rem(12px)
           content: '关'
 </style>

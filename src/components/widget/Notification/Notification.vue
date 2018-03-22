@@ -16,7 +16,7 @@
                 <div class="notification-icon-title-btn">
                     <img v-if="obj.icon" :src="obj.icon">
                     <div>{{obj.title}}</div>
-                    <span @click="clickNow" >{{obj.btnText?obj.btnText:'现在'}}</span>
+                    <span @click="clickNow">{{obj.btnText?obj.btnText:'现在'}}</span>
                 </div>
                 <div class="notification-subtitle">{{obj.subtitle}}</div>
                 <div class="notification-content">{{obj.content}}</div>
@@ -29,7 +29,7 @@
 <!--script-->
 <script type="text/ecmascript-6">
     export default {
-        data(){
+        data() {
             return {
                 isShow: false,
                 obj: {},
@@ -37,8 +37,14 @@
                 isClick: false
             }
         },
+        created(){
+            // 进行rem适配 设置根元素字体大小
+            let width = document.documentElement.clientWidth || document.body.clientWidth;
+            let htmlDom = document.getElementsByTagName("html")[0]
+            htmlDom.style.fontSize = width / 10 + 'px';
+        },
         methods: {
-            show(obj){
+            show(obj) {
                 this.obj = obj;
                 this.isClick = false;
                 this.isShow = true;
@@ -48,13 +54,13 @@
                     this.isShow = false;
                 }, 5000)
             },
-            clickNow(){
+            clickNow() {
                 if (this.timer)
                     clearTimeout(this.timer)
                 this.isClick = true;
                 this.isShow = false;
             },
-            afterLeave(){
+            afterLeave() {
                 if (this.isClick && this.obj.callback) {
                     this.obj.callback();
                 }
@@ -66,6 +72,11 @@
 
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+    /*单位转换*/
+    px2rem($px)
+        $rem = 37.5
+        return ($px / 37.5) rem
+
     .slideInDown-notification
         -webkit-animation-name: slideInDown-notification
         animation-name: slideInDown-notification
@@ -120,31 +131,31 @@
     .notification
         .notification-container
             position fixed
-            top 10px
-            left 10px
-            right 10px
+            top px2rem(10px)
+            left px2rem(10px)
+            right px2rem(10px)
             background: #fff
             z-index 2147483647
-            border-radius 10px
-            box-shadow 0 0 10px #D3D3D3
+            border-radius px2rem(10px)
+            box-shadow 0 0 px2rem(10px) #D3D3D3
             .notification-icon-title-btn
-                padding 10px
+                padding px2rem(10px)
                 display flex
                 & > img
-                    flex 0 0 20px
-                    width 20px
-                    height 20px
+                    flex 0 0 px2rem(20px)
+                    width px2rem(20px)
+                    height px2rem(20px)
                     border-radius 50%
-                    margin-right 10px
+                    margin-right px2rem(10px)
                 & > div
                     flex 1
                     text-align left
-                    font-size 16px
-                    margin-top 3px
+                    font-size px2rem(16px)
+                    margin-top px2rem(3px)
                 & > span
-                    padding 0 10px
-                    font-size 14px
-                    margin-top 4px
+                    padding 0 px2rem(10px)
+                    font-size px2rem(14px)
+                    margin-top px2rem(4px)
                     color #666
                     padding-right 0
                     text-align right
@@ -152,13 +163,13 @@
                         background: #f7f7f7
 
             .notification-subtitle
-                font-size 16px
+                font-size px2rem(16px)
                 font-weight bold
-                padding 0 10px
-                padding-top 3px
+                padding 0 px2rem(10px)
+                padding-top px2rem(3px)
             .notification-content
-                padding 10px
-                padding-top 5px
-                font-size 14px
-                line-height 18px
+                padding px2rem(10px)
+                padding-top px2rem(5px)
+                font-size px2rem(14px)
+                line-height px2rem(18px)
 </style>

@@ -41,7 +41,12 @@
 <!--script-->
 <script type="text/ecmascript-6">
     export default {
-        mounted(){
+        mounted() {
+            // 进行rem适配 设置根元素字体大小
+            let width = document.documentElement.clientWidth || document.body.clientWidth;
+            let htmlDom = document.getElementsByTagName("html")[0]
+            htmlDom.style.fontSize = width / 10 + 'px';
+
             // 获取容器的高度
             this.containerWidth = this.$refs.tablayoutHook.getBoundingClientRect().width;
             // 监听窗口大小改变
@@ -61,8 +66,10 @@
 
             // 刷新回显指示器
             this.setIndex();
+
+
         },
-        data(){
+        data() {
             return {
                 cIndex: 0,
                 hash: this.datas[this.currentIndex].to,
@@ -75,7 +82,7 @@
             //数据
             datas: {
                 type: Array,
-                default(){
+                default() {
                     return [];
                 }
             },
@@ -96,7 +103,7 @@
             }
         },
         methods: {
-            setIndex(){
+            setIndex() {
                 for (let i = 0; i < this.datas.length; i++) {
                     if (this.datas[i].to === location.hash.substring(1)) {
                         this.cIndex = i;
@@ -107,7 +114,7 @@
         },
         computed: {
             //计算每个item的宽度
-            itemWidth(){
+            itemWidth() {
                 if (this.datas.length <= 4) {
                     this.width = this.containerWidth / this.datas.length;
                 } else {
@@ -116,13 +123,13 @@
                 return this.width;
             },
             //计算总宽度
-            totalWidth(){
+            totalWidth() {
                 return this.itemWidth * this.datas.length;
             }
         },
         //观察变量的值
         watch: {
-            "cIndex" (val, oldVal){
+            "cIndex"(val, oldVal) {
                 let left = val * this.itemWidth;
                 if (!this.isFirst) {
                     this.$refs.itemHook.style.transition = `all 0.3s`;
@@ -131,7 +138,7 @@
                 }
                 this.$refs.itemHook.style.transform = `translateX(${left}px)`;
             },
-            width(){
+            width() {
                 // 窗口大小改变 第一次进入会执行 cIndex  和 width cIndex 先执行
                 let left = this.cIndex * this.itemWidth;
                 if (!this.isFirst) {
@@ -149,6 +156,11 @@
 
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+    /*单位转换*/
+    px2rem($px)
+        $rem = 37.5
+        return ($px / 37.5) rem
+
     ::-webkit-scrollbar
         width 0
         height 0
@@ -171,7 +183,7 @@
         overflow-x auto
         position relative
         .tablayout-wrapper
-            height 44px
+            height px2rem(44px)
             z-index 2147483644
             position relative
             &::after
@@ -180,12 +192,12 @@
                 bottom 0
                 display block
                 width 100%
-                border-bottom 1px solid rgba(0, 0, 0, .1)
+                border-bottom px2rem(1px) solid rgba(0, 0, 0, .1)
                 content ''
             .tablayout-item
                 float left
-                height 44px
-                line-height 44px
+                height px2rem(44px)
+                line-height px2rem(44px)
                 text-align center
                 user-select none
                 -webkit-user-select none
@@ -195,9 +207,9 @@
                     display block
                     width 100%
                     height 100%
-                    font-size 14px
+                    font-size px2rem(14px)
                     &.active
-                        font-size 16px
+                        font-size px2rem(16px)
                         color #D74F43 !important
                         font-weight 500
                     &:active
@@ -207,7 +219,7 @@
             bottom 0
             left 0
             z-index 2147483645
-            height 2px
+            height px2rem(2px)
             background: #D74F43
 
 </style>

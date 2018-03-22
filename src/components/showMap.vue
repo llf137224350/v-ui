@@ -27,6 +27,11 @@
     import vmap from "components/widget/vMap/vMap"
     export default {
         created(){
+            // 进行rem适配 设置根元素字体大小
+            let width = document.documentElement.clientWidth || document.body.clientWidth;
+            let htmlDom = document.getElementsByTagName("html")[0]
+            htmlDom.style.fontSize = width / 10 + 'px';
+
             window.addEventListener("popstate", (e) => {
                 this.mapShow = false;
             });
@@ -87,6 +92,10 @@
 
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+    /*单位转换*/
+    px2rem($px)
+        $rem = 37.5
+        return ($px / 37.5) rem
     .show-map
         position fixed
         left 0
@@ -106,13 +115,13 @@
             height 100%
         .address
             position fixed
-            height 40px
-            line-height 40px
+            height px2rem(40px)
+            line-height px2rem(40px)
             left 0
             right 0
             bottom 0
             background: rgba(0, 0, 0, .65)
             color #fff
-            padding-left 16px
-            font-size 13px
+            padding-left px2rem(16px)
+            font-size px2rem(13px)
 </style>

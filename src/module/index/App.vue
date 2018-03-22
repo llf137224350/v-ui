@@ -313,13 +313,13 @@
                 <cellswipe :text="'我是文本信息'"></cellswipe>
                 <cellswipe :text="'我是文本信息'"></cellswipe>
                 <cellswipe :text="'我是文本信息'"></cellswipe>
-                <divider :dividerType="'slide'"></divider>
+                <divider :dividerType="'slide'" style="margin-top: 10px"></divider>
             </div>
             <div style="margin-top: 20px">
                 <h1>CellBox</h1>
                 <cellbox :title="'新消息'" :des="'一条未读消息'"></cellbox>
                 <cellbox :title="'新消息'"></cellbox>
-                <divider :dividerType="'slide'"></divider>
+                <divider :dividerType="'slide'" style="margin-top: 10px"></divider>
             </div>
 
             <div style="margin-top: 20px;">

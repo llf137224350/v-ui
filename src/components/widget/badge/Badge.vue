@@ -6,37 +6,48 @@
 
 <!--html-->
 <template>
-  <div class="badge" :class="{'badge-no-empty':number,'badge-other':number >=10}">{{number}}</div>
+    <div class="badge" :class="{'badge-no-empty':number,'badge-other':number >=10}">{{number}}</div>
 
 </template>
 
 <!--script-->
 <script type="text/ecmascript-6">
-  export default {
-    props: {
-      number: {
-        type: Number,
-        default: undefined
-      }
+    export default {
+        props: {
+            number: {
+                type: Number,
+                default: undefined
+            }
+        },
+        created(){
+            // 进行rem适配 设置根元素字体大小
+            let width = document.documentElement.clientWidth || document.body.clientWidth;
+            let htmlDom = document.getElementsByTagName("html")[0]
+            htmlDom.style.fontSize = width / 10 + 'px';
+        }
     }
-  }
 
 </script>
 
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
-  .badge
-    display inline-block
-    color #fff
-    min-width 10px
-    min-height 10px
-    background: #F74C31
-    border-radius 5px
-    &.badge-no-empty
-      font-size 12px
-      text-align center
-      padding  2px 3px
-      border-radius  8px
-    &.badge-other
-      padding 2px  5px
+    /*单位转换*/
+    px2rem($px)
+        $rem = 37.5
+        return ($px / 37.5) rem
+
+    .badge
+        display inline-block
+        color #fff
+        min-width px2rem(10px)
+        min-height px2rem(10px)
+        background: #F74C31
+        border-radius px2rem(5px)
+        &.badge-no-empty
+            font-size px2rem(12px)
+            text-align center
+            padding px2rem(2px) px2rem(3px)
+            border-radius px2rem(8px)
+        &.badge-other
+            padding px2rem(2px) px2rem(5px)
 </style>

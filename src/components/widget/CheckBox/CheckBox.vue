@@ -23,12 +23,17 @@
 <script type="text/ecmascript-6">
 
     export default {
-        created(){
+        created() {
             this.id = this.id + Math.random().toString(16);
             if (this.selfValue.indexOf(this.value) != -1)
                 this.selfChecked = true;
+
+            // 进行rem适配 设置根元素字体大小
+            let width = document.documentElement.clientWidth || document.body.clientWidth;
+            let htmlDom = document.getElementsByTagName("html")[0]
+            htmlDom.style.fontSize = width / 10 + 'px';
         },
-        data(){
+        data() {
             return {
                 id: "id",
                 selfChecked: false,
@@ -54,7 +59,7 @@
             }
         },
         methods: {
-            change(){
+            change() {
                 this.selfChecked = !this.selfChecked;
                 if (this.selfChecked) {
                     this.selfValue += "," + this.value;
@@ -67,10 +72,10 @@
             }
         },
         watch: {
-            msg(){
+            msg() {
                 this.selfValue = this.msg;
             },
-            selfValue(){
+            selfValue() {
                 if (this.selfValue.indexOf(",") === 0)
                     this.selfValue = this.selfValue.substring(1)
                 if (this.selfValue.length - 1 === this.selfValue.lastIndexOf(",")) {
@@ -86,6 +91,11 @@
 
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus" scoped>
+    /*单位转换*/
+    px2rem($px)
+        $rem = 37.5
+        return ($px / 37.5) rem
+
     .check-box
         display inline-block
         position relative
@@ -98,24 +108,24 @@
                 display none
             .check-box-input + label
                 display inline-block
-                width 20px
-                height 20px
-                line-height 20px
+                width px2rem(20px)
+                height px2rem(20px)
+                line-height px2rem(20px)
                 position relative
                 -webkit-transition all 0.6s
                 transition all 0.6s
                 box-sizing border-box
                 top 4.64px
-                border 2px solid #E2E2E2
-                border-radius 3px
+                border px2rem(2px) solid #E2E2E2
+                border-radius px2rem(3px)
             & > .check-box-input + label:after
                 content ''
                 display block
                 position absolute
-                left 1px
-                top 1px
-                width 14px
-                height 14px
+                left px2rem(1px)
+                top px2rem(1px)
+                width px2rem(14px)
+                height px2rem(14px)
                 background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACs0lEQVR4Xu2ZQZISMRSG/zeUxVK8gTdwvEFYSa8cTyCcQD1AYwvl2vIEgydwXIFuOt7AI3ADcUlZ8CwQpqag6U6apBO6w5JKVfJ9+d/rTofQ8B81nB9BQEhAww2EEmh4AEITDCUQSqDhBkIJ1DkAYpo8lVEyz2OsXQJEmnSwbN0ScLMBZ/ACoET24s9ZImolYAefEnB9CMuMDzKKk8P/ayMgD36fBNkbPqmlgCL4PTQzujKK5UMJF58AVfhtCuomQAcewJ+0F3dqUwKa8GDCK/kivquFAG145oGMhpNaPAZNwm+EXFQTNA1/UQJswF+MAFvwSgLEj4/XePR3LrvJwsXBSR8eX2QU91XXerIHiNn4DcAJgbbPTgYkeDUoOl2pTqwyzjb8yQSI2egtgT4dHSjAc7TXz6tIQxXweQJ+73f+WAJ+ob3q2pRQFXymADEdCyKkeRFl2JNQJXxpAbueYDwJVcNnC0iTDi1bm89Ij4salckkuIA/3QO+j2+I8bVIgKkkuILPfQ8Q01GfiG5tS3AJX/giZFuCa/hCAZsBYjpOiPDedBJ8gFcSsJMwIcJrRQlS9uJu3lhf4JUF6EvgiewNB1kSfILXEmBCgm/w2gLOkeAjfCkBZSSgvX6HZSvzxiarTJj1jrQqvenUmNKfxMR0rNEYeXHqcHV02KoQvnQC9ovWkaCyS1Xu/H49pRNgWoIL+LMTcC9hNroj0EuVXXZd84fzn52AbVPcniCvJEDPdCW42nljJXCfghISXMMbK4EyEnyANy5AtRx8gbcioFAC8880GgrdXmFrvJEmmLW4/6++V5OHTwcGf0N73bf5RVlXlDUB931hc7O0WneA1bzKSxVVEdYFqC7E1bggwJV5X+YNCfBlJ1ytIyTAlXlf5g0J8GUnXK0jJMCVeV/mbXwC/gFGMLtQrWchDwAAAABJRU5ErkJggg==")
                 background-repeat: no-repeat
                 -webkit-background-size: cover
