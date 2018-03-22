@@ -30,6 +30,10 @@
 
     export default {
         created() {
+            // 进行rem适配 设置根元素字体大小
+            let width = document.documentElement.clientWidth || document.body.clientWidth;
+            let htmlDom = document.getElementsByTagName("html")[0]
+            htmlDom.style.fontSize = width / 10 + 'px';
             this.$nextTick(() => {
                 this.content = this.$refs.cellSwipeContent;
                 this.options = this.$refs.cellSwipeOptions;
@@ -37,10 +41,7 @@
                 this.left = this.content.getBoundingClientRect().left;
                 this.cells = document.getElementsByClassName("cell-swipe-wrapper");
             })
-            // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
+
         },
         data() {
             return {
@@ -146,7 +147,6 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
     /*单位转换*/
     px2rem($px)
-        $rem = 37.5
         return ($px / 37.5) rem
 
     ::-webkit-scrollbar
@@ -175,10 +175,9 @@
         height px2rem(48px)
         line-height px2rem(48px)
         position relative
-        background: #F7F7F7
         overflow hidden
         .cell-swipe-content
-            display block
+            height px2rem(48px)
             background: #fff
             white-space nowrap
             text-overflow ellipsis

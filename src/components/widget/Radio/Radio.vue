@@ -11,9 +11,9 @@
             <input type="radio" :value="value" :name="name" :id="id" class="radio-input" :checked="selfChecked"
                    @change="change">
             <transition name="fade">
-                <label :for="id"> </label>
+                <label :for="id"></label>
             </transition>
-            <label :for="id"> {{label}}</label>
+            <label :for="id">{{label}}</label>
         </div>
     </div>
 </template>
@@ -23,17 +23,16 @@
     export default {
         created() {
             this.id = this.id + Math.random().toString(16);
-            // 如果选中，则回调一次
-            this.$nextTick(() => {
-                if (this.msg === this.value) {
-                    this.selfChecked = true;
-                    this.$emit("msgChanged", this.value);
-                }
-            })
             // 进行rem适配 设置根元素字体大小
             let width = document.documentElement.clientWidth || document.body.clientWidth;
             let htmlDom = document.getElementsByTagName("html")[0]
             htmlDom.style.fontSize = width / 10 + 'px';
+
+            // 如果选中，则回调一次
+            if (this.msg === this.value) {
+                this.selfChecked = true;
+                this.$emit("msgChanged", this.value);
+            }
         },
         data() {
             return {
@@ -72,7 +71,6 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus" scoped>
     /*单位转换*/
     px2rem($px)
-        $rem = 37.5
         return ($px / 37.5) rem
 
     .radio
@@ -88,34 +86,28 @@
                 display inline-block
                 width px2rem(20px)
                 height px2rem(20px)
-                line-height px2rem(20px)
                 position relative
                 -webkit-transition all 0.6s
                 transition all 0.6s
                 box-sizing border-box
                 top px2rem(5px)
-
-            & > .radio-input + label:after
+                border px2rem(2px) solid #E2E2E2
+                border-radius px2rem(20px)
+            & > .radio-input + label::after
                 content ''
                 display block
-                position absolute
-                left px2rem(2px)
-                top px2rem(2px)
-                width px2rem(12px)
-                height px2rem(12px)
+                width 100%
+                height 100%
                 background #41b883
-                border-radius 50%
-                -webkit-transition 0.3s
+                border-radius 100%
                 cursor pointer
-                transition 0.3s
+                -webkit-transition 0.3s
+                transition all 0.3s
                 opacity 0
-                transform scale(0.3)
+                transform: scale(.3)
             & > .radio-input:checked + label
                 border-color rgba(65, 184, 131, .6)
             & > .radio-input:checked + label::after
                 opacity 1
-                transform scale(1)
-            & > .radio-input + label
-                border px2rem(2px) solid #E2E2E2
-                border-radius px2rem(20px)
+                transform scale(.7)
 </style>

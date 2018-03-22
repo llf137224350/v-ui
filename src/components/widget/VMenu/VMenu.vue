@@ -98,7 +98,6 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
     /*单位转换*/
     px2rem($px)
-        $rem = 37.5
         return ($px / 37.5) rem
 
     ::-webkit-scrollbar
@@ -184,8 +183,8 @@
             &::before
                 content ""
                 position absolute
-                top px2rem(-16px)
-                right px2rem(8px)
+                top px2rem(-15px)
+                right px2rem(9px)
                 display block
                 width 0
                 height 0

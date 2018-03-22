@@ -207,7 +207,6 @@
 
             <div style="margin-top: 20px">
                 <h1>Switch: {{style1}} {{style2}} {{style3}} {{style4}}</h1>
-
                 <mySwitch v-model="style1"></mySwitch>&nbsp;&nbsp;&nbsp;&nbsp;
                 <mySwitch :styleIndex="1" v-model="style2"></mySwitch>&nbsp;&nbsp;&nbsp;&nbsp;
                 <mySwitch :styleIndex="2" v-model="style3"></mySwitch>&nbsp;&nbsp;&nbsp;&nbsp;

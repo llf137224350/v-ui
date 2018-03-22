@@ -32,7 +32,6 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
     /*单位转换*/
     px2rem($px)
-        $rem = 37.5
         return ($px / 37.5) rem
         
     @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5)

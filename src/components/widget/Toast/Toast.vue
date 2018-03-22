@@ -60,7 +60,6 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
     /*单位转换*/
     px2rem($px)
-        $rem = 37.5
         return ($px / 37.5) rem
 
     .toast

@@ -93,7 +93,6 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus" scoped>
     /*单位转换*/
     px2rem($px)
-        $rem = 37.5
         return ($px / 37.5) rem
 
     .check-box
@@ -115,7 +114,7 @@
                 -webkit-transition all 0.6s
                 transition all 0.6s
                 box-sizing border-box
-                top 4.64px
+                top px2rem(4.64px)
                 border px2rem(2px) solid #E2E2E2
                 border-radius px2rem(3px)
             & > .check-box-input + label:after

@@ -85,7 +85,6 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
     /*单位转换*/
     px2rem($px)
-        $rem = 37.5
         return ($px / 37.5) rem
 
     ::-webkit-scrollbar
@@ -188,7 +187,7 @@
             width 70.5%
             left 50%
             top 50%
-            transform translate(-50%, -50%);
+            transform translate(-50%, -50%)
             margin auto
             background: #fff
             box-sizing content-box

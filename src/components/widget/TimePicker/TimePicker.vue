@@ -233,7 +233,6 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
     /*单位转换*/
     px2rem($px)
-        $rem = 37.5
         return ($px / 37.5) rem
 
     ::-webkit-scrollbar
@@ -391,7 +390,7 @@
             .time-wrapper
                 background: #fff;
                 display flex
-                font-size px2rem(20px)
+                font-size px2rem(16px)
                 height px2rem(260px)
                 overflow hidden
                 line-height px2rem(40px)
@@ -426,7 +425,7 @@
             .time-mask
                 position absolute
                 left 0
-                top px2rem(150px)
+                top px2rem(148px)
                 z-index 2147483647
                 background: transparent
                 width 100%
@@ -437,8 +436,8 @@
                     display inline-block
                     flex 1
                     height px2rem(40px)
-                    line-height px2rem(40px)
-                    font-size px2rem(20px)
+                    line-height px2rem(41px)
+                    font-size px2rem(16px)
                     text-align center
                     padding-left px2rem(25px)
                     pointer-events none

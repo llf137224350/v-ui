@@ -258,7 +258,6 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
     /*单位转换*/
     px2rem($px)
-        $rem = 37.5
         return ($px / 37.5) rem
 
     ::-webkit-scrollbar
@@ -466,7 +465,7 @@
             .date-mask
                 position absolute
                 left 0
-                top px2rem(150px)
+                top px2rem(148px)
                 z-index 2147483647
                 background: transparent
                 width 100%

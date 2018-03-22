@@ -19,7 +19,7 @@
                 default: undefined
             }
         },
-        created(){
+        created() {
             // 进行rem适配 设置根元素字体大小
             let width = document.documentElement.clientWidth || document.body.clientWidth;
             let htmlDom = document.getElementsByTagName("html")[0]
@@ -33,7 +33,6 @@
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
     /*单位转换*/
     px2rem($px)
-        $rem = 37.5
         return ($px / 37.5) rem
 
     .badge
@@ -44,10 +43,11 @@
         background: #F74C31
         border-radius px2rem(5px)
         &.badge-no-empty
-            font-size px2rem(12px)
+            font-size 12px
             text-align center
             padding px2rem(2px) px2rem(3px)
             border-radius px2rem(8px)
         &.badge-other
             padding px2rem(2px) px2rem(5px)
+            vertical-align middle
 </style>
