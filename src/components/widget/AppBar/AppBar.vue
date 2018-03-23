@@ -67,7 +67,7 @@
 </script>
 
 <!--css-->
-<style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+<style lang="stylus" rel="stylesheet/stylus" type="text/stylus" >
     /*单位转换*/
     px2rem($px)
         return ($px / 37.5) rem
@@ -91,8 +91,8 @@
     .appbar
         position relative
         width 100%
-        height px2rem(48px)
-        line-height px2rem(48px)
+        height px2rem(44px)
+        line-height px2rem(44px)
         background: #393A3F
         display flex
         & > div
@@ -101,13 +101,13 @@
             user-select none
             -webkit-user-select none
         .appbar-left, .appbar-right
-            width px2rem(48px)
-            height px2rem(48px)
-            flex 0 0 px2rem(48px)
+            width px2rem(44px)
+            height px2rem(44px)
+            flex 0 0 px2rem(44px)
             .appbar-left-icon, .appbar-right-icon
                 display block
-                width px2rem(28px)
-                height px2rem(28px)
+                width px2rem(24px)
+                height px2rem(24px)
                 margin px2rem(10px)
                 background: green
             .appbar-left-icon
@@ -125,7 +125,7 @@
             &::before
                 position absolute
                 right 0
-                bottom px2rem(12px)
+                bottom px2rem(10px)
                 display block
                 height px2rem(24px)
                 border-left px2rem(1px) solid rgba(0, 0, 0, .1)
@@ -133,9 +133,9 @@
         .appbar-title
             display block
             flex 1
-            line-height px2rem(50px)
+            line-height px2rem(44px)
             color #fff
-            font-size px2rem(17px)
+            font-size px2rem(16px)
             padding 0 px2rem(12px)
             overflow hidden
             white-space nowrap

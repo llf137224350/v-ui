@@ -67,7 +67,7 @@
 </script>
 
 <!--css-->
-<style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+<style lang="stylus" rel="stylesheet/stylus" type="text/stylus" scoped>
     /*单位转换*/
     px2rem($px)
         return ($px / 37.5) rem
@@ -96,8 +96,8 @@
     .appbar
         position relative
         width 100%
-        height px2rem(48px)
-        line-height px2rem(48px)
+        height px2rem(44px)
+        line-height px2rem(44px)
         display flex
         & > div
             touch-callout: none
@@ -105,15 +105,14 @@
             user-select none
             -webkit-user-select none
         .appbar-left
-            width px2rem(48px)
-            height px2rem(48px)
-            flex 0 0 px2rem(48px)
+            width px2rem(44px)
+            height px2rem(44px)
+            flex 0 0 px2rem(44px)
             .appbar-left-icon
                 display block
-                width px2rem(28px)
-                height px2rem(28px)
+                width px2rem(24px)
+                height px2rem(24px)
                 margin px2rem(10px)
-                background: green
                 background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABmklEQVR4Xu3aQUoDQRCF4VdncZUziJIsPId6A2+k53Cl4AF048pDKLovGZiBMDBu0lX1S/dsssrQ7+vXgS5i6vyxzvNrAIwGdC4wjkDnBRg/guMIjCPQuQD+CLj7g6QnM5s+mz9ogDn89Zz6NgIBC7AKv+x8cwQkwEb4L0l7M3tteQ5wAJnhJ0gUQHZ4FEBFeAxAVXgEQGX4coDq8KUAhPBlAJTwJQCk8OkAtPCpAMTwaQDU8CkA5PDhAPTwoQDu/i5pt7q6hlxpT7keh9wG3f1D0hk9fEgDNsL/SLpoPcw4ZeeX7zZvgLu/SDpfLe5b0mUXAFPwDYRPSQcaQvMGLDvv7o+SrlZNwCGEAcxNuJF0T0YIBfgPCOEAdIQUADJCGgAVIRWAiJAOQEMoASAhlAFQEEoBCAjlANUICIBKBAxAFQIKoAIBB5CNgAT4A+HZzPYtRmFhI7GWi3P343nC2/wnqWmo0uzBNuBosjQh3EWED5kKN9uapBfhGxDtMACihenvHw2g71D0+kYDooXp7x8NoO9Q9Pq6b8AvFMT3Qf2VWZgAAAAASUVORK5CYII=") no-repeat center
                 -webkit-background-size cover
                 background-size cover
@@ -123,7 +122,7 @@
                 display block
                 text-align center
                 color #fff
-                font-size px2rem(17px)
+                font-size px2rem(14px)
         .appbar-left:active, .appbar-right-for-text:active
             background: rgba(0, 0, 0, .1)
         .appbar-left
@@ -131,7 +130,7 @@
             &::before
                 position absolute
                 right 0
-                bottom px2rem(12px)
+                bottom px2rem(10px)
                 display block
                 height px2rem(24px)
                 border-left px2rem(1px) solid rgba(0, 0, 0, .1)
@@ -139,9 +138,9 @@
         .appbar-title
             display block
             flex 1
-            line-height px2rem(50px)
+            line-height px2rem(44px)
             color #fff
-            font-size px2rem(17px)
+            font-size px2rem(16px)
             padding 0 px2rem(12px)
             overflow hidden
             white-space nowrap

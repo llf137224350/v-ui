@@ -428,7 +428,7 @@
                     height px2rem(40px)
                     line-height px2rem(40px)
                     padding 0 px2rem(16px)
-                    font-size px2rem(16px)
+                    font-size px2rem(14px)
                 .cancel
                     float left
                     margin-left px2rem(10px)

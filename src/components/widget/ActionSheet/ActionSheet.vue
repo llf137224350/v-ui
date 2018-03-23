@@ -222,8 +222,8 @@
                 background #fff
             .opt-item, .cancel, .title
                 display block
-                height px2rem(50px)
-                line-height px2rem(50px)
+                height px2rem(44px)
+                line-height px2rem(44px)
                 background #fff
                 font-size px2rem(16px)
                 text-align center

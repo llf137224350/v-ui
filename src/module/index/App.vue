@@ -782,7 +782,7 @@
             handleRight(){
                 this.$refs.vmenu.show({
                     top: "174px",
-                    right: "18px",
+                    right: "16px",
                     menuItems: [
                         "菜单一", "菜单二", "菜单三", "菜单四", "菜单五"],// 可以传入html 也就是自定义样式
                     callBacks: [
