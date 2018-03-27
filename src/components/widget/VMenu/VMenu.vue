@@ -200,6 +200,7 @@
                 padding 0 px2rem(16px)
                 position relative
                 overflow hidden
+                font-size px2rem(14px)
                 &::after
                     content ""
                     display block

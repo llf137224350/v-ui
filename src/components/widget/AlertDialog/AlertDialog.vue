@@ -207,6 +207,7 @@
                 position absolute
                 bottom px2rem(16px)
                 right px2rem(16px)
+                font-size px2rem(14px)
                 &:active
                     background: #fff
                 .ok
