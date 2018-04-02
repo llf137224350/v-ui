@@ -62,11 +62,12 @@
             }
 
         },
-        created() {
+        mounted() {
             // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
+           this.setRootFontSize();
+           window.onresize = ()=>{
+               this.setRootFontSize();
+           }
         },
         methods: {
             clickHandle(index) {
@@ -78,6 +79,13 @@
                     this.selfScore -= 0.5;
                 }
                 this.$emit("starChanged", this.selfScore);
+            },
+            //设置根元素字体大小
+            setRootFontSize(){
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         }
     };

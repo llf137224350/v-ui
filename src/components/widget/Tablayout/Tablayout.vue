@@ -43,16 +43,15 @@
     export default {
         mounted() {
             // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
-
+            this.setRootFontSize();
             // 获取容器的高度
             this.containerWidth = this.$refs.tablayoutHook.getBoundingClientRect().width;
             // 监听窗口大小改变
-            window.onresize = () => {
+            // window.onresize 在这个地方所调用的回调会被替换，所以不适用于这个地方
+            window.addEventListener("resize", () => {
+                this.setRootFontSize();
                 this.containerWidth = this.$refs.tablayoutHook.getBoundingClientRect().width;
-            }
+            })
             // 获取当前选中
             this.cIndex = this.currentIndex;
             // 点击item的时候会执行
@@ -63,11 +62,8 @@
                 this.hash = location.hash;
                 this.setIndex();
             });
-
             // 刷新回显指示器
             this.setIndex();
-
-
         },
         data() {
             return {
@@ -110,6 +106,13 @@
                         break;
                     }
                 }
+            },
+            //设置根元素字体大小
+            setRootFontSize() {
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         },
         computed: {

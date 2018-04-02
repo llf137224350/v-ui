@@ -115,7 +115,7 @@
                 default: true// 是否显示秒
             }
         },
-        created() {
+        mounted() {
             //初始化值
             let val;
             for (let i = 1; i <= 31; i++) {
@@ -147,9 +147,10 @@
                 this._initScroll();
             })
             // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
+           this.setRootFontSize();
+            window.onresize = ()=>{
+                this.setRootFontSize();
+            }
         },
         methods: {
             _initScroll() {
@@ -393,6 +394,13 @@
                 } else {
                     console.log("当前浏览器版本较低，不支持该功能")
                 }
+            },
+            //设置根元素字体大小
+            setRootFontSize(){
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         }
     }
@@ -593,8 +601,10 @@
                     text-align center
                     box-sizing border-box
                 .timepicker-split
+                    display inline
                     0 0 px2rem(10px)
-                    margin-top px2rem(110px)
+                    height auto
+                    margin-top px2rem(108px)
             .date-mask
                 position absolute
                 left 0

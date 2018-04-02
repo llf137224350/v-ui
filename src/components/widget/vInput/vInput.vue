@@ -98,11 +98,12 @@
                 selfValue: this.msg
             }
         },
-        created() {
+        mounted() {
             // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
+           this.setRootFontSize();
+           window.onresize = ()=>{
+               this.setRootFontSize();
+           }
         },
         model: {    // 使用model， 这儿2个属性，prop属性说，我要将msg作为该组件被使用时（此处为aa组件被父组件调用）v-model能取到的值，event说，我emit ‘cc’ 的时候，参数的值就是父组件v-model收到的值。
             prop: 'msg',
@@ -139,6 +140,13 @@
             },
             setFocus() {
                 this.$refs[this.id].focus();
+            },
+            //设置根元素字体大小
+            setRootFontSize(){
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         },
         watch: {

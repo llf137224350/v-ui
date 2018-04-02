@@ -30,11 +30,12 @@
                 default: 2400
             }
         },
-        created() {
+        mounted() {
             // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
+           this.setRootFontSize();
+           window.onresize = ()=>{
+               this.setRootFontSize();
+           }
         },
         methods: {
             // 显示土司
@@ -50,6 +51,13 @@
                 this.timer = setTimeout(function () {
                     that.isShow = false;
                 }, this.displayDuration);
+            },
+            //设置根元素字体大小
+            setRootFontSize(){
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         }
     }

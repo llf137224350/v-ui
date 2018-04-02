@@ -29,18 +29,17 @@
 <script type="text/ecmascript-6">
 
     export default {
-        created() {
+        mounted() {
             // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
-            this.$nextTick(() => {
-                this.content = this.$refs.cellSwipeContent;
-                this.options = this.$refs.cellSwipeOptions;
-                this.optsWidth = this.options.getBoundingClientRect().width;
-                this.left = this.content.getBoundingClientRect().left;
-                this.cells = document.getElementsByClassName("cell-swipe-wrapper");
-            })
+            this.setRootFontSize();
+            window.onresize = ()=>{
+                this.setRootFontSize();
+            }
+            this.content = this.$refs.cellSwipeContent;
+            this.options = this.$refs.cellSwipeOptions;
+            this.optsWidth = this.options.getBoundingClientRect().width;
+            this.left = this.content.getBoundingClientRect().left;
+            this.cells = document.getElementsByClassName("cell-swipe-wrapper");
 
         },
         data() {
@@ -137,6 +136,13 @@
                         this.$emit(this.items[index].callback);
                     }, 300)
                 }
+            },
+            //设置根元素字体大小
+            setRootFontSize(){
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         }
     }

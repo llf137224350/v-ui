@@ -24,11 +24,12 @@
     let startX = 0;
     let moveX = 0;
     export default {
-        created() {
+        mounted() {
             // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
+           this.setRootFontSize();
+           window.onresize = ()=>{
+               this.setRootFontSize();
+           }
 
             this.id = "id" + Math.random().toString(16);
         },
@@ -73,6 +74,13 @@
                 }
                 moveX = 0;
                 startX = 0;
+            },
+            //设置根元素字体大小
+            setRootFontSize(){
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         },
         watch: {

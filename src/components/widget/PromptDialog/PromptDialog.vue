@@ -38,16 +38,16 @@
 <!--script-->
 <script type="text/ecmascript-6">
     export default {
-        created() {
-            let that = this;
+        mounted() {
             // 更新数据 关闭弹窗
-            window.addEventListener("popstate", function (e) {
-                that.isShow = false;
+            window.addEventListener("popstate",  (e)=> {
+                this.isShow = false;
             });
             // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
+          this.setRootFontSize();
+          window.onresize = ()=>{
+              this.setRootFontSize();
+          }
         },
         data() {
             return {
@@ -111,6 +111,13 @@
                 } else {
                     console.log("当前浏览器版本较低，不支持该功能")
                 }
+            },
+            //设置根元素字体大小
+            setRootFontSize(){
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         }
     }

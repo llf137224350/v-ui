@@ -48,11 +48,12 @@
                 default: true
             }
         },
-        created(){
-            // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
+        mounted(){
+            this.setRootFontSize();
+            window.onresize  = ()=>{
+                console.log("gagag");
+                this.setRootFontSize();
+            }
         },
         methods: {
             appbarLeftClick() {
@@ -60,6 +61,13 @@
             },
             appbarRightClick() {
                 this.$emit("appbarRightClick");
+            },
+            //设置根元素字体大小
+            setRootFontSize(){
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         }
     }

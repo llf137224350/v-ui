@@ -84,11 +84,12 @@
                 default: true// 是否显示秒
             }
         },
-        created() {
+        mounted() {
             // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
+            this.setRootFontSize();
+            window.onresize = ()=>{
+                this.setRootFontSize();
+            }
             //初始化值
             let val = "";
             for (let i = 0; i < 60; i++) {
@@ -223,6 +224,13 @@
                 } else {
                     console.log("当前浏览器版本较低，不支持该功能")
                 }
+            },
+            //设置根元素字体大小
+            setRootFontSize(){
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         }
     }

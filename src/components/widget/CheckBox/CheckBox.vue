@@ -23,15 +23,15 @@
 <script type="text/ecmascript-6">
 
     export default {
-        created() {
+        mounted() {
             this.id = this.id + Math.random().toString(16);
             if (this.selfValue.indexOf(this.value) != -1)
                 this.selfChecked = true;
 
-            // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
+         this.setRootFontSize();
+         window.onresize = ()=>{
+             this.setRootFontSize();
+         }
         },
         data() {
             return {
@@ -69,6 +69,13 @@
                     else
                         this.selfValue = this.selfValue.replace(this.value, "")
                 }
+            },
+            //设置根元素字体大小
+            setRootFontSize(){
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         },
         watch: {

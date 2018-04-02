@@ -35,11 +35,12 @@
                 default: 2400
             }
         },
-        created(){
+        mounted(){
             // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
+            this.setRootFontSize();
+            window.onresize = ()=>{
+                this.setRootFontSize();
+            }
         },
         methods: {
             // 显示土司
@@ -58,6 +59,13 @@
                 this.timer = setTimeout(function () {
                     that.isShow = false;
                 }, this.displayDuration);
+            },
+            //设置根元素字体大小
+            setRootFontSize(){
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         }
     }
@@ -73,8 +81,8 @@
     .icontoast
         .icontoast-wrapper
             position fixed
-            min-width px2rem(110px)
-            height px2rem(90px)
+            min-width px2rem(100px)
+            height px2rem(88px)
             left 50%
             top 50%
             transform translate(-50%, -50%);
@@ -102,7 +110,6 @@
             .icon-toast-text
                 display block
                 width 100%
-                padding 0 px2rem(10px)
                 text-align center
                 line-height px2rem(14px)
                 font-size px2rem(14px)

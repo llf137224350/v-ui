@@ -44,16 +44,16 @@
                 default: "确定"
             }
         },
-        created() {
-            let that = this;
-            window.addEventListener("popstate", function (e) {
+        mounted() {
+            window.addEventListener("popstate",  (e)=> {
                 // 更新数据 关闭弹窗
-                that.isShow = false;
+                this.isShow = false;
             });
-            // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
+          this.setRootFontSize();
+
+          window.onresize = ()=>{
+              this.setRootFontSize();
+          }
         },
         methods: {
             show(content) {
@@ -75,6 +75,13 @@
                 } else {
                     console.log("当前浏览器版本较低，不支持该功能")
                 }
+            },
+            //设置根元素字体大小
+            setRootFontSize() {
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         }
     }

@@ -39,14 +39,13 @@
                 snackbar: undefined
             }
         },
-        created() {
-            // 进行rem适配 设置根元素字体大小
-            let width = document.documentElement.clientWidth || document.body.clientWidth;
-            let htmlDom = document.getElementsByTagName("html")[0]
-            htmlDom.style.fontSize = width / 10 + 'px';
-        },
         mounted() {
             this.snackbar = this.$refs.snackbar;
+            // 进行rem适配 设置根元素字体大小
+            this.setRootFontSize();
+            window.onresize = ()=>{
+                this.setRootFontSize();
+            }
         },
         props: {
             position: {
@@ -154,6 +153,13 @@
                 startX = 0;
                 moveX = 0;
                 moveY = 0;
+            },
+            //设置根元素字体大小
+            setRootFontSize(){
+                // 进行rem适配 设置根元素字体大小
+                let width = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName("html")[0]
+                htmlDom.style.fontSize = width / 10 + 'px';
             }
         }
     }
