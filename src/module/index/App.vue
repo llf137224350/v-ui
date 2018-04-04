@@ -335,6 +335,8 @@
                 <showMap ref="showMap" :address="'遵义师范学院'"></showMap>
                 <button @click="showSlideMenu">显示侧滑菜单demo</button>
                 <showSlideMenu ref="showSlideMenu" ></showSlideMenu>
+                <button @click="showQuickIndex">显示快速索引demo</button>
+                <showQuickIndex ref="showQuickIndex" ></showQuickIndex>
             </div>
 
             <div style="margin-top: 20px;">
@@ -458,6 +460,7 @@
     import Notification from "components/widget/Notification/Notification.vue"
     import Pull2Refresh from "components/widget/Pull2Refresh/Pull2Refresh.vue"
     import showSlideMenu from "components/showSlideMenu.vue"
+    import showQuickIndex from "components/showQuickIndex.vue"
     const ERR_OK = 0;
     const topDirection = 0; // 从上进入
     const downDirection = 1; // 从下边进入
@@ -606,7 +609,8 @@
             SearchBar,
             Notification,
             Pull2Refresh,
-            showSlideMenu
+            showSlideMenu,
+            showQuickIndex
         },
         methods: {
             read(){
@@ -818,6 +822,9 @@
             },
             showSlideMenu(){
                 this.$refs.showSlideMenu.show();
+            },
+            showQuickIndex(){
+                this.$refs.showQuickIndex.show();
             },
             startAnim(){
                 this.$refs.linearProgress.start();
