@@ -114,12 +114,14 @@
 
                 this.hourScroll = new BScroll(this.$refs.hourHook, {
                     probeType: 3,
-                    wheel: true
+                    wheel: true,
+                    rotate:30
                 });
 
                 this.minuteScroll = new BScroll(this.$refs.minuteHook, {
                     probeType: 3,
-                    wheel: true
+                    wheel: true,
+                    rotate:30
                 });
 
                 // 小时滚动
@@ -134,7 +136,8 @@
                 {
                     this.secondScroll = new BScroll(this.$refs.secondHook, {
                         probeType: 3,
-                        wheel: true
+                        wheel: true,
+                        rotate:30
                     });
                     this.secondScroll.on("scroll", (pos) => {
                         this.secondIndex = this.currentIndex(Math.abs(Math.round(pos.y)));

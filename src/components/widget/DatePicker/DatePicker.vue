@@ -113,16 +113,19 @@
 
                 this.yearScroll = new BScroll(this.$refs.yearHook, {
                     probeType: 3,
-                    wheel: true
+                    wheel: true,
+                    rotate:30
                 });
 
                 this.monthScroll = new BScroll(this.$refs.monthHook, {
                     probeType: 3,
-                    wheel: true
+                    wheel: true,
+                    rotate:30
                 });
                 this.dayScroll = new BScroll(this.$refs.dayHook, {
                     probeType: 3,
-                    wheel: true
+                    wheel: true,
+                    rotate:30
                 });
                 // 年份滚动
                 this.yearScroll.on("scroll", (pos) => {

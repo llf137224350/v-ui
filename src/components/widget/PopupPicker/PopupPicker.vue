@@ -77,7 +77,8 @@
 
                 this.itemsScroll = new BScroll(this.$refs.itemsHook, {
                     probeType: 3,
-                    wheel: true
+                    wheel: true,
+                    rotate:30
                 });
 
                 // 小时滚动

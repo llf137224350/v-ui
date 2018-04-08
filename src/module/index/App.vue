@@ -872,7 +872,7 @@
                         this.pull2RefreshDatas.push("我是刷新出来的数据" + i)
                     }
                     this.$refs.pull2refresh.stopRefresh();
-                }, 1000)
+                }, 3000)
             },
             onLoadingMore(){
                 setTimeout(() => {

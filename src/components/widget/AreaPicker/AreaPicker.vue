@@ -99,16 +99,19 @@
 
                 this.provincesScroll = new BScroll(this.$refs.provincesHook, {
                     probeType: 3,
-                    wheel: true
+                    wheel: true,
+                    rotate:30
                 });
 
                 this.cityScroll = new BScroll(this.$refs.cityHook, {
                     probeType: 3,
-                    wheel: true
+                    wheel: true,
+                    rotate:30
                 });
                 this.countyScroll = new BScroll(this.$refs.countyHook, {
                     probeType: 3,
-                    wheel: true
+                    wheel: true,
+                    rotate:30
                 });
                 // 省份滚动
                 this.provincesScroll.on("scroll", (pos) => {
