@@ -52,7 +52,7 @@
         background: #F74C31
         border-radius px2rem(5px)
         &.badge-no-empty
-            font-size 12px
+            font-size px2rem(12px)
             text-align center
             padding px2rem(2px) px2rem(3px)
             border-radius px2rem(8px)
