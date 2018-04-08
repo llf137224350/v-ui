@@ -8,7 +8,7 @@
 # 使用方式
 > * 打开命令终端并进入v-ui
 > * 输入npm i 安装项目依赖
-> * 编译 npm run build  会生成dist目录（发布时只需复制static和module目录即可）
+> * 编译 npm run build  会生成dist目录（发布时只需复制dist目录下static和module目录即可）
 > * 运行 npm run dev 浏览器输入localhost:8080/module/index.html访问
 
 # 控件预览地址（请使用手机或者PC浏览器开发工具里面的手机模拟查看）
