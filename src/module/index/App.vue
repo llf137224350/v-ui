@@ -390,12 +390,14 @@
             </div>
             <div style="margin-top: 20px">
                 <h1 style="display: block;height: 44px">
-                    Pull2Refresh :canRefresh="false" 禁止刷新功能，默认为true :canLoadingMore="false" 禁止上拉刷新功能，默认为true
+                    Pull2Refresh :canRefresh="false" 禁止刷新功能，默认为true :canLoadingMore="false" 禁止上拉刷新功能，默认为true。
+                    可以在使用页面调用.startRefresh进行页面加载完成之后进行刷新（场景：先从缓存加载列表数据，让用户快速看到有内容列表，然后自动刷新一次新数据）
                 </h1>
-                <button @click="stopRefresh">停止刷新</button>
-                <button @click="stopLoadingMore">停止加载更多</button>
+                <div style="margin-top: 30px">
+                    <button @click="stopRefresh">停止刷新</button>
+                    <button @click="stopLoadingMore">停止加载更多</button></div>
                 <div class="my-pull-2-refresh">
-                    <Pull2Refresh @onRefreshing="onRefreshing" ref="pull2refresh" @onLoadingMore="onLoadingMore">
+                    <Pull2Refresh @onRefreshing="onRefreshing" ref="pull2refresh" @onLoadingMore="onLoadingMore" >
                         <ul slot="content">
                             <li v-for="item in pull2RefreshDatas" style="line-height: 24px">{{item}}</li>
                         </ul>
@@ -469,8 +471,12 @@
     export default {
         created(){
             for (let i = 0; i < 30; i++) {
-                this.pull2RefreshDatas.push("我是数据" + i)
+                this.pull2RefreshDatas.push("我是从缓存加载的数据" + i)
             }
+        },
+        mounted(){
+
+              this.$refs.pull2refresh.startRefresh();
         },
         data(){
             return {
@@ -882,9 +888,6 @@
             stopRefresh(){
                 this.$refs.pull2refresh.stopRefresh();
             }
-        },
-        mounted(){
-//            this.$refs.notice.show();
         },
         watch: {
             slideValue(){

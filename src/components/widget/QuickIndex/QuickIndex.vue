@@ -18,7 +18,7 @@
             @touchend.stop.prevent="touchend"
             @touchcancel.stop.prevent="touchend"
         >
-            <li v-for="key in keys">{{key}}</li>
+            <li v-for="key in keys" :class="{touched:showIndicator}">{{key}}</li>
         </ul>
         <transition
             enter-active-class="animated fadeIn "
@@ -294,14 +294,15 @@
                 line-height 20px
                 text-align center
                 font-size 10px
-                color #999
+                color rgba(0,0,0,.3)
                 user-select none
                 -webkit-user-select none
-
+            & > li.touched
+                color #666
         .indicator
             position fixed
             top 90px
-            right px2rem(50px)
+            right px2rem(60px)
             width px2rem(50)
             height px2rem(50)
             line-height px2rem(50)

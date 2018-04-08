@@ -324,6 +324,7 @@
                     width 44px
                     height 44px
                     display block
+                    transform scale(.86)
                     .loading-icon-leaf
                         position: absolute
                         opacity: .25
@@ -418,6 +419,6 @@
             margin-top 8px
             line-height 14px
             width 100%
-            font-size 14px
+            font-size 13px
             color #fff
 </style>
