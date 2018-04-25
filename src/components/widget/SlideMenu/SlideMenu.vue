@@ -15,9 +15,14 @@
         <div class="slide-menu-left">
             <slot name="menu-panel"></slot>
         </div>
-        <div class="slide-menu-rigth" ref="slideMenuRight"
-        >
+        <div class="slide-menu-rigth" ref="slideMenuRight">
             <slot name="menu-content-panel"></slot>
+            <transition
+                enter-active-class="animated-slide-menu fadeIn-slide-menu "
+                leave-active-class="animated-slide-menu fadeOut-slide-menu "
+            >
+                <div class="slide-menu-mask" v-show="showMask" @click="closeMenu"></div>
+            </transition>
         </div>
     </div>
 
@@ -26,7 +31,7 @@
 <!--script-->
 <script type="text/ecmascript-6">
     export default {
-        data(){
+        data() {
             return {
                 isOpen: false,
                 startX: 0,
@@ -34,7 +39,8 @@
                 moveX: 0,
                 moveY: 0,
                 menuWidth: 0,
-                slideMenuRight: undefined
+                slideMenuRight: undefined,
+                showMask: false
             }
         },
         props: {
@@ -43,30 +49,33 @@
                 default: true
             }
         },
-        mounted(){
+        mounted() {
             if (this.touchable) {
                 this.slideMenuRight = this.$refs.slideMenuRight;
                 this.menuWidth = this.slideMenuRight.getBoundingClientRect().width * 0.8;
             }
         },
         methods: {
-            openMenu(){
+            openMenu() {
+                this.showMask = true;
                 this.slideMenuRight.style.transition = "all .4s";
                 this.slideMenuRight.style.transform = `translate3d(${this.menuWidth}px,0,0)`;
                 this.isOpen = true;
+
             },
-            closeMenu(){
+            closeMenu() {
+                this.showMask = false;
                 this.slideMenuRight.style.transition = "all .4s";
                 this.slideMenuRight.style.transform = `translate3d(0,0,0)`;
                 this.isOpen = false;
             },
-            touchstart(e){
+            touchstart(e) {
                 if (this.touchable) {
                     this.startX = e.touches[0].clientX;
                     this.startY = e.touches[0].clientY;
                 }
             },
-            touchmove(e){
+            touchmove(e) {
                 if (this.touchable) {
                     this.moveX = e.touches[0].clientX - this.startX;
                     this.moveY = e.touches[0].clientY - this.startY;
@@ -82,7 +91,7 @@
                     }
                 }
             },
-            touchend(e){
+            touchend(e) {
                 if (this.touchable) {
                     if (Math.abs(this.moveX) > Math.abs(this.moveY)) {
                         if (Math.abs(this.moveX) >= this.menuWidth / 4) { // 滑动超过三分之一
@@ -133,4 +142,51 @@
             top 0
             bottom 0
             background: #fff
+            .slide-menu-mask
+                position absolute
+                top 0
+                left 0
+                right 0
+                bottom 0
+                background: rgba(0,0,0,.1)
+                z-index 2147483646
+
+    .slide-menu
+        .animated-slide-menu
+            -webkit-animation-duration 0.4s
+            animation-duration 0.4s
+            -webkit-animation-fill-mode both
+            animation-fill-mode both
+
+        .fadeOut-slide-menu
+            -webkit-animation-name fadeOut-slide-menu
+            animation-name fadeOut-slide-menu
+
+        .fadeIn-slide-menu
+            -webkit-animation-name fadeIn-slide-menu
+            animation-name fadeIn-slide-menu
+
+    @-webkit-keyframes fadeIn-slide-menu
+        from
+            opacity 0
+        to
+            opacity 1
+
+    @keyframes fadeIn-slide-menu
+        from
+            opacity 0
+        to
+            opacity 1
+
+    @-webkit-keyframes fadeOut-slide-menu
+        from
+            opacity 1
+        to
+            opacity 0
+
+    @keyframes fadeOut-slide-menu
+        from
+            opacity 1
+        to
+            opacity 0
 </style>

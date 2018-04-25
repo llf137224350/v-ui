@@ -42,7 +42,8 @@
                 updateTime: "无",
                 height: 60,
                 currentY: 0,
-                isTouchend: false
+                scrollY: 0,
+                isTouchend: false,
             }
         },
         props: {
@@ -67,22 +68,26 @@
                 this.pull2refresh = new BScroll(this.$refs.pull2refreshWrapper, {
                     probeType: 3
                 });
+
                 this.pull2refresh.on("scroll", (pos) => {
+                    this.scrollY = pos.y;
                     // 能够刷新
-                    if (this.canRefresh) {
+                    if (this.canRefresh && pos.y > pos.x) {
                         if (!this.isTouchend && this.state != 3) {
                             this.currentY = pos.y;
                             if (pos.y * 3 < this.height) {
                                 this.state = 1;
-                                if (Math.abs(-this.height + (pos.y * 3)) <= this.height)
+                                if (Math.abs(-this.height + (pos.y * 3)) <= this.height) {
                                     this.header.style.marginTop = -this.height + (pos.y * 3) + "px";
-                                else
+                                } else {
                                     this.header.style.marginTop = "0"
+                                }
                             } else if (this.height <= pos.y * 3) {
                                 this.state = 2;
                             }
                         }
                     }
+
                     if (this.canLoadingMore) {
                         // 计算相对高度
                         let reH = this.footer.getBoundingClientRect().top - this.$refs.pull2refreshWrapper.getBoundingClientRect().top;
@@ -108,7 +113,7 @@
             },
             touchend() {
                 // 能够刷新
-                if (this.canRefresh) {
+                if (this.canRefresh && this.state != 3) {
                     this.isTouchend = true;
                     if (this.height <= this.currentY * 3) {
                         this.startRefresh(self);
@@ -123,7 +128,9 @@
              * 开始刷新 外部可调用进行自动刷新
              */
             startRefresh(self) {
-                setTimeout(()=>{
+                setTimeout(() => {
+                    // 触摸
+                    this.isTouchend = true;
                     this.state = 3;
                     this.header.style.transition = "all .3s"
                     this.header.style.marginTop = 0;
@@ -132,7 +139,7 @@
                         this.header.style.transition = ""
                         this.$emit("onRefreshing");
                     }, 300)
-                },self?0:500)
+                }, self ? 0 : 500)
             },
             // 停止刷新
             stopRefresh() {
@@ -151,6 +158,7 @@
                         }, 300)
                         this.$nextTick(() => {
                             this.pull2refresh.refresh();
+
                         })
                     }
                 }

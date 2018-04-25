@@ -393,14 +393,14 @@
                     Pull2Refresh :canRefresh="false" 禁止刷新功能，默认为true :canLoadingMore="false" 禁止上拉刷新功能，默认为true。
                     可以在使用页面调用.startRefresh进行页面加载完成之后进行刷新（场景：先从缓存加载列表数据，让用户快速看到有内容列表，然后自动刷新一次新数据）
                 </h1>
-                <div style="margin-top: 30px">
-                    <button @click="stopRefresh">停止刷新</button>
-                    <button @click="stopLoadingMore">停止加载更多</button></div>
+                <div style="margin-top: 30px"></div>
                 <div class="my-pull-2-refresh">
-                    <Pull2Refresh @onRefreshing="onRefreshing" ref="pull2refresh" @onLoadingMore="onLoadingMore" >
+                    <Pull2Refresh @onRefreshing="onRefreshing" ref="pull2refresh" @onLoadingMore="onLoadingMore"   >
                         <ul slot="content">
-                            <li v-for="item in pull2RefreshDatas" style="line-height: 24px">{{item}}</li>
+                            <cellswipe :text="item" v-for="item in pull2RefreshDatas"></cellswipe>
+                            <!--<li v-for="item in pull2RefreshDatas" style="line-height: 40px">{{item}}</li>-->
                         </ul>
+
                     </Pull2Refresh>
                 </div>
             </div>
@@ -470,12 +470,11 @@
     const rightDirection = 3; // 从右边进入
     export default {
         created(){
-            for (let i = 0; i < 30; i++) {
-                this.pull2RefreshDatas.push("我是从缓存加载的数据" + i)
+            for (let i = 0; i < 10; i++) {
+                this.pull2RefreshDatas.push("我是从缓存加载的数据" + i+"，可以右滑哟！")
             }
         },
         mounted(){
-
               this.$refs.pull2refresh.startRefresh();
         },
         data(){
@@ -869,24 +868,18 @@
                 setTimeout(() => {
                     this.pull2RefreshDatas = [];
                     for (let i = 0; i < 30; i++) {
-                        this.pull2RefreshDatas.push("我是刷新出来的数据" + i)
+                        this.pull2RefreshDatas.push("我是刷新出来的数据" + i+"，可以右滑哟！")
                     }
                     this.$refs.pull2refresh.stopRefresh();
-                }, 3000)
+                }, 5000)
             },
             onLoadingMore(){
                 setTimeout(() => {
                     for (let i = 0; i < 20; i++) {
-                        this.pull2RefreshDatas.push("我是加载更多出来的数据" + i)
+                        this.pull2RefreshDatas.push("我是加载更多出来的数据" + i+"，可以右滑哟！")
                     }
                     this.$refs.pull2refresh.stopLoadingMore();
-                }, 1000)
-            },
-            stopLoadingMore(){
-                this.$refs.pull2refresh.stopLoadingMore();
-            },
-            stopRefresh(){
-                this.$refs.pull2refresh.stopRefresh();
+                }, 5000)
             }
         },
         watch: {
