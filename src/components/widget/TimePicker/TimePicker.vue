@@ -115,13 +115,15 @@
                 this.hourScroll = new BScroll(this.$refs.hourHook, {
                     probeType: 3,
                     wheel: true,
-                    rotate:30
+                    rotate:30,
+                    swipeTime:1500
                 });
 
                 this.minuteScroll = new BScroll(this.$refs.minuteHook, {
                     probeType: 3,
                     wheel: true,
-                    rotate:30
+                    rotate:30,
+                    swipeTime:1500
                 });
 
                 // 小时滚动
@@ -137,7 +139,8 @@
                     this.secondScroll = new BScroll(this.$refs.secondHook, {
                         probeType: 3,
                         wheel: true,
-                        rotate:30
+                        rotate:30,
+                        swipeTime:1500
                     });
                     this.secondScroll.on("scroll", (pos) => {
                         this.secondIndex = this.currentIndex(Math.abs(Math.round(pos.y)));
@@ -367,7 +370,7 @@
             left 0
             bottom 0
             width 100%
-            height px2rem(300px)
+            height px2rem(260px)
             z-index 2147483647
             .opt
                 height px2rem(40px)
@@ -402,14 +405,14 @@
                 background: #fff;
                 display flex
                 font-size px2rem(16px)
-                height px2rem(260px)
+                height px2rem(220px)
                 overflow hidden
                 line-height px2rem(40px)
                 &::before
                     content ""
                     display block
                     position absolute
-                    height px2rem(130px)
+                    height px2rem(110px)
                     width 100%
                     top px2rem(40px)
                     left 0
@@ -420,7 +423,7 @@
                     content ""
                     display block
                     position absolute
-                    height px2rem(130px)
+                    height px2rem(110px)
                     width 100%
                     bottom 0
                     left 0
@@ -429,14 +432,14 @@
                     pointer-events none
                 .hour, .minute, .second
                     flex 1
-                    margin-top px2rem(110px)
-                    margin-bottom px2rem(110px)
+                    margin-top px2rem(90px)
+                    margin-bottom px2rem(90px)
                     text-align center
                     padding-right px2rem(25px)
             .time-mask
                 position absolute
                 left 0
-                top px2rem(148px)
+                top px2rem(128px)
                 z-index 2147483647
                 background: transparent
                 width 100%

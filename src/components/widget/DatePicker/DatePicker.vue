@@ -114,18 +114,21 @@
                 this.yearScroll = new BScroll(this.$refs.yearHook, {
                     probeType: 3,
                     wheel: true,
-                    rotate:30
+                    rotate:30,
+                    swipeTime:1500
                 });
 
                 this.monthScroll = new BScroll(this.$refs.monthHook, {
                     probeType: 3,
                     wheel: true,
-                    rotate:30
+                    rotate:30,
+                    swipeTime:1500
                 });
                 this.dayScroll = new BScroll(this.$refs.dayHook, {
                     probeType: 3,
                     wheel: true,
-                    rotate:30
+                    rotate:30,
+                    swipeTime:1500
                 });
                 // 年份滚动
                 this.yearScroll.on("scroll", (pos) => {
@@ -418,7 +421,7 @@
             left 0
             bottom 0
             width 100%
-            height px2rem(300px)
+            height px2rem(260px)
             z-index 2147483647
             .opt
                 height px2rem(40px)
@@ -453,14 +456,14 @@
                 background: #fff;
                 display flex
                 font-size px2rem(16px)
-                height px2rem(260px)
+                height px2rem(220px)
                 overflow hidden
                 line-height px2rem(40px)
                 &::before
                     content ""
                     display block
                     position absolute
-                    height px2rem(130px)
+                    height px2rem(110px)
                     width 100%
                     top px2rem(40px)
                     left 0
@@ -471,7 +474,7 @@
                     content ""
                     display block
                     position absolute
-                    height px2rem(130px)
+                    height px2rem(110px)
                     width 100%
                     bottom 0
                     left 0
@@ -480,14 +483,14 @@
                     pointer-events none
                 .year, .month, .day
                     flex 1
-                    margin-top px2rem(110px)
-                    margin-bottom px2rem(110px)
+                    margin-top px2rem(90px)
+                    margin-bottom px2rem(90px)
                     text-align center
                     padding-right px2rem(36px)
             .date-mask
                 position absolute
                 left 0
-                top px2rem(148px)
+                top px2rem(128px)
                 z-index 2147483647
                 background: transparent
                 width 100%

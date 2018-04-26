@@ -78,7 +78,8 @@
                 this.itemsScroll = new BScroll(this.$refs.itemsHook, {
                     probeType: 3,
                     wheel: true,
-                    rotate:30
+                    rotate:30,
+                    swipeTime:1500
                 });
 
                 // 小时滚动
@@ -291,7 +292,7 @@
             left 0
             bottom 0
             width 100%
-            height px2rem(300px)
+            height px2rem(260px)
             z-index 2147483647
             .opt
                 height px2rem(40px)
@@ -326,14 +327,14 @@
                 background: #fff;
                 display flex
                 font-size px2rem(16px)
-                height px2rem(260px)
+                height px2rem(220px)
                 overflow hidden
                 line-height px2rem(42px)
                 &::before
                     content ""
                     display block
                     position absolute
-                    height px2rem(130px)
+                    height px2rem(110px)
                     width 100%
                     top px2rem(40px)
                     left 0
@@ -344,7 +345,7 @@
                     content ""
                     display block
                     position absolute
-                    height px2rem(130px)
+                    height px2rem(110px)
                     width 100%
                     bottom 0
                     left 0
@@ -353,13 +354,13 @@
                     pointer-events none
                 .items
                     flex 1
-                    margin-top px2rem(110px)
-                    margin-bottom px2rem(110px)
+                    margin-top px2rem(90px)
+                    margin-bottom px2rem(90px)
                     text-align center
             .items-mask
                 position absolute
                 left 0
-                top px2rem(150px)
+                top px2rem(130px)
                 z-index 2147483647
                 background: transparent
                 width 100%
