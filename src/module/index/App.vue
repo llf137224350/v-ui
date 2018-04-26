@@ -358,6 +358,14 @@
                 <vinput :label="'电话(动画)'" v-model="phone" :placeholder="'请输入手机号码'" :type="'number'"
                         :anim="true"></vinput>
             </div>
+
+            <div style="margin-top: 20px;">
+                <h1>vtextarea {{vtextareaValue}}</h1>
+                <div class="my-vtextarea">
+                    <vtextarea v-model="vtextareaValue"></vtextarea>
+                </div>
+            </div>
+
             <div style="margin-top: 20px">
                 <h1>drawCircle (可配合其它控件做到类似于安卓水波纹的效果)</h1>
                 <br/>
@@ -454,6 +462,7 @@
     import badge from "components/widget/Badge/Badge.vue"
     import CheckBox from "components/widget/CheckBox/CheckBox.vue"
     import vinput from "components/widget/vInput/vInput.vue"
+    import vtextarea from "components/widget/vtextarea/vtextarea.vue"
     import drawCircle from "components/widget/DrawCircle/DrawCircle.vue"
     import showMap from "components/showMap.vue"
     import VMenu from "components/widget/VMenu/VMenu.vue"
@@ -475,7 +484,7 @@
             }
         },
         mounted(){
-              this.$refs.pull2refresh.startRefresh();
+              // this.$refs.pull2refresh.startRefresh();
         },
         data(){
             return {
@@ -569,7 +578,8 @@
                     }
                 ],
                 searchBarValue: "",
-                pull2RefreshDatas: []
+                pull2RefreshDatas: [],
+                vtextareaValue:""
             }
         },
         components: {
@@ -608,6 +618,7 @@
             CheckBox,
             showMap,
             vinput,
+            vtextarea,
             drawCircle,
             VMenu,
             VerticalTimeline,
@@ -958,5 +969,11 @@
         position: relative;
         height: 200px;
         background: #E8E8EA;
+    }
+    .my-vtextarea {
+        position: relative;
+        width: 99%;
+        height: 100px;
+        box-sizing: border-box;
     }
 </style>

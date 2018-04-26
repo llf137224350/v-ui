@@ -7,6 +7,7 @@
 <!--html-->
 <template>
     <div class="number-keyboard">
+        <div class="number-keyboard-mask" v-show="isShow" @touchstart="hide"></div>
         <transition
             enter-active-class="animated-keyboard slideInUp-keyboard fadeIn-keyboard"
             leave-active-class="animated-keyboard slideOutDown-keyboard  fadeOut-keyboard"
@@ -56,12 +57,12 @@
         },
         mounted() {
             // 更新数据 关闭弹窗
-            window.addEventListener("popstate",  (e)=> {
+            window.addEventListener("popstate", (e) => {
                 this.isShow = false;
             });
             // 进行rem适配 设置根元素字体大小
             this.setRootFontSize();
-            window.onresize = ()=>{
+            window.onresize = () => {
                 this.setRootFontSize();
             }
         },
@@ -116,7 +117,7 @@
                 }
             },
             //设置根元素字体大小
-            setRootFontSize(){
+            setRootFontSize() {
                 // 进行rem适配 设置根元素字体大小
                 let width = document.documentElement.clientWidth || document.body.clientWidth;
                 let htmlDom = document.getElementsByTagName("html")[0]
@@ -337,4 +338,11 @@
                 borderBottom1px()
 
 
+        .number-keyboard-mask
+            position fixed
+            left 0
+            top 0
+            right 0
+            bottom 0
+            background: rgba(0, 0, 0,0)
 </style>

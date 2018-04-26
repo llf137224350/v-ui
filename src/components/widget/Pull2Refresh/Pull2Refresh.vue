@@ -123,6 +123,8 @@
                         this.isTouchend = false;
                     }
                 }
+                if (this.state != 3 && Math.abs(this.scrollY) > Math.abs(-this.pull2refresh.scrollerHeight + this.pull2refresh.wrapperHeight + this.height))
+                    this.pull2refresh.scrollTo(0, -this.pull2refresh.scrollerHeight + this.pull2refresh.wrapperHeight + this.height, 400)
             },
             /**
              * 开始刷新 外部可调用进行自动刷新
