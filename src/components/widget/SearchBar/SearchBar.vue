@@ -91,16 +91,18 @@
         line-height px2rem(44px)
         background: #fff
         overflow hidden
-        padding px2rem(6px)
         white-space nowrap
+        padding px2rem(6px)
+        box-sizing border-box
         .search-input-container
             float left
             width 100%
             background: #E8E8EA
             height px2rem(32px)
-            border-radius px2rem(6px)
+            border-radius px2rem(4px)
             display flex
             transition all .3s
+
             .search-bar-icon
                 flex 0 0 px2rem(18px)
                 width px2rem(18px)
@@ -118,6 +120,7 @@
                 background: rgba(0, 0, 0, 0)
                 padding-right px2rem(7px)
                 font-size px2rem(14px)
+                border none
                 &::-webkit-search-cancel-button
                     display: none
                 &::-webkit-input-placeholder

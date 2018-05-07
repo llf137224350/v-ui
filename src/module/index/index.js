@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import item from 'components/item/item.vue'
+import item from 'components/demo/item.vue'
 import App from './App.vue'
 import 'common/stylus/index.styl'
 //使用路由

@@ -188,6 +188,9 @@
             height px2rem(44px)
             z-index 2147483644
             position relative
+            list-style none
+            padding 0
+            margin 0
             &::after
                 position absolute
                 left 0
@@ -210,6 +213,7 @@
                     width 100%
                     height 100%
                     font-size px2rem(14px)
+                    text-decoration: none
                     &.active
                         font-size px2rem(16px)
                         color #D74F43 !important

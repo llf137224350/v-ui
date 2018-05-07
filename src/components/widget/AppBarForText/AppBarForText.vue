@@ -112,9 +112,9 @@
             user-select none
             -webkit-user-select none
         .appbar-left
-            width px2rem(44px)
+            width px2rem(43px)
             height px2rem(44px)
-            flex 0 0 px2rem(44px)
+            flex 0 0 px2rem(43px)
             .appbar-left-icon
                 display block
                 width px2rem(24px)

@@ -193,6 +193,7 @@
             flex 1
             outline none
             margin-right px2rem(10px)
+            background: rgba(0,0,0,0)
         & > i
             flex 0 0 px2rem(12px)
             display inline-block

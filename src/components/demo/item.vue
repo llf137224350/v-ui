@@ -19,6 +19,6 @@
 
 <!--css-->
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
-
-
+    .item
+        padding 0 16px
 </style>

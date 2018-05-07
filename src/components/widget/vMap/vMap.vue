@@ -39,7 +39,7 @@
             },
             zoomSize: {
                 type: Number,
-                default: 15
+                default: 13
             }
         },
         methods: {

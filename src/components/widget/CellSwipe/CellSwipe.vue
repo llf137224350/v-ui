@@ -189,6 +189,7 @@
             text-overflow ellipsis
             overflow hidden
             position relative
+            padding-left px2rem(10px)
             &::after
                 position absolute
                 left 0

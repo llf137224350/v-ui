@@ -98,7 +98,7 @@
             overflow hidden
             text-overflow ellipsis
             white-space nowrap
-            padding-left px2rem(5px)
+            padding-left px2rem(10px)
         .cell-box-des
             width px2rem(100px)
             flex 0 0 px2rem(100px)

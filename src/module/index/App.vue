@@ -142,7 +142,7 @@
                 <h1>进度指示器(同一时刻只能一个执行，否则会卡顿，暂时未解决)</h1>
                 <button @click="startAnim">开始动画</button>
                 <button @click="stopAnim">停止动画</button>
-                <linearProgress ref="linearProgress"></linearProgress>
+                <linearProgress ref="linearProgress" :height="'2px'"></linearProgress>
                 <div style="padding: 10px 0">指定颜色，高等</div>
                 <button @click="startAnim1">开始动画</button>
                 <button @click="stopAnim1">停止动画</button>
@@ -190,7 +190,7 @@
                     </div>
                 </div>
                 <divider :dividerType="'slide'" style="margin-top: 10px"></divider>
-            </div>
+            </div> 
             <div style="margin-top: 20px;">
                 <h1>Loading</h1>
                 <VLoading></VLoading>
@@ -464,14 +464,14 @@
     import vinput from "components/widget/vInput/vInput.vue"
     import vtextarea from "components/widget/vtextarea/vtextarea.vue"
     import drawCircle from "components/widget/DrawCircle/DrawCircle.vue"
-    import showMap from "components/showMap.vue"
+    import showMap from "components/demo/showMap.vue"
     import VMenu from "components/widget/VMenu/VMenu.vue"
     import VerticalTimeline from "components/widget/VerticalTimeline/VerticalTimeline.vue"
     import SearchBar from "components/widget/SearchBar/SearchBar.vue"
     import Notification from "components/widget/Notification/Notification.vue"
     import Pull2Refresh from "components/widget/Pull2Refresh/Pull2Refresh.vue"
-    import showSlideMenu from "components/showSlideMenu.vue"
-    import showQuickIndex from "components/showQuickIndex.vue"
+    import showSlideMenu from "components/demo/showSlideMenu.vue"
+    import showQuickIndex from "components/demo/showQuickIndex.vue"
     const ERR_OK = 0;
     const topDirection = 0; // 从上进入
     const downDirection = 1; // 从下边进入

@@ -439,7 +439,7 @@
             .time-mask
                 position absolute
                 left 0
-                top px2rem(128px)
+                top px2rem(130px)
                 z-index 2147483647
                 background: transparent
                 width 100%

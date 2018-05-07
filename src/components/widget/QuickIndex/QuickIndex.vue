@@ -165,7 +165,6 @@
                 this.getMoveY(e);
                 // // // 计算当前位置
                 this.index = this.currentIndex(moveY);
-                console.log(moveY);
             },
             currentIndex(scrollY) {
                 let height1;
