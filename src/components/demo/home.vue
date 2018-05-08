@@ -229,6 +229,8 @@
             right 0
             bottom 0
             overflow auto
+            -webkit-overflow-scrolling: touch;
+            overflow-scrolling: touch;
             .home-tips
                 margin 10px
                 text-align center
