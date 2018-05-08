@@ -1,13 +1,17 @@
 <template>
     <div class="search-bar-demo">
         <appbar :vtitle="'RangeSlider'" @appbarLeftClick="handleLeft" :haveMenu="false"></appbar>
-        <button @click="showRangeSlider">显示rangeslider</button>
-        <rangeslider ref="rangeslider" v-model="currentIndex"></rangeslider>
+        <button @click="showRangeSlider">显示rangeslider样式一</button>
+        <button @click="showRangeSlider1" >显示rangeslider样式二</button>
+        <div style="margin: 16px">索引值：{{currentIndex}}</div>
+        <rangeslider ref="rangeslider" v-model="currentIndex"  :fontEnlargement="fontEnlargement"></rangeslider>
+
         <div class="tips-container">
             <div>使用说明</div>
             <p>
                 demo：src/components/demo/RangeSliderDemo.vue
             </p>
+            <p>注：一个页面只能有一个RangeSlider</p>
         </div>
     </div>
 </template>
@@ -21,7 +25,8 @@
         },
         data() {
             return {
-                currentIndex:0
+                currentIndex:0,
+                fontEnlargement:true
             }
         },
         components: {
@@ -33,6 +38,11 @@
                 this.$router.go(-1)
             },
             showRangeSlider(){
+                this.fontEnlargement = true;
+                this.$refs.rangeslider.show();
+            },
+            showRangeSlider1(){
+                this.fontEnlargement = false;
                 this.$refs.rangeslider.show();
             }
         }

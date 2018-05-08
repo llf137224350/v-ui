@@ -41,7 +41,7 @@
 
             // 进行rem适配 设置根元素字体大小
             this.setRootFontSize();
-            window.onresize = ()=>{
+            window.onresize = () => {
                 this.setRootFontSize();
             }
         },
@@ -80,6 +80,10 @@
             msg: {
                 type: Number,
                 default: 0
+            },
+            fontEnlargement:{
+                type:Boolean,
+                default:true
             }
         },
         methods: {
@@ -150,7 +154,7 @@
                         x: this.margin * 2 + (j * range),
                         y: this.cenY - this.offsetY,
                         text: this.arr[j],
-                        fontSize: 12 + (j * 2),
+                        fontSize: 12 + (this.fontEnlargement ?j * 2:2),
                         fill: '#333'
                     });
                     text.setOffset({
@@ -249,7 +253,7 @@
                 }
             },
             //设置根元素字体大小
-            setRootFontSize(){
+            setRootFontSize() {
                 // 进行rem适配 设置根元素字体大小
                 let width = document.documentElement.clientWidth || document.body.clientWidth;
                 let htmlDom = document.getElementsByTagName("html")[0]
