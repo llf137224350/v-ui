@@ -34,7 +34,7 @@
             handleRight(){
                 this.$refs.vmenu.show({
                     top: (44 / 37.5) +"rem",
-                    right: "8px",
+                    right: "7px",
                     menuItems: [
                         "菜单一", "菜单二", "菜单三", "菜单四", "菜单五"],// 可以传入html 也就是自定义样式
                     callBacks: [
