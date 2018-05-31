@@ -41,6 +41,7 @@
 <!--script-->
 <script type="text/ecmascript-6">
     export default {
+
         mounted() {
             // 进行rem适配 设置根元素字体大小
             this.setRootFontSize();
@@ -52,23 +53,13 @@
                 this.setRootFontSize();
                 this.containerWidth = this.$refs.tablayoutHook.getBoundingClientRect().width;
             })
-            // 获取当前选中
-            this.cIndex = this.currentIndex;
-            // 点击item的时候会执行
-            window.addEventListener("popstate", (e) => {
-                // 如果是第二次返回 不做处理
-                if (this.hash === location.hash)
-                    return;
-                this.hash = location.hash;
-                this.setIndex();
-            });
-            // 刷新回显指示器
+            this.path = this.$route.path;
             this.setIndex();
         },
         data() {
             return {
-                cIndex: 0,
-                hash: this.datas[this.currentIndex].to,
+                cIndex: this.currentIndex,
+                path: this.datas[this.currentIndex].to,
                 containerWidth: 0,
                 width: 0,
                 isFirst: true
@@ -78,30 +69,34 @@
             //数据
             datas: {
                 type: Array,
-                default() {
+                default
+                    () {
                     return [];
                 }
             },
             // 当前选中项索引
             currentIndex: {
                 type: Number,
-                default: 0
+                default:
+                    0
             },
             // 选中文字颜色和导航线颜色
             color: {
                 type: String,
-                defalut: "#D74F43"
+                defalut:
+                    "#D74F43"
             },
             // 未选中字体颜色
             normalColor: {
                 type: String,
-                defalut: "#000"
+                defalut:
+                    "#000"
             }
-        },
+        } ,
         methods: {
             setIndex() {
                 for (let i = 0; i < this.datas.length; i++) {
-                    if (this.datas[i].to === location.hash.substring(1)) {
+                    if (this.datas[i].to === this.path) {
                         this.cIndex = i;
                         break;
                     }
@@ -132,6 +127,10 @@
         },
         //观察变量的值
         watch: {
+            "$route"(to) {
+                this.path = to.path;
+                this.setIndex();
+            },
             "cIndex"(val, oldVal) {
                 let left = val * this.itemWidth;
                 if (!this.isFirst) {
@@ -140,7 +139,7 @@
                     this.$refs.itemHook.style.transition = `all 0s`;
                 }
                 this.$refs.itemHook.style.transform = `translateX(${left}px)`;
-            },
+            } ,
             width() {
                 // 窗口大小改变 第一次进入会执行 cIndex  和 width cIndex 先执行
                 let left = this.cIndex * this.itemWidth;

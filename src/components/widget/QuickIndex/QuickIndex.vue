@@ -99,6 +99,7 @@
                 let preCharacter = "";
                 let key = "";
                 let temp = [];
+
                 //生成key和是否显示key
                 for (let i = 0; i < tempData.length; i++) {
                     // 调用pinyin.js里面的方法获取首个汉字拼音首字母
