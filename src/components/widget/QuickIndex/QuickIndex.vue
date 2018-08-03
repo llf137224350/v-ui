@@ -200,7 +200,7 @@
                 if (this.keys[val] === "☆") {
                     let tip = this.$refs.quickIndexHook.getElementsByClassName("quick_index_item_tips")[0]
                     if (tip) {
-                        this.scroll.scrollToElement(tip)
+                        this.scroll.scrollToElement(tip,300)
                     }
                     return;
                 }
@@ -208,7 +208,7 @@
                     if (this.keys[val] === this.keyLocations[i].key) {
                         let tip = this.$refs.quickIndexHook.getElementsByClassName("quick_index_item_tips")[i]
                         if (tip) {
-                            this.scroll.scrollToElement(tip)
+                            this.scroll.scrollToElement(tip,300)
                         }
                         break;
                     }
