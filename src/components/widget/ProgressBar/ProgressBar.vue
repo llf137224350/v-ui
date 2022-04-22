@@ -13,7 +13,7 @@
     >
       <div class="progressbar-wrapper" v-show="isShow">
         <div class="loading_inner_loader">
-          <loading class="loading"></loading>
+          <VLoading class="loading"></VLoading>
         </div>
         <div class="progressbar-text">{{text}}</div>
       </div>
@@ -23,7 +23,7 @@
 
 <!--script-->
 <script type="text/ecmascript-6">
-  import loading from "../loading/loading"
+  import VLoading from "../VLoading/VLoading"
   export default {
     data() {
       return {
@@ -32,7 +32,7 @@
       }
     },
     components:{
-      loading,
+      VLoading,
     },
     methods: {
       show(text) {

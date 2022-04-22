@@ -12,7 +12,8 @@
 > * 运行 npm run dev 浏览器输入localhost:8080/module/index.html访问
 
 # 控件预览地址（请使用手机或者PC浏览器开发工具里面的手机模拟查看）
-http://m.jiutw.com/appweb/zepto/test2/module/demo.html#/
+[预览地址](http://www.uicoder.cn/v_ui/module/demo.html#/)
+
 项目支持单页应用和多页应用
 # src/components/widget目录下包含常用控件44个
 ActionSheet、AlertDialog、AppBar、AppBarForText、AreaPicker、badge、CellBox、CellSwipe、CheckBox、CircularProgress、ConfirmDialog、DatePicker、DateTimePicker、Divider、DrawCircle、FloatButton、IconToast、LinearProgress、Notification、NumberKeyboard、PopupPicker、ProgressBar、ProgressLine、PromptDialog、Pull2Refresh、QuickIndex、Radio、RangeSlider、SearchBar、SlideMenu、sharewx、Slider、SnackBar、Star、Switch、Tablayout、TimePicker、Toast、VerticalTimeline、vInput、VLoading、vMap、VMenu等，具体使用请参考src/module/index/App.vue,App.vue中包含了基本的控件使用方法，若有疑问可添加QQ:137224350咨询，请备注v-ui

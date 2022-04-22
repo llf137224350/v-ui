@@ -16,7 +16,7 @@
         props: {
             Type: {
                 type: String,
-                default: "default"
+                default: "white"
             }
         }
     }
